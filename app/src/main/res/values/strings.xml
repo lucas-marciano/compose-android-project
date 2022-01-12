@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">ComposeProject</string>
+    <string name="app_name">Meu projeto</string>
+    <string name="content_description_back_button_toolbar">voltar</string>
+    <string name="content_description_store_icon">menu</string>
+    <string name="label_my_business">meu negócio</string>
+    <string name="label_empty" />
 </resources>
