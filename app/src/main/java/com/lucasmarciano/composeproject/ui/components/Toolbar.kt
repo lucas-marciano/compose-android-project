@@ -4,9 +4,9 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.SmallTopAppBar
-import androidx.compose.material3.Text
+import androidx.compose.material.IconButton
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -20,7 +20,7 @@ import com.lucasmarciano.composeproject.ui.theme.HelpIcon
 
 @Composable
 fun WhiteToolbar(@StringRes title: Int = R.string.label_empty) {
-    SmallTopAppBar(
+    TopAppBar(
         title = {
             Row(
                 horizontalArrangement = Arrangement.Center,
