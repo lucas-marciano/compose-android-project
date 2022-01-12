@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.lucasmarciano.composeproject.R
 
@@ -35,19 +36,34 @@ fun HelpIcon(@StringRes contentDescription: Int = R.string.content_description_b
 }
 
 @Composable
+fun CoinIcon(
+    @StringRes contentDescription: Int = R.string.content_description_money_icon,
+    size: Dp = 24.dp,
+) {
+    Icon(
+        modifier = Modifier.size(size),
+        painter = painterResource(id = R.drawable.ic_money_info),
+        contentDescription = stringResource(id = contentDescription),
+        tint = Color.White
+    )
+}
+
+@Composable
 fun StoreIcon(
     @StringRes contentDescription: Int = R.string.content_description_store_icon,
     hasNotification: Boolean = true
 ) {
     if (hasNotification) {
         Icon(
-            painter = painterResource(id = R.drawable.ic_store_menu_with_notification),
-            contentDescription = stringResource(id = contentDescription)
+            painter = painterResource(id = R.drawable.ic_store_menu),
+            contentDescription = stringResource(id = contentDescription),
+            tint = Color.Magenta
         )
     } else {
         Icon(
             painter = painterResource(id = R.drawable.ic_store_menu),
-            contentDescription = stringResource(id = contentDescription)
+            contentDescription = stringResource(id = contentDescription),
+            tint = Color.Black
         )
     }
 }
@@ -62,7 +78,7 @@ fun HomeAvatar(shape: Shape = CircleShape) {
     )
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = false)
 @Composable
 fun DefaultIconsPreview() {
     ComposeProjectTheme {
@@ -71,7 +87,16 @@ fun DefaultIconsPreview() {
             HelpIcon()
             StoreIcon(hasNotification = false)
             StoreIcon(hasNotification = true)
-            HomeAvatar()
+            CoinIcon()
         }
+    }
+}
+
+
+@Preview(showBackground = false)
+@Composable
+fun AvatarIconPreview() {
+    ComposeProjectTheme {
+        HomeAvatar()
     }
 }
