@@ -20,18 +20,26 @@ import androidx.compose.ui.unit.dp
 import com.lucasmarciano.composeproject.R
 
 @Composable
-fun BackIcon(@StringRes contentDescription: Int = R.string.content_description_back_button_toolbar) {
+fun BackIcon(
+    @StringRes contentDescription: Int = R.string.content_description_back_button_toolbar,
+    color: Color = Color.Black
+) {
     Icon(
         painter = painterResource(id = R.drawable.ic_left_arrow),
-        contentDescription = stringResource(id = contentDescription)
+        contentDescription = stringResource(id = contentDescription),
+        tint = color
     )
 }
 
 @Composable
-fun HelpIcon(@StringRes contentDescription: Int = R.string.content_description_back_button_toolbar) {
+fun HelpIcon(
+    @StringRes contentDescription: Int = R.string.content_description_back_button_toolbar,
+    color: Color = Color.Black
+) {
     Icon(
         painter = painterResource(id = R.drawable.ic_help_information),
-        contentDescription = stringResource(id = contentDescription)
+        contentDescription = stringResource(id = contentDescription),
+        tint = color
     )
 }
 
@@ -57,7 +65,7 @@ fun StoreIcon(
         Icon(
             painter = painterResource(id = R.drawable.ic_store_menu),
             contentDescription = stringResource(id = contentDescription),
-            tint = Color.Magenta
+            tint = PinkCalifornia
         )
     } else {
         Icon(
@@ -74,7 +82,7 @@ fun HomeAvatar(shape: Shape = CircleShape) {
         modifier = Modifier
             .size(45.dp)
             .clip(shape)
-            .background(Color.Magenta)
+            .background(PinkCalifornia)
     )
 }
 
@@ -84,7 +92,9 @@ fun DefaultIconsPreview() {
     ComposeProjectTheme {
         Column {
             BackIcon()
+            BackIcon(color = Color.White)
             HelpIcon()
+            HelpIcon(color = Color.White)
             StoreIcon(hasNotification = false)
             StoreIcon(hasNotification = true)
             CoinIcon()

@@ -21,6 +21,7 @@ import com.lucasmarciano.composeproject.ui.theme.HelpIcon
 @Composable
 fun WhiteToolbar(@StringRes title: Int = R.string.label_empty) {
     TopAppBar(
+        backgroundColor = Color.White,
         title = {
             Row(
                 horizontalArrangement = Arrangement.Center,

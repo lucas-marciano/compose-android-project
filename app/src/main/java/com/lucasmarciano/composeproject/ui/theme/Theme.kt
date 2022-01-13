@@ -3,7 +3,6 @@ package com.lucasmarciano.composeproject.ui.theme
 import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
@@ -12,14 +11,14 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
 
-private val DarkColorScheme = darkColors(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-)
+//private val DarkColorScheme = darkColors(
+//    primary = Color.White,
+//    secondary = PinkCalifornia,
+//)
 
 private val LightColorScheme = lightColors(
-    primary = Purple40,
-    secondary = PurpleGrey40,
+    primary = Color.White,
+    secondary = PinkCalifornia,
     background = Color(0xFFFFFBFE),
     surface = Color(0xFFFFFBFE),
     onPrimary = Color.White,
@@ -33,10 +32,11 @@ fun ComposeProjectTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
-    }
+//    val colorScheme = when {
+//        darkTheme -> DarkColorScheme
+//        else -> LightColorScheme
+//    }
+    val colorScheme = LightColorScheme
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
