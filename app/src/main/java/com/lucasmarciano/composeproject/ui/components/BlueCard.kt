@@ -1,6 +1,7 @@
 package com.lucasmarciano.composeproject.ui.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,13 +27,14 @@ import com.lucasmarciano.composeproject.ui.theme.CoinIcon
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 
 @Composable
-fun BlueCard(item: ItemCardHome) {
+fun BlueCard(item: ItemCardHome, onClick: () -> Unit = { }) {
     Box(
         modifier = Modifier
             .height(200.dp)
             .width(150.dp)
-            .clip(RoundedCornerShape(10.dp))
+            .clip(RoundedCornerShape(8.dp))
             .background(Color.Blue)
+            .clickable(onClick = onClick)
     ) {
         Column(
             modifier = Modifier
