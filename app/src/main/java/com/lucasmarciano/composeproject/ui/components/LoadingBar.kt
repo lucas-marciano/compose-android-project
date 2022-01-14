@@ -10,7 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
-import com.lucasmarciano.composeproject.ui.theme.PinkCalifornia
+import com.lucasmarciano.composeproject.ui.theme.ColorPinkCalifornia
 
 @Composable
 fun ContainerCircleLoading(isLoading: Boolean = true, content: @Composable () -> Unit) {
@@ -27,7 +27,7 @@ private fun LoadingBarScreen(isLoading: Boolean = true) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             CircularProgressIndicator(
-                color = PinkCalifornia
+                color = ColorPinkCalifornia
             )
         }
     }

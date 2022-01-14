@@ -24,6 +24,7 @@ import com.lucasmarciano.composeproject.features.models.ItemCardHome
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemCard
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemCardWithIcon
 import com.lucasmarciano.composeproject.ui.theme.CoinIcon
+import com.lucasmarciano.composeproject.ui.theme.ColorBlueCard
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 
 @Composable
@@ -33,7 +34,7 @@ fun BlueCard(item: ItemCardHome, onClick: () -> Unit = { }) {
             .height(200.dp)
             .width(150.dp)
             .clip(RoundedCornerShape(8.dp))
-            .background(Color.Blue)
+            .background(ColorBlueCard)
             .clickable(onClick = onClick)
     ) {
         Column(

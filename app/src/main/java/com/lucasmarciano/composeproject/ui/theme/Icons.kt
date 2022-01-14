@@ -65,7 +65,7 @@ fun StoreIcon(
         Icon(
             painter = painterResource(id = R.drawable.ic_store_menu),
             contentDescription = stringResource(id = contentDescription),
-            tint = PinkCalifornia
+            tint = ColorPinkCalifornia
         )
     } else {
         Icon(
@@ -82,7 +82,7 @@ fun HomeAvatar(shape: Shape = CircleShape) {
         modifier = Modifier
             .size(45.dp)
             .clip(shape)
-            .background(PinkCalifornia)
+            .background(ColorPinkCalifornia)
     )
 }
 
