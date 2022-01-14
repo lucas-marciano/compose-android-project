@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -25,10 +26,13 @@ import androidx.fragment.app.Fragment
 import com.lucasmarciano.composeproject.R
 import com.lucasmarciano.composeproject.features.models.ItemCardHome
 import com.lucasmarciano.composeproject.ui.components.BlueCard
+import com.lucasmarciano.composeproject.ui.components.CardWithIcon
 import com.lucasmarciano.composeproject.ui.components.ContainerCircleLoading
+import com.lucasmarciano.composeproject.ui.components.SecondTitle
 import com.lucasmarciano.composeproject.ui.components.Title
 import com.lucasmarciano.composeproject.ui.components.WhiteToolbar
 import com.lucasmarciano.composeproject.ui.mockspreview.mockListItemCard
+import com.lucasmarciano.composeproject.ui.mockspreview.mockListSimpleItemCardWithIcon
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.theme.HomeAvatar
 import com.lucasmarciano.composeproject.ui.theme.StoreIcon
@@ -61,7 +65,12 @@ fun HomeContent(isLoading: Boolean = true) {
         ) {
             HomeTitle()
             Spacer(modifier = Modifier.height(16.dp))
-            CardsList(cards = mockListItemCard())
+            BlueCardsList(cards = mockListItemCard())
+
+            Spacer(modifier = Modifier.height(18.dp))
+
+            SecondTitle(stringResource(id = R.string.label_selling))
+            CardsList(mockListSimpleItemCardWithIcon())
         }
     }
 }
@@ -86,10 +95,22 @@ fun HomeTitle(
 }
 
 @Composable
-fun CardsList(cards: List<ItemCardHome>) {
+fun BlueCardsList(cards: List<ItemCardHome>) {
     LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
         items(cards) { card ->
             BlueCard(item = card)
+        }
+    }
+}
+
+@Composable
+fun CardsList(cards: List<ItemCardHome>) {
+    LazyRow(
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(end = 8.dp, bottom = 8.dp)
+    ) {
+        items(cards) { card ->
+            CardWithIcon(item = card)
         }
     }
 }
@@ -129,8 +150,17 @@ fun HomeTitleWithNotificationPreview() {
 
 @Preview(showBackground = true)
 @Composable
-fun CardsPreview() {
+fun HomeBlueCardsPreview() {
     ComposeProjectTheme {
-        CardsList(cards = mockListItemCard())
+        BlueCardsList(cards = mockListItemCard())
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun HomeCardsPreview() {
+    ComposeProjectTheme {
+        CardsList(cards = mockListSimpleItemCardWithIcon())
     }
 }

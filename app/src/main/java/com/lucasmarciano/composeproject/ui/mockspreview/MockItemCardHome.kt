@@ -16,6 +16,25 @@ fun mockItemCardWithIcon() = ItemCardHome(
     callToAction = CallToAction()
 )
 
+fun mockSimpleItemCardWithIcon() = ItemCardHome(
+    text = "sell",
+    icon = "um icone",
+    callToAction = CallToAction()
+)
+
+fun mockListSimpleItemCardWithIcon() = listOf(
+    ItemCardHome(
+        text = "venda por pix",
+        icon = "um icone",
+        callToAction = CallToAction()
+    ),
+    ItemCardHome(
+        text = "cartão de crédito",
+        icon = "um icone",
+        callToAction = CallToAction()
+    ),
+)
+
 fun mockListItemCard() = listOf(
     mockItemCard(),
     mockItemCardWithIcon(),

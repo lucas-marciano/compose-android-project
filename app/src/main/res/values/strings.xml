@@ -3,6 +3,7 @@
     <string name="content_description_back_button_toolbar">voltar</string>
     <string name="content_description_store_icon">menu</string>
     <string name="content_description_money_icon">dinheiro</string>
+    <string name="label_selling">vender</string>
     <string name="label_my_business">meu negócio</string>
     <string name="label_empty" />
 </resources>
