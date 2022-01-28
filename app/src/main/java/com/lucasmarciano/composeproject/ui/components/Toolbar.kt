@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
@@ -19,7 +20,7 @@ import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.theme.HelpIcon
 
 @Composable
-fun WhiteToolbar(@StringRes title: Int = R.string.label_empty) {
+fun WhiteToolbar(@StringRes title: Int = R.string.app_name) {
     TopAppBar(
         backgroundColor = Color.White,
         title = {
@@ -30,6 +31,7 @@ fun WhiteToolbar(@StringRes title: Int = R.string.label_empty) {
                 Text(
                     text = stringResource(id = title),
                     textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.body1,
                     color = Color.DarkGray
                 )
             }
