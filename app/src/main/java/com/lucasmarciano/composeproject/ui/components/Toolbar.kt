@@ -31,7 +31,7 @@ fun WhiteToolbar(@StringRes title: Int = R.string.app_name) {
                 Text(
                     text = stringResource(id = title),
                     textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.body1,
+                    style = MaterialTheme.typography.h2,
                     color = Color.DarkGray
                 )
             }

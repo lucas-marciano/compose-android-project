@@ -15,30 +15,14 @@ val Typography = Typography(
         letterSpacing = 0.5.sp,
         textAlign = TextAlign.Start
     ),
-    body1 = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 20.sp,
-        letterSpacing = 0.5.sp,
-        textAlign = TextAlign.Start
-    ),
     h1 = TextStyle(
         fontFamily = FontFamily.Default,
         fontSize = 26.sp,
         fontWeight = FontWeight.Bold,
-        letterSpacing = 0.sp,
     ),
     h2 = TextStyle(
         fontFamily = FontFamily.Default,
         fontSize = 20.sp,
         fontWeight = FontWeight.SemiBold,
-        letterSpacing = 0.sp
-    ),
-    caption = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
     )
 )

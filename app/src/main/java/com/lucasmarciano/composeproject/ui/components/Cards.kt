@@ -25,7 +25,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.lucasmarciano.composeproject.R
 import com.lucasmarciano.composeproject.features.models.ItemCardHome
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemCard
@@ -35,6 +34,7 @@ import com.lucasmarciano.composeproject.ui.theme.CoinIcon
 import com.lucasmarciano.composeproject.ui.theme.ColorBlueCard
 import com.lucasmarciano.composeproject.ui.theme.ColorPinkCalifornia
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
+import com.lucasmarciano.composeproject.ui.utils.elevation
 import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
@@ -72,7 +72,7 @@ fun CardWithIcon(item: ItemCardHome, onClick: () -> Unit = { }) {
             .width(MaterialTheme.spacing.extraHuge)
             .clickable(onClick = onClick),
         shape = RoundedCornerShape(MaterialTheme.spacing.small),
-        elevation = 4.dp
+        elevation = MaterialTheme.elevation.extraSmall
     ) {
         Column(
             modifier = Modifier

@@ -11,6 +11,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
+import com.lucasmarciano.composeproject.ui.utils.Elevation
+import com.lucasmarciano.composeproject.ui.utils.FontSize
+import com.lucasmarciano.composeproject.ui.utils.LocalElevation
+import com.lucasmarciano.composeproject.ui.utils.LocalFontSize
 import com.lucasmarciano.composeproject.ui.utils.LocalSpacing
 import com.lucasmarciano.composeproject.ui.utils.Spacing
 
@@ -53,7 +57,11 @@ fun ComposeProjectTheme(
         }
     }
 
-    CompositionLocalProvider(LocalSpacing provides Spacing()) {
+    CompositionLocalProvider(
+        LocalSpacing provides Spacing(),
+        LocalElevation provides Elevation(),
+        LocalFontSize provides FontSize(),
+    ) {
         MaterialTheme(
             colors = colorScheme,
             typography = Typography,
