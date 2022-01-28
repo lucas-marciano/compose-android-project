@@ -35,21 +35,22 @@ import com.lucasmarciano.composeproject.ui.theme.CoinIcon
 import com.lucasmarciano.composeproject.ui.theme.ColorBlueCard
 import com.lucasmarciano.composeproject.ui.theme.ColorPinkCalifornia
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
+import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
 fun BlueCard(item: ItemCardHome, onClick: () -> Unit = { }) {
     Box(
         modifier = Modifier
-            .height(200.dp)
-            .width(150.dp)
-            .clip(RoundedCornerShape(8.dp))
+            .height(MaterialTheme.spacing.cardHeight)
+            .width(MaterialTheme.spacing.cardWidth)
+            .clip(RoundedCornerShape(MaterialTheme.spacing.small))
             .background(ColorBlueCard)
             .clickable(onClick = onClick)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxHeight()
-                .padding(10.dp),
+                .padding(MaterialTheme.spacing.defaultPadding),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
@@ -57,7 +58,7 @@ fun BlueCard(item: ItemCardHome, onClick: () -> Unit = { }) {
                 color = Color.White,
                 style = MaterialTheme.typography.subtitle1,
             )
-            if (item.hasIcon()) CoinIcon(size = 40.dp)
+            if (item.hasIcon()) CoinIcon(size = MaterialTheme.spacing.largeIcon)
         }
     }
 }
@@ -67,26 +68,26 @@ fun BlueCard(item: ItemCardHome, onClick: () -> Unit = { }) {
 fun CardWithIcon(item: ItemCardHome, onClick: () -> Unit = { }) {
     Card(
         modifier = Modifier
-            .height(80.dp)
-            .width(80.dp)
+            .height(MaterialTheme.spacing.extraHuge)
+            .width(MaterialTheme.spacing.extraHuge)
             .clickable(onClick = onClick),
-        shape = RoundedCornerShape(8.dp),
+        shape = RoundedCornerShape(MaterialTheme.spacing.small),
         elevation = 4.dp
     ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(10.dp),
+                .padding(MaterialTheme.spacing.defaultPadding),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
             Icon(
-                modifier = Modifier.size(28.dp),
+                modifier = Modifier.size(MaterialTheme.spacing.smallIcon),
                 painter = painterResource(id = R.drawable.ic_money_info),
                 contentDescription = "",
                 tint = ColorPinkCalifornia
             )
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(MaterialTheme.spacing.small))
             Text(
                 text = item.text,
                 style = MaterialTheme.typography.subtitle1,

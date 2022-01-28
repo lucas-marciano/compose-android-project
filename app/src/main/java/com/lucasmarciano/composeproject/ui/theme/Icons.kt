@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -16,8 +17,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import com.lucasmarciano.composeproject.R
+import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
 fun BackIcon(
@@ -46,7 +47,7 @@ fun HelpIcon(
 @Composable
 fun CoinIcon(
     @StringRes contentDescription: Int = R.string.content_description_money_icon,
-    size: Dp = 24.dp,
+    size: Dp = MaterialTheme.spacing.extraMedium,
 ) {
     Icon(
         modifier = Modifier.size(size),
@@ -80,7 +81,7 @@ fun StoreIcon(
 fun HomeAvatar(shape: Shape = CircleShape) {
     Box(
         modifier = Modifier
-            .size(45.dp)
+            .size(MaterialTheme.spacing.huge)
             .clip(shape)
             .background(ColorPinkCalifornia)
     )
