@@ -9,9 +9,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.lucasmarciano.composeproject.R
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
+import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
 fun Title(text: String = stringResource(id = R.string.label_empty), color: Color = Color.Black) {
@@ -19,7 +19,7 @@ fun Title(text: String = stringResource(id = R.string.label_empty), color: Color
         text = text,
         color = color,
         style = MaterialTheme.typography.h1,
-        modifier = Modifier.padding(bottom = 8.dp)
+        modifier = Modifier.padding(bottom = MaterialTheme.spacing.small)
     )
 }
 
@@ -32,7 +32,7 @@ fun SecondTitle(
         text = text,
         color = color,
         style = MaterialTheme.typography.h2,
-        modifier = Modifier.padding(bottom = 8.dp)
+        modifier = Modifier.padding(bottom = MaterialTheme.spacing.small)
     )
 }
 

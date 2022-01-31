@@ -24,12 +24,12 @@ fun mockSimpleItemCardWithIcon() = ItemCardHome(
 
 fun mockListSimpleItemCardWithIcon() = listOf(
     ItemCardHome(
-        text = "venda por pix",
+        text = "pix",
         icon = "um icone",
         callToAction = CallToAction()
     ),
     ItemCardHome(
-        text = "cartão de crédito",
+        text = "cartão",
         icon = "um icone",
         callToAction = CallToAction()
     ),

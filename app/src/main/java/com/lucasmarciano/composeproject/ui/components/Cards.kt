@@ -5,7 +5,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -21,9 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.R
 import com.lucasmarciano.composeproject.features.models.ItemCardHome
@@ -55,10 +52,15 @@ fun BlueCard(item: ItemCardHome, onClick: () -> Unit = { }) {
         ) {
             Text(
                 text = item.text,
-                color = Color.White,
-                style = MaterialTheme.typography.subtitle1,
+                color = MaterialTheme.colors.onPrimary,
+                style = MaterialTheme.typography.body1,
             )
-            if (item.hasIcon()) CoinIcon(size = MaterialTheme.spacing.largeIcon)
+            if (item.hasIcon()) {
+                CoinIcon(
+                    size = MaterialTheme.spacing.largeIcon,
+                    color = MaterialTheme.colors.onPrimary
+                )
+            }
         }
     }
 }
@@ -72,14 +74,15 @@ fun CardWithIcon(item: ItemCardHome, onClick: () -> Unit = { }) {
             .width(MaterialTheme.spacing.extraHuge)
             .clickable(onClick = onClick),
         shape = RoundedCornerShape(MaterialTheme.spacing.small),
-        elevation = MaterialTheme.elevation.extraSmall
+        elevation = MaterialTheme.elevation.extraSmall,
+        backgroundColor = MaterialTheme.colors.background
     ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(MaterialTheme.spacing.defaultPadding),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.SpaceBetween,
         ) {
             Icon(
                 modifier = Modifier.size(MaterialTheme.spacing.smallIcon),
@@ -87,29 +90,29 @@ fun CardWithIcon(item: ItemCardHome, onClick: () -> Unit = { }) {
                 contentDescription = "",
                 tint = ColorPinkCalifornia
             )
-            Spacer(modifier = Modifier.height(MaterialTheme.spacing.small))
             Text(
                 text = item.text,
-                style = MaterialTheme.typography.subtitle1,
-                textAlign = TextAlign.Center,
+                color = MaterialTheme.colors.onBackground,
+                style = MaterialTheme.typography.subtitle2,
             )
 
         }
     }
 }
 
+
 @Preview(showBackground = true)
 @Composable
-fun DefaultBlueBoxPreview() {
-    ComposeProjectTheme {
+fun DarkBlueBoxPreview() {
+    ComposeProjectTheme(darkTheme = true) {
         BlueCard(mockItemCard())
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultBlueBoxWithIconPreview() {
-    ComposeProjectTheme {
+fun DarkBlueBoxWithIconPreview() {
+    ComposeProjectTheme(darkTheme = true) {
         BlueCard(mockItemCardWithIcon())
     }
 }
@@ -117,8 +120,33 @@ fun DefaultBlueBoxWithIconPreview() {
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultCardPreview() {
-    ComposeProjectTheme {
+fun DarkCardPreview() {
+    ComposeProjectTheme(darkTheme = true) {
+        CardWithIcon(mockSimpleItemCardWithIcon())
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun BlueBoxPreview() {
+    ComposeProjectTheme(darkTheme = false) {
+        BlueCard(mockItemCard())
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun BlueBoxWithIconPreview() {
+    ComposeProjectTheme(darkTheme = false) {
+        BlueCard(mockItemCardWithIcon())
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun CardPreview() {
+    ComposeProjectTheme(darkTheme = false) {
         CardWithIcon(mockSimpleItemCardWithIcon())
     }
 }

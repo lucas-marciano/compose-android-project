@@ -19,23 +19,23 @@ import com.lucasmarciano.composeproject.ui.utils.LocalSpacing
 import com.lucasmarciano.composeproject.ui.utils.Spacing
 
 private val DarkColorScheme = lightColors(
-    primary = Color.White,
-    secondary = ColorPinkCalifornia,
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
+    primary = Color(0xFFFFFBFE),
+    secondary = Color(0xFFFFFBFE),
+    background = Color(0xFF1C1B1F),
+    surface = Color(0xFF1C1B1F),
+    onPrimary = Color(0xFF1C1B1F),
+    onSecondary = Color(0xFF1C1B1F),
+    onBackground = Color(0xFFE8E2E6),
+    onSurface = Color(0xFFE8E2E6),
 )
 
 private val LightColorScheme = lightColors(
-    primary = Color.White,
-    secondary = ColorPinkCalifornia,
+    primary = Color(0xFF1C1B1F),
+    secondary = Color(0xFF1C1B1F),
     background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
+    surface = Color(0xFFE8E2E6),
+    onPrimary = Color(0xFFFFFBFE),
+    onSecondary = Color(0xFFFFFBFE),
     onBackground = Color(0xFF1C1B1F),
     onSurface = Color(0xFF1C1B1F),
 )

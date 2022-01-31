@@ -14,6 +14,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,7 +24,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
 import com.lucasmarciano.composeproject.R
 import com.lucasmarciano.composeproject.features.models.ItemCardHome
@@ -36,6 +38,7 @@ import com.lucasmarciano.composeproject.ui.mockspreview.mockListSimpleItemCardWi
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.theme.HomeAvatar
 import com.lucasmarciano.composeproject.ui.theme.StoreIcon
+import com.lucasmarciano.composeproject.ui.utils.spacing
 
 class HomeFragment : Fragment() {
     override fun onCreateView(
@@ -44,12 +47,15 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ) = ComposeView(requireContext()).apply {
         setContent {
-            Scaffold(
-                topBar = { WhiteToolbar(R.string.app_name) },
-                content = {
-                    HomeContent()
-                }
-            )
+            ComposeProjectTheme {
+                Scaffold(
+                    backgroundColor = MaterialTheme.colors.background,
+                    topBar = { WhiteToolbar(R.string.app_name) },
+                    content = {
+                        HomeContent(false)
+                    }
+                )
+            }
         }
 
     }
@@ -57,17 +63,24 @@ class HomeFragment : Fragment() {
 
 @Composable
 fun HomeContent(isLoading: Boolean = true) {
+    val scrollState = rememberScrollState()
+
     ContainerCircleLoading(isLoading) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = 16.dp, start = 16.dp, end = 16.dp)
+                .padding(
+                    top = MaterialTheme.spacing.medium,
+                    start = MaterialTheme.spacing.medium,
+                    end = MaterialTheme.spacing.medium
+                )
+                .verticalScroll(scrollState)
         ) {
             HomeTitle()
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
             BlueCardsList(cards = mockListItemCard())
 
-            Spacer(modifier = Modifier.height(18.dp))
+            Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
 
             SecondTitle(stringResource(id = R.string.label_selling))
             CardsList(mockListSimpleItemCardWithIcon())
@@ -82,7 +95,7 @@ fun HomeTitle(
 ) {
     Column(modifier = Modifier.fillMaxWidth()) {
         HomeAvatar()
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -96,7 +109,7 @@ fun HomeTitle(
 
 @Composable
 fun BlueCardsList(cards: List<ItemCardHome>) {
-    LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+    LazyRow(horizontalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.small)) {
         items(cards) { card ->
             BlueCard(item = card)
         }
@@ -106,8 +119,11 @@ fun BlueCardsList(cards: List<ItemCardHome>) {
 @Composable
 fun CardsList(cards: List<ItemCardHome>) {
     LazyRow(
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        contentPadding = PaddingValues(end = 8.dp, bottom = 8.dp)
+        horizontalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.small),
+        contentPadding = PaddingValues(
+            end = MaterialTheme.spacing.small,
+            bottom = MaterialTheme.spacing.small
+        )
     ) {
         items(cards) { card ->
             CardWithIcon(item = card)
@@ -115,52 +131,66 @@ fun CardsList(cards: List<ItemCardHome>) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview("Home content show loading", showBackground = true, showSystemUi = true)
 @Composable
 fun HomeContentPreview() {
-    ComposeProjectTheme {
+    ComposeProjectTheme(darkTheme = false) {
         HomeContent()
     }
 }
 
-
-@Preview(showBackground = true)
+@Preview("Home content no loading", showBackground = true, showSystemUi = true)
 @Composable
 fun HomeContentNoLoadingPreview() {
-    ComposeProjectTheme {
+    ComposeProjectTheme(darkTheme = false) {
         HomeContent(isLoading = false)
     }
 }
 
-@Preview(showBackground = true)
+@Preview("Title", showBackground = true, showSystemUi = true)
 @Composable
 fun HomeTitlePreview() {
-    ComposeProjectTheme {
+    ComposeProjectTheme(darkTheme = false) {
         HomeTitle()
     }
 }
 
-@Preview(showBackground = true)
+@Preview("Title with icon notification", showBackground = true, showSystemUi = true)
 @Composable
 fun HomeTitleWithNotificationPreview() {
-    ComposeProjectTheme {
+    ComposeProjectTheme(darkTheme = false) {
         HomeTitle(hasNotification = true)
     }
 }
 
-@Preview(showBackground = true)
+@Preview("[Dark] Home content show loading", showBackground = true, showSystemUi = true)
 @Composable
-fun HomeBlueCardsPreview() {
-    ComposeProjectTheme {
-        BlueCardsList(cards = mockListItemCard())
+fun DarkHomeContentPreview() {
+    ComposeProjectTheme(darkTheme = true) {
+        HomeContent()
     }
 }
 
-
-@Preview(showBackground = true)
+@Preview("[Dark] Home content no loading", showBackground = true, showSystemUi = true)
 @Composable
-fun HomeCardsPreview() {
-    ComposeProjectTheme {
-        CardsList(cards = mockListSimpleItemCardWithIcon())
+fun DarkHomeContentNoLoadingPreview() {
+    ComposeProjectTheme(darkTheme = true) {
+        HomeContent(isLoading = false)
+    }
+}
+
+@Preview("[Dark] Title", showBackground = true, showSystemUi = true)
+@Composable
+fun DarkHomeTitlePreview() {
+    ComposeProjectTheme(darkTheme = true) {
+        HomeTitle()
+    }
+}
+
+@Preview("[Dark] Title with icon notification")
+@Composable
+fun DarkHomeTitleWithNotificationPreview() {
+    ComposeProjectTheme(darkTheme = true) {
+        HomeTitle(hasNotification = true)
     }
 }

@@ -8,21 +8,37 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 
 val Typography = Typography(
+    body1 = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 16.sp,
+        textAlign = TextAlign.Start
+    ),
     subtitle1 = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
-        fontSize = 14.sp,
+        fontSize = 20.sp,
         letterSpacing = 0.5.sp,
         textAlign = TextAlign.Start
     ),
+    subtitle2 = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp,
+        textAlign = TextAlign.Center
+    ),
     h1 = TextStyle(
         fontFamily = FontFamily.Default,
-        fontSize = 26.sp,
+        fontSize = 24.sp,
+        letterSpacing = 0.5.sp,
+        textAlign = TextAlign.Start,
         fontWeight = FontWeight.Bold,
     ),
     h2 = TextStyle(
         fontFamily = FontFamily.Default,
         fontSize = 20.sp,
-        fontWeight = FontWeight.SemiBold,
+        letterSpacing = 0.5.sp,
+        textAlign = TextAlign.Start,
+        fontWeight = FontWeight.Bold,
     )
 )
