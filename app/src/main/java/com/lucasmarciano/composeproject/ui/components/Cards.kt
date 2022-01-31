@@ -23,7 +23,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.R
-import com.lucasmarciano.composeproject.features.models.ItemCardHome
+import com.lucasmarciano.composeproject.data.models.ItemCardHomeVO
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemCard
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemCardWithIcon
 import com.lucasmarciano.composeproject.ui.mockspreview.mockSimpleItemCardWithIcon
@@ -35,7 +35,7 @@ import com.lucasmarciano.composeproject.ui.utils.elevation
 import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
-fun BlueCard(item: ItemCardHome, onClick: () -> Unit = { }) {
+fun BlueCard(item: ItemCardHomeVO, onClick: () -> Unit = { }) {
     Box(
         modifier = Modifier
             .height(MaterialTheme.spacing.cardHeight)
@@ -67,7 +67,7 @@ fun BlueCard(item: ItemCardHome, onClick: () -> Unit = { }) {
 
 
 @Composable
-fun CardWithIcon(item: ItemCardHome, onClick: () -> Unit = { }) {
+fun CardWithIcon(item: ItemCardHomeVO, onClick: () -> Unit = { }) {
     Card(
         modifier = Modifier
             .height(MaterialTheme.spacing.extraHuge)

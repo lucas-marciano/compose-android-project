@@ -1,37 +1,37 @@
 package com.lucasmarciano.composeproject.ui.mockspreview
 
-import com.lucasmarciano.composeproject.features.models.CallToAction
-import com.lucasmarciano.composeproject.features.models.ItemCardHome
+import com.lucasmarciano.composeproject.data.models.CallToActionVO
+import com.lucasmarciano.composeproject.data.models.ItemCardHomeVO
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
 
-fun mockItemCard() = ItemCardHome(
+fun mockItemCard() = ItemCardHomeVO(
     text = "você não fez nenhuma venda este mês, bora vender?",
     icon = emptyString(),
-    callToAction = CallToAction()
+    callToActionVO = CallToActionVO()
 )
 
-fun mockItemCardWithIcon() = ItemCardHome(
+fun mockItemCardWithIcon() = ItemCardHomeVO(
     text = "você não fez nenhuma venda este mês, bora vender?",
     icon = "um icone",
-    callToAction = CallToAction()
+    callToActionVO = CallToActionVO()
 )
 
-fun mockSimpleItemCardWithIcon() = ItemCardHome(
+fun mockSimpleItemCardWithIcon() = ItemCardHomeVO(
     text = "sell",
     icon = "um icone",
-    callToAction = CallToAction()
+    callToActionVO = CallToActionVO()
 )
 
 fun mockListSimpleItemCardWithIcon() = listOf(
-    ItemCardHome(
+    ItemCardHomeVO(
         text = "pix",
         icon = "um icone",
-        callToAction = CallToAction()
+        callToActionVO = CallToActionVO()
     ),
-    ItemCardHome(
+    ItemCardHomeVO(
         text = "cartão",
         icon = "um icone",
-        callToAction = CallToAction()
+        callToActionVO = CallToActionVO()
     ),
 )
 

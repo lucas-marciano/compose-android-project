@@ -1,11 +1,11 @@
-package com.lucasmarciano.composeproject.features.models
+package com.lucasmarciano.composeproject.data.models
 
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
 
-data class ItemCardHome(
+data class ItemCardHomeVO(
     val text: String,
     val icon: String = emptyString(),
-    val callToAction: CallToAction,
+    val callToActionVO: CallToActionVO,
 ) {
     fun hasIcon() = icon.isEmpty()
 }

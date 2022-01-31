@@ -1,8 +1,5 @@
-package com.lucasmarciano.composeproject.features
+package com.lucasmarciano.composeproject.features.home
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -17,52 +14,27 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.fragment.app.Fragment
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.lucasmarciano.composeproject.R
-import com.lucasmarciano.composeproject.features.models.ItemCardHome
+import com.lucasmarciano.composeproject.data.models.ItemCardHomeVO
 import com.lucasmarciano.composeproject.ui.components.BlueCard
 import com.lucasmarciano.composeproject.ui.components.CardWithIcon
 import com.lucasmarciano.composeproject.ui.components.ContainerCircleLoading
 import com.lucasmarciano.composeproject.ui.components.SecondTitle
 import com.lucasmarciano.composeproject.ui.components.Title
-import com.lucasmarciano.composeproject.ui.components.WhiteToolbar
-import com.lucasmarciano.composeproject.ui.mockspreview.mockListItemCard
-import com.lucasmarciano.composeproject.ui.mockspreview.mockListSimpleItemCardWithIcon
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.theme.HomeAvatar
 import com.lucasmarciano.composeproject.ui.theme.StoreIcon
 import com.lucasmarciano.composeproject.ui.utils.spacing
 
-class HomeFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ) = ComposeView(requireContext()).apply {
-        setContent {
-            ComposeProjectTheme {
-                Scaffold(
-                    backgroundColor = MaterialTheme.colors.background,
-                    topBar = { WhiteToolbar(R.string.app_name) },
-                    content = {
-                        HomeContent(false)
-                    }
-                )
-            }
-        }
-
-    }
-}
-
 @Composable
-fun HomeContent(isLoading: Boolean = true) {
+fun HomeContent(viewModel: HomeViewModel = viewModel()) {
+    val (isLoading, _, response) = viewModel.uiSate.value
     val scrollState = rememberScrollState()
 
     ContainerCircleLoading(isLoading) {
@@ -78,12 +50,12 @@ fun HomeContent(isLoading: Boolean = true) {
         ) {
             HomeTitle()
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
-            BlueCardsList(cards = mockListItemCard())
+            BlueCardsList(cards = response.listBlueCard)
 
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
 
             SecondTitle(stringResource(id = R.string.label_selling))
-            CardsList(mockListSimpleItemCardWithIcon())
+            CardsList(response.listSimpleCard)
         }
     }
 }
@@ -108,7 +80,7 @@ fun HomeTitle(
 }
 
 @Composable
-fun BlueCardsList(cards: List<ItemCardHome>) {
+fun BlueCardsList(cards: List<ItemCardHomeVO>) {
     LazyRow(horizontalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.small)) {
         items(cards) { card ->
             BlueCard(item = card)
@@ -117,7 +89,7 @@ fun BlueCardsList(cards: List<ItemCardHome>) {
 }
 
 @Composable
-fun CardsList(cards: List<ItemCardHome>) {
+fun CardsList(cards: List<ItemCardHomeVO>) {
     LazyRow(
         horizontalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.small),
         contentPadding = PaddingValues(
@@ -143,7 +115,7 @@ fun HomeContentPreview() {
 @Composable
 fun HomeContentNoLoadingPreview() {
     ComposeProjectTheme(darkTheme = false) {
-        HomeContent(isLoading = false)
+        HomeContent()
     }
 }
 
@@ -175,7 +147,7 @@ fun DarkHomeContentPreview() {
 @Composable
 fun DarkHomeContentNoLoadingPreview() {
     ComposeProjectTheme(darkTheme = true) {
-        HomeContent(isLoading = false)
+        HomeContent()
     }
 }
 
