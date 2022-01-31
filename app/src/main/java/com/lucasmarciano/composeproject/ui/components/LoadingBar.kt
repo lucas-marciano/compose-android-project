@@ -1,35 +1,42 @@
 package com.lucasmarciano.composeproject.ui.components
 
+import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.theme.ColorPinkCalifornia
+import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 
 @Composable
 fun ContainerCircleLoading(isLoading: Boolean = true, content: @Composable () -> Unit) {
-    LoadingBarScreen(isLoading)
-    if (isLoading.not()) content()
+    val currentPage by remember { mutableStateOf(isLoading) }
+    Crossfade(targetState = currentPage) { screen ->
+        when (screen) {
+            true -> LoadingBarScreen()
+            else -> content()
+        }
+    }
 }
 
 @Composable
-private fun LoadingBarScreen(isLoading: Boolean = true) {
-    if (isLoading) {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            CircularProgressIndicator(
-                color = ColorPinkCalifornia
-            )
-        }
+private fun LoadingBarScreen() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        CircularProgressIndicator(
+            color = ColorPinkCalifornia
+        )
     }
 }
 
