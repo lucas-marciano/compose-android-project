@@ -20,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.R
@@ -52,13 +53,13 @@ fun BlueCard(item: ItemCardHomeVO, onClick: () -> Unit = { }) {
         ) {
             Text(
                 text = item.text,
-                color = MaterialTheme.colors.onPrimary,
+                color = Color.White,
                 style = MaterialTheme.typography.body1,
             )
             if (item.hasIcon()) {
                 CoinIcon(
                     size = MaterialTheme.spacing.largeIcon,
-                    color = MaterialTheme.colors.onPrimary
+                    color = Color.White
                 )
             }
         }
@@ -100,36 +101,10 @@ fun CardWithIcon(item: ItemCardHomeVO, onClick: () -> Unit = { }) {
     }
 }
 
-
-@Preview(showBackground = true)
-@Composable
-fun DarkBlueBoxPreview() {
-    ComposeProjectTheme(darkTheme = true) {
-        BlueCard(mockItemCard())
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DarkBlueBoxWithIconPreview() {
-    ComposeProjectTheme(darkTheme = true) {
-        BlueCard(mockItemCardWithIcon())
-    }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun DarkCardPreview() {
-    ComposeProjectTheme(darkTheme = true) {
-        CardWithIcon(mockSimpleItemCardWithIcon())
-    }
-}
-
 @Preview(showBackground = true)
 @Composable
 fun BlueBoxPreview() {
-    ComposeProjectTheme(darkTheme = false) {
+    ComposeProjectTheme {
         BlueCard(mockItemCard())
     }
 }
@@ -137,7 +112,7 @@ fun BlueBoxPreview() {
 @Preview(showBackground = true)
 @Composable
 fun BlueBoxWithIconPreview() {
-    ComposeProjectTheme(darkTheme = false) {
+    ComposeProjectTheme {
         BlueCard(mockItemCardWithIcon())
     }
 }
@@ -146,7 +121,7 @@ fun BlueBoxWithIconPreview() {
 @Preview(showBackground = true)
 @Composable
 fun CardPreview() {
-    ComposeProjectTheme(darkTheme = false) {
+    ComposeProjectTheme {
         CardWithIcon(mockSimpleItemCardWithIcon())
     }
 }

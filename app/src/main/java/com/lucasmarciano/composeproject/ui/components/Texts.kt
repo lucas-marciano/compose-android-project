@@ -14,7 +14,10 @@ import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
-fun Title(text: String = stringResource(id = R.string.label_empty), color: Color = Color.Black) {
+fun Title(
+    text: String = stringResource(id = R.string.label_empty),
+    color: Color = MaterialTheme.colors.onBackground
+) {
     Text(
         text = text,
         color = color,
@@ -26,7 +29,7 @@ fun Title(text: String = stringResource(id = R.string.label_empty), color: Color
 @Composable
 fun SecondTitle(
     text: String = stringResource(id = R.string.label_empty),
-    color: Color = Color.Black
+    color: Color = MaterialTheme.colors.onBackground
 ) {
     Text(
         text = text,

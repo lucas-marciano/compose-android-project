@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.lucasmarciano.composeproject.ui.utils.Elevation
 import com.lucasmarciano.composeproject.ui.utils.FontSize
 import com.lucasmarciano.composeproject.ui.utils.LocalElevation
@@ -19,23 +20,23 @@ import com.lucasmarciano.composeproject.ui.utils.LocalSpacing
 import com.lucasmarciano.composeproject.ui.utils.Spacing
 
 private val DarkColorScheme = lightColors(
-    primary = Color(0xFFFFFBFE),
-    secondary = Color(0xFFFFFBFE),
+    primary = Color(0xFF1C1B1F),
+    secondary = Color(0xFF1C1B1F),
     background = Color(0xFF1C1B1F),
     surface = Color(0xFF1C1B1F),
-    onPrimary = Color(0xFF1C1B1F),
-    onSecondary = Color(0xFF1C1B1F),
-    onBackground = Color(0xFFE8E2E6),
-    onSurface = Color(0xFFE8E2E6),
+    onPrimary = Color(0xFFFFFBFE),
+    onSecondary = Color(0xFFFFFBFE),
+    onBackground = Color(0xFFFFFBFE),
+    onSurface = Color(0xFFFFFBFE),
 )
 
 private val LightColorScheme = lightColors(
-    primary = Color(0xFF1C1B1F),
-    secondary = Color(0xFF1C1B1F),
+    primary = Color(0xFFFFFBFE),
+    secondary = Color(0xFFFFFBFE),
     background = Color(0xFFFFFBFE),
     surface = Color(0xFFE8E2E6),
-    onPrimary = Color(0xFFFFFBFE),
-    onSecondary = Color(0xFFFFFBFE),
+    onPrimary = Color(0xFF1C1B1F),
+    onSecondary = Color(0xFF1C1B1F),
     onBackground = Color(0xFF1C1B1F),
     onSurface = Color(0xFF1C1B1F),
 )
@@ -50,10 +51,17 @@ fun ComposeProjectTheme(
         else -> LightColorScheme
     }
     val view = LocalView.current
+
+    val systemUiController = rememberSystemUiController()
+
     if (!view.isInEditMode) {
         SideEffect {
             (view.context as Activity).window.statusBarColor = colorScheme.primary.toArgb()
             ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = darkTheme
+            systemUiController.setSystemBarsColor(
+                color = colorScheme.primary,
+                darkIcons = darkTheme.not()
+            )
         }
     }
 
