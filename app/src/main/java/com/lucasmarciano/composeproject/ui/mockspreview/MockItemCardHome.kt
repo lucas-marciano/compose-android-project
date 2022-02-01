@@ -1,8 +1,11 @@
 package com.lucasmarciano.composeproject.ui.mockspreview
 
 import com.lucasmarciano.composeproject.data.models.CallToActionVO
+import com.lucasmarciano.composeproject.data.models.HomeBuildVO
 import com.lucasmarciano.composeproject.data.models.ItemCardHomeVO
+import com.lucasmarciano.composeproject.features.home.HomeUIState
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
+import kotlinx.coroutines.flow.MutableStateFlow
 
 fun mockItemCard() = ItemCardHomeVO(
     text = "você não fez nenhuma venda este mês, bora vender?",
@@ -38,4 +41,20 @@ fun mockListSimpleItemCardWithIcon() = listOf(
 fun mockListItemCard() = listOf(
     mockItemCard(),
     mockItemCardWithIcon(),
+)
+
+fun mockHomeUIState(): HomeUIState {
+    val uiState = MutableStateFlow<HomeUIState>(HomeUIState.Loading)
+    uiState.value = HomeUIState.Success(mockResult())
+    return uiState.value
+}
+
+fun mockHomeUIStateWithLoading(): HomeUIState {
+    val uiState = MutableStateFlow<HomeUIState>(HomeUIState.Loading)
+    return uiState.value
+}
+
+fun mockResult() = HomeBuildVO(
+    listBlueCard = mockListItemCard(),
+    listSimpleCard = mockListSimpleItemCardWithIcon(),
 )

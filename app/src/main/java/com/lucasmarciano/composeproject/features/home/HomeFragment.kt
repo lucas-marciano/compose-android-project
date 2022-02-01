@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import com.lucasmarciano.composeproject.R
@@ -27,7 +28,7 @@ internal class HomeFragment : Fragment() {
                     backgroundColor = MaterialTheme.colors.background,
                     topBar = { WhiteToolbar(R.string.app_name) },
                     content = {
-                        HomeContent(homeViewModel)
+                        HomeContent(homeViewModel.uiState.collectAsState().value)
                     }
                 )
             }

@@ -1,5 +1,6 @@
 package com.lucasmarciano.composeproject.features.home
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -17,9 +18,9 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.lucasmarciano.composeproject.R
 import com.lucasmarciano.composeproject.data.models.ItemCardHomeVO
 import com.lucasmarciano.composeproject.ui.components.BlueCard
@@ -27,14 +28,36 @@ import com.lucasmarciano.composeproject.ui.components.CardWithIcon
 import com.lucasmarciano.composeproject.ui.components.ContainerCircleLoading
 import com.lucasmarciano.composeproject.ui.components.SecondTitle
 import com.lucasmarciano.composeproject.ui.components.Title
+import com.lucasmarciano.composeproject.ui.mockspreview.mockHomeUIState
+import com.lucasmarciano.composeproject.ui.mockspreview.mockHomeUIStateWithLoading
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.theme.HomeAvatar
 import com.lucasmarciano.composeproject.ui.theme.StoreIcon
 import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
-fun HomeContent(viewModel: HomeViewModel = viewModel()) {
-    val (isLoading, _, response) = viewModel.uiSate.value
+fun HomeContent(state: HomeUIState) {
+    when (state) {
+        is HomeUIState.Loading -> Content()
+        is HomeUIState.Success -> Content(
+            isLoading = false,
+            state.response.listBlueCard,
+            state.response.listSimpleCard
+        )
+        is HomeUIState.Error -> {
+            Toast.makeText(LocalContext.current, "houve um erro", Toast.LENGTH_LONG).show()
+            Content(isLoading = false)
+            TODO("build a error screen")
+        }
+    }
+}
+
+@Composable
+private fun Content(
+    isLoading: Boolean = true,
+    listBlueCard: List<ItemCardHomeVO> = emptyList(),
+    listSimpleCard: List<ItemCardHomeVO> = emptyList()
+) {
     val scrollState = rememberScrollState()
 
     ContainerCircleLoading(isLoading) {
@@ -50,12 +73,12 @@ fun HomeContent(viewModel: HomeViewModel = viewModel()) {
         ) {
             HomeTitle()
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
-            BlueCardsList(cards = response.listBlueCard)
+            BlueCardsList(listBlueCard)
 
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
 
             SecondTitle(stringResource(id = R.string.label_selling))
-            CardsList(response.listSimpleCard)
+            CardsList(listSimpleCard)
         }
     }
 }
@@ -103,23 +126,23 @@ fun CardsList(cards: List<ItemCardHomeVO>) {
     }
 }
 
-@Preview("Home content show loading", showBackground = true, showSystemUi = true)
+@Preview("Home content show loading")
 @Composable
 fun HomeContentPreview() {
     ComposeProjectTheme(darkTheme = false) {
-        HomeContent()
+        HomeContent(mockHomeUIStateWithLoading())
     }
 }
 
-@Preview("Home content no loading", showBackground = true, showSystemUi = true)
+@Preview("Home content no loading")
 @Composable
 fun HomeContentNoLoadingPreview() {
     ComposeProjectTheme(darkTheme = false) {
-        HomeContent()
+        HomeContent(mockHomeUIState())
     }
 }
 
-@Preview("Title", showBackground = true, showSystemUi = true)
+@Preview("Title")
 @Composable
 fun HomeTitlePreview() {
     ComposeProjectTheme(darkTheme = false) {
@@ -127,42 +150,10 @@ fun HomeTitlePreview() {
     }
 }
 
-@Preview("Title with icon notification", showBackground = true, showSystemUi = true)
+@Preview("Title with icon notification")
 @Composable
 fun HomeTitleWithNotificationPreview() {
     ComposeProjectTheme(darkTheme = false) {
-        HomeTitle(hasNotification = true)
-    }
-}
-
-@Preview("[Dark] Home content show loading", showBackground = true, showSystemUi = true)
-@Composable
-fun DarkHomeContentPreview() {
-    ComposeProjectTheme(darkTheme = true) {
-        HomeContent()
-    }
-}
-
-@Preview("[Dark] Home content no loading", showBackground = true, showSystemUi = true)
-@Composable
-fun DarkHomeContentNoLoadingPreview() {
-    ComposeProjectTheme(darkTheme = true) {
-        HomeContent()
-    }
-}
-
-@Preview("[Dark] Title", showBackground = true, showSystemUi = true)
-@Composable
-fun DarkHomeTitlePreview() {
-    ComposeProjectTheme(darkTheme = true) {
-        HomeTitle()
-    }
-}
-
-@Preview("[Dark] Title with icon notification")
-@Composable
-fun DarkHomeTitleWithNotificationPreview() {
-    ComposeProjectTheme(darkTheme = true) {
         HomeTitle(hasNotification = true)
     }
 }
