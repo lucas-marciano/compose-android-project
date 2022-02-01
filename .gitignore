@@ -18,7 +18,7 @@ output.json
 
 # IntelliJ
 *.iml
-.idea
+.idea/
 
 # Keystore files
 *.jks
