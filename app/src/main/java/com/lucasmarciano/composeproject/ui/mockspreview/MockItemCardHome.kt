@@ -1,11 +1,20 @@
 package com.lucasmarciano.composeproject.ui.mockspreview
 
+import com.lucasmarciano.composeproject.data.models.BannerVO
 import com.lucasmarciano.composeproject.data.models.CallToActionVO
 import com.lucasmarciano.composeproject.data.models.HomeBuildVO
 import com.lucasmarciano.composeproject.data.models.ItemCardHomeVO
 import com.lucasmarciano.composeproject.features.home.HomeUIState
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
 import kotlinx.coroutines.flow.MutableStateFlow
+
+fun mockBanner() = BannerVO(
+    description = "que tal uma maquininha pra\naceitar cartões de crédito? :D",
+    callToAction = CallToActionVO(
+        name = "pedir maquininha",
+        action = ""
+    )
+)
 
 fun mockItemCard() = ItemCardHomeVO(
     text = "você não fez nenhuma venda este mês, bora vender?",
@@ -57,4 +66,5 @@ fun mockHomeUIStateWithLoading(): HomeUIState {
 fun mockResult() = HomeBuildVO(
     listBlueCard = mockListItemCard(),
     listSimpleCard = mockListSimpleItemCardWithIcon(),
+    bannerInfo = mockBanner()
 )

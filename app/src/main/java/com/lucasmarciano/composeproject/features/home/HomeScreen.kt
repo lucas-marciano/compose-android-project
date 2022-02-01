@@ -22,7 +22,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.R
+import com.lucasmarciano.composeproject.data.models.BannerVO
 import com.lucasmarciano.composeproject.data.models.ItemCardHomeVO
+import com.lucasmarciano.composeproject.ui.components.Banner
 import com.lucasmarciano.composeproject.ui.components.BlueCard
 import com.lucasmarciano.composeproject.ui.components.CardWithIcon
 import com.lucasmarciano.composeproject.ui.components.ContainerCircleLoading
@@ -42,10 +44,15 @@ fun HomeContent(state: HomeUIState) {
         is HomeUIState.Success -> Content(
             isLoading = false,
             state.response.listBlueCard,
-            state.response.listSimpleCard
+            state.response.listSimpleCard,
+            state.response.bannerInfo
         )
         is HomeUIState.Error -> {
-            Toast.makeText(LocalContext.current, "houve um erro", Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                LocalContext.current,
+                "houve um erro: ${state.error.message}",
+                Toast.LENGTH_LONG
+            ).show()
             Content(isLoading = false)
             TODO("build a error screen")
         }
@@ -56,7 +63,8 @@ fun HomeContent(state: HomeUIState) {
 private fun Content(
     isLoading: Boolean = true,
     listBlueCard: List<ItemCardHomeVO> = emptyList(),
-    listSimpleCard: List<ItemCardHomeVO> = emptyList()
+    listSimpleCard: List<ItemCardHomeVO> = emptyList(),
+    banner: BannerVO? = null,
 ) {
     val scrollState = rememberScrollState()
 
@@ -79,6 +87,13 @@ private fun Content(
 
             SecondTitle(stringResource(id = R.string.label_selling))
             CardsList(listSimpleCard)
+
+            Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
+
+            banner?.let {
+                SecondTitle(stringResource(id = R.string.label_emphasis))
+                Banner(banner)
+            }
         }
     }
 }

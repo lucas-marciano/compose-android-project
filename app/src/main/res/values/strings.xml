@@ -6,4 +6,5 @@
     <string name="label_selling">vender</string>
     <string name="label_my_business">meu negócio</string>
     <string name="label_empty" />
+    <string name="label_emphasis">destaques</string>
 </resources>

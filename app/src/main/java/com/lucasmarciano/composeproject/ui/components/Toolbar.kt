@@ -21,7 +21,7 @@ import com.lucasmarciano.composeproject.ui.theme.HelpIcon
 import com.lucasmarciano.composeproject.ui.utils.elevation
 
 @Composable
-fun WhiteToolbar(@StringRes title: Int = R.string.app_name) {
+fun WhiteToolbar(@StringRes title: Int = R.string.label_empty) {
     ComposeProjectTheme {
         TopAppBar(
             backgroundColor = MaterialTheme.colors.background,
@@ -66,6 +66,6 @@ fun ToolbarPreview() {
 @Composable
 fun DarkToolbarPreview() {
     ComposeProjectTheme(darkTheme = true) {
-        WhiteToolbar()
+        WhiteToolbar(R.string.app_name)
     }
 }

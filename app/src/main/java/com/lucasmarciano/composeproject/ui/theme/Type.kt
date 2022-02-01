@@ -14,6 +14,12 @@ val Typography = Typography(
         fontSize = 16.sp,
         textAlign = TextAlign.Start
     ),
+    body2 = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 13.sp,
+        textAlign = TextAlign.Start
+    ),
     subtitle1 = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
