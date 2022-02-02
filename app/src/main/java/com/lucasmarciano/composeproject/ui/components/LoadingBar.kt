@@ -42,14 +42,6 @@ private fun LoadingBarScreen() {
 
 @Preview(showBackground = true)
 @Composable
-fun LoadingBarScreenPreview() {
-    ComposeProjectTheme {
-        LoadingBarScreen()
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
 fun ContainerCircleLoadingPreview() {
     ComposeProjectTheme {
         ContainerCircleLoading(isLoading = true) {

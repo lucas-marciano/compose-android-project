@@ -19,6 +19,7 @@ output.json
 # IntelliJ
 *.iml
 .idea/
+.idea/*.xml
 
 # Keystore files
 *.jks
@@ -166,3 +167,4 @@ fabric.properties
 ### AndroidStudio Patch ###
 
 !/gradle/wrapper/gradle-wrapper.jar
+/.idea/
