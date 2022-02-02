@@ -1,9 +1,9 @@
 package com.lucasmarciano.composeproject.ui.mockspreview
 
+import com.lucasmarciano.composeproject.data.home.models.HomeBuildVO
+import com.lucasmarciano.composeproject.data.home.models.ItemCardHomeVO
 import com.lucasmarciano.composeproject.data.models.BannerVO
 import com.lucasmarciano.composeproject.data.models.CallToActionVO
-import com.lucasmarciano.composeproject.data.models.HomeBuildVO
-import com.lucasmarciano.composeproject.data.models.ItemCardHomeVO
 import com.lucasmarciano.composeproject.features.home.HomeUIState
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,31 +19,31 @@ fun mockBanner() = BannerVO(
 fun mockItemCard() = ItemCardHomeVO(
     text = "você não fez nenhuma venda este mês, bora vender?",
     icon = emptyString(),
-    callToActionVO = CallToActionVO()
+    callToAction = CallToActionVO()
 )
 
 fun mockItemCardWithIcon() = ItemCardHomeVO(
     text = "você não fez nenhuma venda este mês, bora vender?",
     icon = "um icone",
-    callToActionVO = CallToActionVO()
+    callToAction = CallToActionVO()
 )
 
 fun mockSimpleItemCardWithIcon() = ItemCardHomeVO(
     text = "sell",
     icon = "um icone",
-    callToActionVO = CallToActionVO()
+    callToAction = CallToActionVO()
 )
 
 fun mockListSimpleItemCardWithIcon() = listOf(
     ItemCardHomeVO(
         text = "pix",
         icon = "um icone",
-        callToActionVO = CallToActionVO()
+        callToAction = CallToActionVO()
     ),
     ItemCardHomeVO(
         text = "cartão",
         icon = "um icone",
-        callToActionVO = CallToActionVO()
+        callToAction = CallToActionVO()
     ),
 )
 

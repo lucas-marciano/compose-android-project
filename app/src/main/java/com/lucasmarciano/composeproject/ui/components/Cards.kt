@@ -24,7 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.R
-import com.lucasmarciano.composeproject.data.models.ItemCardHomeVO
+import com.lucasmarciano.composeproject.data.home.models.ItemCardHomeVO
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemCard
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemCardWithIcon
 import com.lucasmarciano.composeproject.ui.mockspreview.mockSimpleItemCardWithIcon
