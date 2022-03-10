@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
+internal class HomeViewModel : ViewModel() {
 
     private val _uiState = MutableStateFlow<HomeUIState>(HomeUIState.Loading)
     val uiState: StateFlow<HomeUIState> = _uiState
