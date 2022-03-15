@@ -28,8 +28,8 @@ import com.lucasmarciano.composeproject.ui.utils.elevation
 import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
-fun Banner(item: BannerVO, isVisible: Boolean = true) {
-    if (isVisible) {
+fun Banner(banner: BannerVO?) {
+    banner?.let { item ->
         Card(
             modifier = Modifier
                 .fillMaxWidth()
@@ -78,6 +78,6 @@ fun Banner(item: BannerVO, isVisible: Boolean = true) {
 @Composable
 fun BannerPreview() {
     ComposeProjectTheme {
-        Banner(mockBanner(), true)
+        Banner(mockBanner())
     }
 }
