@@ -21,13 +21,13 @@ import com.lucasmarciano.composeproject.ui.values.CardBlueListComponent
 import com.lucasmarciano.composeproject.ui.values.CardIconListComponent
 import com.lucasmarciano.composeproject.ui.values.ColorComponent
 import com.lucasmarciano.composeproject.ui.values.HomeTitleComponent
-import com.lucasmarciano.composeproject.ui.values.InterfaceItem
+import com.lucasmarciano.composeproject.ui.values.InterfaceItemVO
 import com.lucasmarciano.composeproject.ui.values.SecondTitleComponent
 import com.lucasmarciano.composeproject.ui.values.SpacerComponent
 import com.lucasmarciano.composeproject.ui.values.TitleComponent
 
 @Composable
-fun InterfaceFactory(listItems: List<InterfaceItem>) {
+fun InterfaceFactory(listItems: List<InterfaceItemVO>) {
     listItems.forEach { item ->
         when (item.typeComponent) {
             Components.HOME_TITLE -> {

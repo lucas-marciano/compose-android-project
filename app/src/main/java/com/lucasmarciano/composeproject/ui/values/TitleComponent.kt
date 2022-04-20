@@ -1,8 +1,11 @@
 package com.lucasmarciano.composeproject.ui.values
 
+import com.google.gson.annotations.SerializedName
 import com.lucasmarciano.composeproject.ui.Components
 
 internal class TitleComponent(
+    @SerializedName("name")
     val name: String,
+    @SerializedName("color")
     val color: ColorComponent = ColorComponent.PRIMARY,
-) : InterfaceItem(Components.MAIN_TITLE)
+) : InterfaceItemVO(Components.MAIN_TITLE)

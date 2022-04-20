@@ -13,7 +13,7 @@ import androidx.compose.ui.platform.LocalContext
 import com.lucasmarciano.composeproject.ui.InterfaceFactory
 import com.lucasmarciano.composeproject.ui.components.ContainerCircleLoading
 import com.lucasmarciano.composeproject.ui.utils.spacing
-import com.lucasmarciano.composeproject.ui.values.InterfaceItem
+import com.lucasmarciano.composeproject.ui.values.InterfaceItemVO
 
 @Composable
 fun HomeContent(state: HomeUIState) {
@@ -32,7 +32,7 @@ fun HomeContent(state: HomeUIState) {
 }
 
 @Composable
-private fun MainContent(isLoading: Boolean = true, listItems: List<InterfaceItem> = emptyList()) {
+private fun MainContent(isLoading: Boolean = true, listItems: List<InterfaceItemVO> = emptyList()) {
     val scrollState = rememberScrollState()
 
     ContainerCircleLoading(isLoading) {

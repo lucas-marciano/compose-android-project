@@ -1,6 +1,6 @@
 package com.lucasmarciano.composeproject.domain
 
-import com.lucasmarciano.composeproject.remote.Result
+import com.lucasmarciano.composeproject.data.remote.Result
 import com.lucasmarciano.composeproject.utils.extensions.toException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow

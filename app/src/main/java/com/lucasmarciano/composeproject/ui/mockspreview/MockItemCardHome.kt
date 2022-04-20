@@ -1,8 +1,8 @@
 package com.lucasmarciano.composeproject.ui.mockspreview
 
+import com.lucasmarciano.composeproject.data.home.models.BannerVO
 import com.lucasmarciano.composeproject.data.home.models.HomeBuildVO
 import com.lucasmarciano.composeproject.data.home.models.ItemCardHomeVO
-import com.lucasmarciano.composeproject.data.models.BannerVO
 import com.lucasmarciano.composeproject.data.models.CallToActionVO
 import com.lucasmarciano.composeproject.ui.values.BannerComponent
 import com.lucasmarciano.composeproject.ui.values.CardBlueListComponent
@@ -58,9 +58,6 @@ fun mockListItemCard() = listOf(
 )
 
 fun mockResult() = HomeBuildVO(
-    listBlueCard = mockListItemCard(),
-    listSimpleCard = mockListSimpleItemCardWithIcon(),
-    bannerInfo = mockBanner(),
     listItems = listOf(
         HomeTitleComponent(
             name = "seu negócio online",
