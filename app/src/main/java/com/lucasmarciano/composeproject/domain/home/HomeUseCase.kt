@@ -3,8 +3,8 @@ package com.lucasmarciano.composeproject.domain.home
 import com.lucasmarciano.composeproject.data.home.mapper.mapToVO
 import com.lucasmarciano.composeproject.data.home.models.HomeBuildVO
 import com.lucasmarciano.composeproject.data.home.repositories.HomeRepository
+import com.lucasmarciano.composeproject.data.remote.Result
 import com.lucasmarciano.composeproject.domain.SimpleFlowUseCase
-import com.lucasmarciano.composeproject.remote.Result
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow

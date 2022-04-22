@@ -1,6 +1,6 @@
 package com.lucasmarciano.composeproject.di.modules
 
-import com.lucasmarciano.composeproject.remote.ApiConnection
+import com.lucasmarciano.composeproject.data.remote.ApiConnection
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module

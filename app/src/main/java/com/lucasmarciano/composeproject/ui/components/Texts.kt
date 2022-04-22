@@ -41,7 +41,7 @@ fun SecondTitle(
 
 @Preview(showBackground = true)
 @Composable
-fun TitlePreview() {
+fun Previews() {
     ComposeProjectTheme {
         Column {
             Title("Hello")

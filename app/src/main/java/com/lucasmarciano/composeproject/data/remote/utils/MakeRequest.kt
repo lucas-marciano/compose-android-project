@@ -1,6 +1,6 @@
-package com.lucasmarciano.composeproject.remote.utils
+package com.lucasmarciano.composeproject.data.remote.utils
 
-import com.lucasmarciano.composeproject.remote.Result
+import com.lucasmarciano.composeproject.data.remote.Result
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.channelFlow

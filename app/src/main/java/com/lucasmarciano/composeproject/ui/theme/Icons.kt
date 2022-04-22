@@ -6,10 +6,12 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -64,20 +66,25 @@ fun StoreIcon(
     hasNotification: Boolean = true,
     onClick: () -> Unit = { }
 ) {
-    if (hasNotification) {
-        Icon(
-            painter = painterResource(id = R.drawable.ic_store_menu),
-            contentDescription = stringResource(id = contentDescription),
-            tint = MaterialTheme.colors.onPrimary,
-            modifier = Modifier.clickable(onClick = onClick)
-        )
-    } else {
+    Box(
+        modifier = Modifier.selectable(selected = true, enabled = true, onClick = onClick)
+    ) {
         Icon(
             painter = painterResource(id = R.drawable.ic_store_menu),
             contentDescription = stringResource(id = contentDescription),
             tint = MaterialTheme.colors.primary,
             modifier = Modifier.clickable(onClick = onClick)
         )
+        if (hasNotification) {
+            Box(
+                modifier = Modifier
+                    .size(MaterialTheme.spacing.small)
+                    .clip(CircleShape)
+                    .background(ColorPinkCaliforniaVariant)
+                    .clickable(onClick = onClick)
+                    .align(alignment = Alignment.BottomEnd)
+            )
+        }
     }
 }
 
@@ -88,7 +95,7 @@ fun HomeAvatar(onClick: () -> Unit = { }) {
             .size(MaterialTheme.spacing.huge)
             .clip(CircleShape)
             .background(ColorPinkCalifornia)
-            .clickable(onClick = onClick)
+            .selectable(selected = true, enabled = true, onClick = onClick)
     )
 }
 
@@ -98,9 +105,9 @@ fun DefaultIconsPreview() {
     ComposeProjectTheme {
         Column {
             BackIcon()
-            BackIcon(color = Color.White)
+            BackIcon(color = Color.Blue)
             HelpIcon()
-            HelpIcon(color = Color.White)
+            HelpIcon(color = Color.Blue)
             StoreIcon(hasNotification = false)
             StoreIcon(hasNotification = true)
             CoinIcon()
