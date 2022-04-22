@@ -2,7 +2,6 @@ package com.lucasmarciano.composeproject
 
 import android.app.Application
 import com.lucasmarciano.composeproject.di.modules.featureModule
-import com.lucasmarciano.composeproject.di.modules.remoteModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -16,7 +15,6 @@ class BaseAppApplication : Application() {
             androidContext(this@BaseAppApplication)
             modules(
                 listOf(
-                    remoteModules,
                     featureModule,
                 )
             )
