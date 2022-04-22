@@ -15,7 +15,15 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
-interface MainAnimatedShimmer {
+object MainAnimatedShimmer {
+
+    val brushColors = Brush.linearGradient(
+        listOf(
+            Color.LightGray.copy(alpha = 0.6f),
+            Color.LightGray.copy(alpha = 0.2f),
+            Color.LightGray.copy(alpha = 0.6f),
+        )
+    )
 
     @Composable
     fun ShimmerView(
@@ -34,7 +42,7 @@ interface MainAnimatedShimmer {
     }
 
     @Composable
-    fun configAnimatedShimmer(): Brush {
+    private fun configAnimatedShimmer(): Brush {
         val shimmerColors = listOf(
             Color.LightGray.copy(alpha = 0.6f),
             Color.LightGray.copy(alpha = 0.2f),
@@ -59,9 +67,7 @@ interface MainAnimatedShimmer {
         )
     }
 
-    companion object {
-        private const val INITIAL_VALUE = 0f
-        private const val TARGET_VALUE = 1000f
-        private const val ANIMATION_DURATION_VALUE = 1300
-    }
+    private const val INITIAL_VALUE = 0f
+    private const val TARGET_VALUE = 1000f
+    private const val ANIMATION_DURATION_VALUE = 1300
 }

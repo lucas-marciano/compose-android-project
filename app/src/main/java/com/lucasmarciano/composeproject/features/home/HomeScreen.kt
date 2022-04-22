@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import com.lucasmarciano.composeproject.ui.InterfaceFactory
-import com.lucasmarciano.composeproject.ui.components.shimmer.HomeShimmer
+import com.lucasmarciano.composeproject.ui.components.shimmer.ShimmerLayout
 import com.lucasmarciano.composeproject.ui.utils.spacing
 import com.lucasmarciano.composeproject.ui.values.InterfaceItemVO
 
@@ -35,7 +35,7 @@ fun HomeContent(state: HomeUIState) {
 private fun MainContent(isLoading: Boolean = true, listItems: List<InterfaceItemVO> = emptyList()) {
     val scrollState = rememberScrollState()
 
-    HomeShimmer.ShimmerLayout(isLoading) {
+    ShimmerLayout(isLoading) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
