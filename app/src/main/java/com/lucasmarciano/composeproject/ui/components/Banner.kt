@@ -1,5 +1,6 @@
 package com.lucasmarciano.composeproject.ui.components
 
+import android.content.res.Configuration
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -73,10 +74,17 @@ fun Banner(banner: BannerVO?) {
     }
 }
 
-
 @Preview(showBackground = true)
 @Composable
 fun BannerPreview() {
+    ComposeProjectTheme {
+        Banner(mockBanner())
+    }
+}
+
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+fun BannerDarkPreview() {
     ComposeProjectTheme {
         Banner(mockBanner())
     }

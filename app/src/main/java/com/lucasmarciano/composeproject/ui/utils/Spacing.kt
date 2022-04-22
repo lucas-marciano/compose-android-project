@@ -16,6 +16,7 @@ data class Spacing(
     val extraLarge: Dp = 40.dp,
     val huge: Dp = 60.dp,
     val extraHuge: Dp = 80.dp,
+    val giga: Dp = 100.dp,
 
     val defaultPadding: Dp = 10.dp,
 

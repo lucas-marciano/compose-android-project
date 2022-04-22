@@ -1,5 +1,6 @@
 package com.lucasmarciano.composeproject.ui.theme
 
+import android.content.res.Configuration
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -25,7 +26,7 @@ import com.lucasmarciano.composeproject.ui.utils.spacing
 @Composable
 fun BackIcon(
     @StringRes contentDescription: Int = R.string.content_description_back_button_toolbar,
-    color: Color = MaterialTheme.colors.primary
+    color: Color = MaterialTheme.colors.onPrimary
 ) {
     Icon(
         painter = painterResource(id = R.drawable.ic_left_arrow),
@@ -37,7 +38,7 @@ fun BackIcon(
 @Composable
 fun HelpIcon(
     @StringRes contentDescription: Int = R.string.content_description_back_button_toolbar,
-    color: Color = MaterialTheme.colors.primary
+    color: Color = MaterialTheme.colors.onPrimary
 ) {
     Icon(
         painter = painterResource(id = R.drawable.ic_help_information),
@@ -49,7 +50,7 @@ fun HelpIcon(
 @Composable
 fun CoinIcon(
     @StringRes contentDescription: Int = R.string.content_description_money_icon,
-    color: Color = MaterialTheme.colors.primary,
+    color: Color = MaterialTheme.colors.onPrimary,
     size: Dp = MaterialTheme.spacing.extraMedium,
 ) {
     Icon(
@@ -72,7 +73,7 @@ fun StoreIcon(
         Icon(
             painter = painterResource(id = R.drawable.ic_store_menu),
             contentDescription = stringResource(id = contentDescription),
-            tint = MaterialTheme.colors.primary,
+            tint = MaterialTheme.colors.onPrimary,
             modifier = Modifier.clickable(onClick = onClick)
         )
         if (hasNotification) {
@@ -102,6 +103,23 @@ fun HomeAvatar(onClick: () -> Unit = { }) {
 @Preview(showBackground = false)
 @Composable
 fun DefaultIconsPreview() {
+    ComposeProjectTheme {
+        Column {
+            BackIcon()
+            BackIcon(color = Color.Blue)
+            HelpIcon()
+            HelpIcon(color = Color.Blue)
+            StoreIcon(hasNotification = false)
+            StoreIcon(hasNotification = true)
+            CoinIcon()
+        }
+    }
+}
+
+
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+fun DefaultIconsDarkPreview() {
     ComposeProjectTheme {
         Column {
             BackIcon()

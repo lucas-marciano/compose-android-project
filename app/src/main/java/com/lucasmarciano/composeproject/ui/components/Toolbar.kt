@@ -1,5 +1,6 @@
 package com.lucasmarciano.composeproject.ui.components
 
+import android.content.res.Configuration
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -57,12 +58,11 @@ fun WhiteToolbar(@StringRes title: Int = R.string.label_empty) {
 @Composable
 fun ToolbarPreview() {
     ComposeProjectTheme(darkTheme = false) {
-        WhiteToolbar()
+        WhiteToolbar(R.string.app_name)
     }
 }
 
-
-@Preview(showBackground = true)
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun DarkToolbarPreview() {
     ComposeProjectTheme(darkTheme = true) {
