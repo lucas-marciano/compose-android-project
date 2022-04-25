@@ -11,9 +11,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
-import com.lucasmarciano.composeproject.ui.components.shimmer.AvatarShimmer
+import com.lucasmarciano.composeproject.ui.components.shimmer.CircleShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.ShimmerView
+import com.lucasmarciano.composeproject.ui.components.shimmer.MenuItemShimmer
+import com.lucasmarciano.composeproject.ui.components.shimmer.SubTitleShimmer
 import com.lucasmarciano.composeproject.ui.utils.spacing
 
 
@@ -34,18 +36,25 @@ fun SettingsShimmerScreen(brush: Brush) {
             )
     ) {
         Spacer(modifier = Modifier.height(MaterialTheme.spacing.huge))
-        AvatarShimmer(brush = brush)
+        CircleShimmer(brush = brush)
+        Spacer(modifier = Modifier.height(MaterialTheme.spacing.extraMedium))
+        SubTitleShimmer(brush = brush)
+        SubTitleShimmer(brush = brush)
+        Spacer(modifier = Modifier.height(MaterialTheme.spacing.extraMedium))
+        repeat(4) {
+            MenuItemShimmer(brush = brush)
+        }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun HomeShimmerScreenPreview() {
+private fun SettingsShimmerScreenPreview() {
     SettingsShimmerScreen(MainAnimatedShimmer.brushColors)
 }
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
 @Composable
-private fun HomeShimmerScreenDarkPreview() {
+private fun SettingsShimmerScreenDarkPreview() {
     SettingsShimmerScreen(MainAnimatedShimmer.brushColors)
 }

@@ -23,7 +23,6 @@ import com.lucasmarciano.composeproject.ui.utils.spacing
 fun CircleShimmer(brush: Brush, size: Dp = MaterialTheme.spacing.extraHuge) {
     Row(
         modifier = Modifier
-            .fillMaxWidth()
             .padding(all = MaterialTheme.spacing.small),
         verticalAlignment = Alignment.CenterVertically
     ) {
