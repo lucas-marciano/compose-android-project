@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
-import com.lucasmarciano.composeproject.ui.components.shimmer.AvatarShimmer
+import com.lucasmarciano.composeproject.ui.components.shimmer.CircleShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.BannerShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.BlueCardShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.CardWithIconShimmer
@@ -38,7 +38,7 @@ private fun HomeShimmerScreen(brush: Brush) {
             )
     ) {
         Spacer(modifier = Modifier.height(MaterialTheme.spacing.huge))
-        AvatarShimmer(brush = brush)
+        CircleShimmer(brush = brush)
         TitleShimmer(brush = brush)
         BlueCardShimmer(brush = brush)
         SubTitleShimmer(brush = brush)
