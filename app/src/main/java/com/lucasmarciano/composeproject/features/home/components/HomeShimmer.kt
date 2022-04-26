@@ -11,10 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
-import com.lucasmarciano.composeproject.ui.components.shimmer.CircleShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.BannerShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.BlueCardShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.CardWithIconShimmer
+import com.lucasmarciano.composeproject.ui.components.shimmer.CircleShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.ShimmerView
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.brushColors
 import com.lucasmarciano.composeproject.ui.components.shimmer.SubTitleShimmer
@@ -48,7 +48,7 @@ private fun HomeShimmerScreen(brush: Brush) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 private fun HomeShimmerScreenPreview() {
     HomeShimmerScreen(brushColors)

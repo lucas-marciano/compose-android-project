@@ -54,7 +54,7 @@ fun WhiteToolbar(@StringRes title: Int = R.string.label_empty) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 fun ToolbarPreview() {
     ComposeProjectTheme(darkTheme = false) {

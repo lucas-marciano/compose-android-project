@@ -74,7 +74,7 @@ fun Banner(banner: BannerVO?) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 fun BannerPreview() {
     ComposeProjectTheme {

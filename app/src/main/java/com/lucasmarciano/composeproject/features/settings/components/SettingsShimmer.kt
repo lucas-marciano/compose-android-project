@@ -47,7 +47,7 @@ fun SettingsShimmerScreen(brush: Brush) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 private fun SettingsShimmerScreenPreview() {
     SettingsShimmerScreen(MainAnimatedShimmer.brushColors)

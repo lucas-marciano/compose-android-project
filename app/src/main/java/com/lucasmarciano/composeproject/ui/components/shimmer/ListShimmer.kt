@@ -24,13 +24,13 @@ fun MenuItemShimmer(brush: Brush) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(name="Menu Item", showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 private fun MenuItemShimmerPreview() {
     MenuItemShimmer(brush = MainAnimatedShimmer.brushColors)
 }
 
-@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview(name = "Menu Item Dark", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun MenuItemShimmerDarkPreview() {
     MenuItemShimmer(brush = MainAnimatedShimmer.brushColors)

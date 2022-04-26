@@ -1,5 +1,6 @@
 package com.lucasmarciano.composeproject.features.home.components
 
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -38,7 +39,7 @@ fun HomeTitle(
     }
 }
 
-@Preview("Title")
+@Preview(name = "Title", showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 fun HomeTitlePreview() {
     ComposeProjectTheme(darkTheme = false) {
@@ -46,9 +47,29 @@ fun HomeTitlePreview() {
     }
 }
 
-@Preview("Title with icon notification")
+@Preview(name = "Title Dark", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+fun HomeTitleDarkPreview() {
+    ComposeProjectTheme(darkTheme = false) {
+        HomeTitle()
+    }
+}
+
+@Preview(name = "Title with icon notification", showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 fun HomeTitleWithNotificationPreview() {
+    ComposeProjectTheme(darkTheme = false) {
+        HomeTitle(hasNotification = true)
+    }
+}
+
+@Preview(
+    name = "Title with icon notification dark",
+    showBackground = true,
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
+@Composable
+fun HomeTitleWithNotificationDarkPreview() {
     ComposeProjectTheme(darkTheme = false) {
         HomeTitle(hasNotification = true)
     }

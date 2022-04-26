@@ -100,7 +100,7 @@ fun HomeAvatar(onClick: () -> Unit = { }) {
     )
 }
 
-@Preview(showBackground = false)
+@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 fun DefaultIconsPreview() {
     ComposeProjectTheme {
@@ -115,7 +115,6 @@ fun DefaultIconsPreview() {
         }
     }
 }
-
 
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
@@ -132,7 +131,6 @@ fun DefaultIconsDarkPreview() {
         }
     }
 }
-
 
 @Preview(showBackground = false)
 @Composable

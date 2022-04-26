@@ -40,7 +40,7 @@ fun CardWithIconShimmer(brush: Brush) {
     }
 }
 
-@Preview(name = "Card Blue", showBackground = true)
+@Preview(name = "Card Blue", showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 fun CardWithIconShimmerPreview() {
     CardWithIconShimmer(brush = MainAnimatedShimmer.brushColors)

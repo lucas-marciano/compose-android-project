@@ -40,7 +40,7 @@ fun BlueCardShimmer(brush: Brush) {
     }
 }
 
-@Preview(name = "Card Blue", showBackground = true)
+@Preview(name = "Card Blue", showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 fun CardBlueShimmerPreview() {
     BlueCardShimmer(brush = MainAnimatedShimmer.brushColors)
