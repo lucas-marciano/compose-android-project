@@ -8,4 +8,4 @@ internal class SpacerComponent(
     val horizontalSize: Int = 0,
     @SerializedName("vertical_size")
     val verticalSize: Int = 0,
-) : InterfaceItemVO(Components.SPACER)
+) : InterfaceItemComponent(Components.SPACER)

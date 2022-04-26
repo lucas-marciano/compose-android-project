@@ -6,7 +6,7 @@ import androidx.compose.ui.platform.LocalContext
 import com.lucasmarciano.composeproject.features.settings.components.ShimmerSettingsController
 import com.lucasmarciano.composeproject.ui.InterfaceFactory
 import com.lucasmarciano.composeproject.ui.components.MainContainer
-import com.lucasmarciano.composeproject.ui.values.InterfaceItemVO
+import com.lucasmarciano.composeproject.ui.values.InterfaceItemComponent
 
 @Composable
 fun SettingsContent(state: SettingsUIState) {
@@ -30,7 +30,7 @@ fun SettingsContent(state: SettingsUIState) {
 @Composable
 private fun SettingsScreen(
     isLoading: Boolean = true,
-    listItems: List<InterfaceItemVO> = emptyList()
+    listItems: List<InterfaceItemComponent> = emptyList()
 ) {
     ShimmerSettingsController(isLoading) {
         MainContainer {

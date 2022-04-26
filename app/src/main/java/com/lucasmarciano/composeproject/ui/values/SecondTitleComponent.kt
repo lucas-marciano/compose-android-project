@@ -8,4 +8,4 @@ internal class SecondTitleComponent(
     val name: String,
     @SerializedName("color")
     val color: ColorComponent = ColorComponent.PRIMARY,
-) : InterfaceItemVO(Components.SECOND_TITLE)
+) : InterfaceItemComponent(Components.SECOND_TITLE)

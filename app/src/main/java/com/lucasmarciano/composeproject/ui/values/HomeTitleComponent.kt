@@ -10,4 +10,4 @@ internal class HomeTitleComponent(
     val color: ColorComponent = ColorComponent.PRIMARY,
     @SerializedName("has_notification")
     val hasNotification: Boolean = false,
-) : InterfaceItemVO(Components.HOME_TITLE)
+) : InterfaceItemComponent(Components.HOME_TITLE)

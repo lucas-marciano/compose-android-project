@@ -7,4 +7,4 @@ import com.lucasmarciano.composeproject.ui.Components
 internal class BannerComponent(
     @SerializedName("item")
     val item: BannerVO? = null,
-) : InterfaceItemVO(Components.BANNER)
+) : InterfaceItemComponent(Components.BANNER)

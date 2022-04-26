@@ -7,4 +7,4 @@ import com.lucasmarciano.composeproject.ui.Components
 internal class CardBlueListComponent(
     @SerializedName("items")
     val items: List<ItemCardHomeVO> = emptyList()
-) : InterfaceItemVO(Components.CARD_BLUE_LIST)
+) : InterfaceItemComponent(Components.CARD_BLUE_LIST)

@@ -6,7 +6,7 @@ import androidx.compose.ui.platform.LocalContext
 import com.lucasmarciano.composeproject.features.home.components.ShimmerHomeController
 import com.lucasmarciano.composeproject.ui.InterfaceFactory
 import com.lucasmarciano.composeproject.ui.components.MainContainer
-import com.lucasmarciano.composeproject.ui.values.InterfaceItemVO
+import com.lucasmarciano.composeproject.ui.values.InterfaceItemComponent
 
 @Composable
 fun HomeContent(state: HomeUIState) {
@@ -25,7 +25,7 @@ fun HomeContent(state: HomeUIState) {
 }
 
 @Composable
-private fun MainContent(isLoading: Boolean = true, listItems: List<InterfaceItemVO> = emptyList()) {
+private fun MainContent(isLoading: Boolean = true, listItems: List<InterfaceItemComponent> = emptyList()) {
     ShimmerHomeController(isLoading) {
         MainContainer {
             InterfaceFactory(listItems)

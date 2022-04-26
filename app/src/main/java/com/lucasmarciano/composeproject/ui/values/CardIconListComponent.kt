@@ -7,4 +7,4 @@ import com.lucasmarciano.composeproject.ui.Components
 internal class CardIconListComponent(
     @SerializedName("items")
     val items: List<ItemCardHomeVO> = emptyList()
-) : InterfaceItemVO(Components.CARD_ICON_LIST)
+) : InterfaceItemComponent(Components.CARD_ICON_LIST)
