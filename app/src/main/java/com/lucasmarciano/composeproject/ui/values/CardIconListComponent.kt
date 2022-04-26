@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import com.lucasmarciano.composeproject.data.home.models.ItemCardHomeVO
 import com.lucasmarciano.composeproject.ui.Components
 
-internal class CardIconListComponent(
+internal data class CardIconListComponent(
     @SerializedName("items")
     val items: List<ItemCardHomeVO> = emptyList()
 ) : InterfaceItemComponent(Components.CARD_ICON_LIST)

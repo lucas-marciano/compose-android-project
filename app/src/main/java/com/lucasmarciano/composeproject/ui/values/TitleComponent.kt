@@ -3,7 +3,7 @@ package com.lucasmarciano.composeproject.ui.values
 import com.google.gson.annotations.SerializedName
 import com.lucasmarciano.composeproject.ui.Components
 
-internal class TitleComponent(
+internal data class TitleComponent(
     @SerializedName("name")
     val name: String,
     @SerializedName("color")
