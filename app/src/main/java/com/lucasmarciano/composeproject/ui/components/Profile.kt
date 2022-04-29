@@ -1,0 +1,69 @@
+package com.lucasmarciano.composeproject.ui.components
+
+import android.content.res.Configuration
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.MaterialTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.lucasmarciano.composeproject.data.models.ProfileVO
+import com.lucasmarciano.composeproject.ui.mockspreview.mockProfile
+import com.lucasmarciano.composeproject.ui.mockspreview.mockTwoProfile
+import com.lucasmarciano.composeproject.ui.theme.HomeAvatar
+import com.lucasmarciano.composeproject.ui.utils.spacing
+
+@Composable
+internal fun Profile(listProfile: List<ProfileVO>, avatar: String) {
+    Column(modifier = Modifier.fillMaxWidth()) {
+        HomeAvatar()
+        Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
+        listProfile.forEach {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = MaterialTheme.spacing.small),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Column {
+                    Body(it.name, MaterialTheme.colors.onBackground)
+                    Body(it.title)
+                }
+                ButtonBordLess(it.callToActionVO)
+            }
+
+        }
+
+    }
+}
+
+@Preview(name = "Profile", showBackground = true, backgroundColor = 0xFFFFFFFF)
+@Composable
+private fun ProfilePreview() {
+    Profile(mockProfile(), "")
+}
+
+@Preview(name = "Profile", showBackground = true, backgroundColor = 0xFFFFFFFF)
+@Composable
+private fun TwoProfilePreview() {
+    Profile(mockTwoProfile(), "")
+}
+
+@Preview(name = "Profile Dark", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+private fun ProfileDarkPreview() {
+    Profile(mockProfile(), "")
+}
+
+@Preview(name = "Profile", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+private fun TwoProfileDarkPreview() {
+    Profile(mockTwoProfile(), "")
+}

@@ -12,6 +12,7 @@ import com.lucasmarciano.composeproject.features.home.components.BlueCardsList
 import com.lucasmarciano.composeproject.features.home.components.CardsList
 import com.lucasmarciano.composeproject.features.home.components.HomeTitle
 import com.lucasmarciano.composeproject.ui.components.Banner
+import com.lucasmarciano.composeproject.ui.components.Profile
 import com.lucasmarciano.composeproject.ui.components.SecondTitle
 import com.lucasmarciano.composeproject.ui.components.Title
 import com.lucasmarciano.composeproject.ui.theme.ColorBlueCard
@@ -22,8 +23,10 @@ import com.lucasmarciano.composeproject.ui.values.CardIconListComponent
 import com.lucasmarciano.composeproject.ui.values.ColorComponent
 import com.lucasmarciano.composeproject.ui.values.HomeTitleComponent
 import com.lucasmarciano.composeproject.ui.values.InterfaceItemComponent
+import com.lucasmarciano.composeproject.ui.values.MenuItemComponent
 import com.lucasmarciano.composeproject.ui.values.SecondTitleComponent
 import com.lucasmarciano.composeproject.ui.values.SpacerComponent
+import com.lucasmarciano.composeproject.ui.values.StoreProfileComponent
 import com.lucasmarciano.composeproject.ui.values.TitleComponent
 
 @Composable
@@ -61,6 +64,14 @@ fun InterfaceFactory(listItems: List<InterfaceItemComponent>) {
             Components.BANNER -> {
                 val bannerComponent = (item as BannerComponent)
                 Banner(bannerComponent.item)
+            }
+            Components.STORE_PROFILE -> {
+                val storeProfile = (item as StoreProfileComponent)
+                val store = storeProfile.store
+                Profile(store.profile, store.avatar)
+            }
+            Components.MENU_SETTINGS -> {
+                val menuItemList = (item as MenuItemComponent)
             }
         }
     }

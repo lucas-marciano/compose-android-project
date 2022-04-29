@@ -29,7 +29,7 @@ import com.lucasmarciano.composeproject.ui.utils.elevation
 import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
-fun Banner(banner: BannerVO?) {
+internal fun Banner(banner: BannerVO?) {
     banner?.let { item ->
         Card(
             modifier = Modifier
@@ -76,7 +76,7 @@ fun Banner(banner: BannerVO?) {
 
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
-fun BannerPreview() {
+private fun BannerPreview() {
     ComposeProjectTheme {
         Banner(mockBanner())
     }
@@ -84,7 +84,7 @@ fun BannerPreview() {
 
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-fun BannerDarkPreview() {
+private fun BannerDarkPreview() {
     ComposeProjectTheme {
         Banner(mockBanner())
     }

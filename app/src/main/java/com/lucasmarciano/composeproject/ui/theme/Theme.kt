@@ -3,6 +3,7 @@ package com.lucasmarciano.composeproject.ui.theme
 import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -19,26 +20,32 @@ import com.lucasmarciano.composeproject.ui.utils.LocalFontSize
 import com.lucasmarciano.composeproject.ui.utils.LocalSpacing
 import com.lucasmarciano.composeproject.ui.utils.Spacing
 
-private val DarkColorScheme = lightColors(
+private val DarkColorScheme = darkColors(
     primary = Color(0xFF1C1B1F),
+    primaryVariant = Color(0xFF444444),
     secondary = Color(0xFF1C1B1F),
     background = Color(0xFF1C1B1F),
     surface = Color(0xFF1C1B1F),
+    error = Color(0xFFF44336),
     onPrimary = Color(0xFFFFFBFE),
     onSecondary = Color(0xFFFFFBFE),
     onBackground = Color(0xFFFFFBFE),
     onSurface = Color(0xFFFFFBFE),
+    onError = Color(0xFFFFFFFF),
 )
 
 private val LightColorScheme = lightColors(
     primary = Color(0xFFFFFBFE),
+    primaryVariant = Color(0xFF444444).copy(alpha = 0.7f),
     secondary = Color(0xFFFFFBFE),
     background = Color(0xFFFFFBFE),
     surface = Color(0xFFE8E2E6),
+    error = Color(0xFFF44336),
     onPrimary = Color(0xFF1C1B1F),
     onSecondary = Color(0xFF1C1B1F),
     onBackground = Color(0xFF1C1B1F),
     onSurface = Color(0x401C1B1F),
+    onError = Color(0x401C1B1F),
 )
 
 @Composable

@@ -74,10 +74,14 @@
         <entry key="../../../../layout/compose-model-1650459271609.xml" value="0.35157318741450067" />
         <entry key="app/src/main/java/com/lucasmarciano/composeproject/features/home/components/BlueCardsList.kt" value="0.11556603773584906" />
         <entry key="app/src/main/java/com/lucasmarciano/composeproject/features/home/components/HomeTitle.kt" value="0.14722222222222223" />
+        <entry key="app/src/main/java/com/lucasmarciano/composeproject/features/settings/components/MenuList.kt" value="0.18796296296296297" />
         <entry key="app/src/main/java/com/lucasmarciano/composeproject/features/settings/components/SettingsShimmer.kt" value="0.13471177944862156" />
         <entry key="app/src/main/java/com/lucasmarciano/composeproject/ui/components/Banner.kt" value="0.18796296296296297" />
         <entry key="app/src/main/java/com/lucasmarciano/composeproject/ui/components/Cards.kt" value="0.2297476759628154" />
+        <entry key="app/src/main/java/com/lucasmarciano/composeproject/ui/components/ItemMenu.kt" value="0.55" />
         <entry key="app/src/main/java/com/lucasmarciano/composeproject/ui/components/LoadingBar.kt" value="0.2462962962962963" />
+        <entry key="app/src/main/java/com/lucasmarciano/composeproject/ui/components/Profile.kt" value="0.18796296296296297" />
+        <entry key="app/src/main/java/com/lucasmarciano/composeproject/ui/components/Texts.kt" value="0.5833333333333334" />
         <entry key="app/src/main/java/com/lucasmarciano/composeproject/ui/components/Toolbar.kt" value="0.18796296296296297" />
         <entry key="app/src/main/java/com/lucasmarciano/composeproject/ui/components/shimmer/AvatarShimmer.kt" value="0.2861111111111111" />
         <entry key="app/src/main/java/com/lucasmarciano/composeproject/ui/components/shimmer/BannerShimmer.kt" value="0.18796296296296297" />

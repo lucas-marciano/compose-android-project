@@ -7,5 +7,7 @@ enum class Components {
     CARD_ICON_LIST,
     CARD_BLUE_LIST,
     SPACER,
-    BANNER;
+    BANNER,
+    STORE_PROFILE,
+    MENU_SETTINGS;
 }

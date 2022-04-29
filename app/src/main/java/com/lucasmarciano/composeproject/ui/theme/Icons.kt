@@ -22,6 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import com.lucasmarciano.composeproject.R
 import com.lucasmarciano.composeproject.ui.utils.spacing
+import com.lucasmarciano.composeproject.utils.extensions.emptyString
 
 @Composable
 fun BackIcon(
@@ -90,19 +91,18 @@ fun StoreIcon(
 }
 
 @Composable
-fun HomeAvatar(onClick: () -> Unit = { }) {
+fun HomeAvatar(avatar: String = emptyString()) {
     Box(
         modifier = Modifier
             .size(MaterialTheme.spacing.huge)
             .clip(CircleShape)
             .background(ColorPinkCalifornia)
-            .selectable(selected = true, enabled = true, onClick = onClick)
     )
 }
 
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
-fun DefaultIconsPreview() {
+private fun DefaultIconsPreview() {
     ComposeProjectTheme {
         Column {
             BackIcon()
@@ -118,7 +118,7 @@ fun DefaultIconsPreview() {
 
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-fun DefaultIconsDarkPreview() {
+private fun DefaultIconsDarkPreview() {
     ComposeProjectTheme {
         Column {
             BackIcon()
@@ -134,7 +134,7 @@ fun DefaultIconsDarkPreview() {
 
 @Preview(showBackground = false)
 @Composable
-fun AvatarIconPreview() {
+private fun AvatarIconPreview() {
     ComposeProjectTheme {
         HomeAvatar()
     }
