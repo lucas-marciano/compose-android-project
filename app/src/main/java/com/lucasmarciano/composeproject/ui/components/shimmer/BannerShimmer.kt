@@ -33,7 +33,7 @@ fun BannerShimmer(brush: Brush) {
     }
 }
 
-@Preview(name = "Card Blue", showBackground = true)
+@Preview(name = "Card Blue", showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 fun BannerShimmerPreview() {
     BannerShimmer(brush = MainAnimatedShimmer.brushColors)

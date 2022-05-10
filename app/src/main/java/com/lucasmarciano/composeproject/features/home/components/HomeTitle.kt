@@ -1,5 +1,6 @@
 package com.lucasmarciano.composeproject.features.home.components
 
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,7 +13,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.lucasmarciano.composeproject.R
+import com.lucasmarciano.composeproject.routes.Screen
 import com.lucasmarciano.composeproject.ui.components.Title
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.theme.HomeAvatar
@@ -22,7 +26,8 @@ import com.lucasmarciano.composeproject.ui.utils.spacing
 @Composable
 fun HomeTitle(
     name: String = stringResource(id = R.string.label_my_business),
-    hasNotification: Boolean = false
+    hasNotification: Boolean = false,
+    navController: NavController
 ) {
     Column(modifier = Modifier.fillMaxWidth()) {
         HomeAvatar()
@@ -33,23 +38,49 @@ fun HomeTitle(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Title(name)
-            StoreIcon(hasNotification = hasNotification)
+            StoreIcon(
+                hasNotification = hasNotification,
+                onClick = { navController.navigate(Screen.SettingsScreen.route) })
         }
     }
 }
 
-@Preview("Title")
+@Preview(name = "Title", showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 fun HomeTitlePreview() {
     ComposeProjectTheme(darkTheme = false) {
-        HomeTitle()
+        val nav = rememberNavController()
+        HomeTitle(navController = nav)
     }
 }
 
-@Preview("Title with icon notification")
+@Preview(name = "Title Dark", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+fun HomeTitleDarkPreview() {
+    ComposeProjectTheme(darkTheme = false) {
+        val nav = rememberNavController()
+        HomeTitle(navController = nav)
+    }
+}
+
+@Preview(name = "Title with icon notification", showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 fun HomeTitleWithNotificationPreview() {
     ComposeProjectTheme(darkTheme = false) {
-        HomeTitle(hasNotification = true)
+        val nav = rememberNavController()
+        HomeTitle(hasNotification = true, navController = nav)
+    }
+}
+
+@Preview(
+    name = "Title with icon notification dark",
+    showBackground = true,
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
+@Composable
+fun HomeTitleWithNotificationDarkPreview() {
+    ComposeProjectTheme(darkTheme = false) {
+        val nav = rememberNavController()
+        HomeTitle(hasNotification = true, navController = nav)
     }
 }

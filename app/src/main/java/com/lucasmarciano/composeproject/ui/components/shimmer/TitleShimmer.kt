@@ -56,13 +56,13 @@ fun SubTitleShimmer(brush: Brush) {
     }
 }
 
-@Preview(name = "Title", showBackground = true)
+@Preview(name = "Title", showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 fun TitleShimmerPreview() {
     TitleShimmer(brush = brushColors)
 }
 
-@Preview(name = "Sub Title", showBackground = true)
+@Preview(name = "Sub Title", showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 fun SubTitleShimmerPreview() {
     SubTitleShimmer(brush = brushColors)

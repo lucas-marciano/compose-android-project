@@ -8,10 +8,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
+import androidx.navigation.NavController
 import com.lucasmarciano.composeproject.features.home.components.BlueCardsList
 import com.lucasmarciano.composeproject.features.home.components.CardsList
 import com.lucasmarciano.composeproject.features.home.components.HomeTitle
+import com.lucasmarciano.composeproject.features.settings.components.MenuList
 import com.lucasmarciano.composeproject.ui.components.Banner
+import com.lucasmarciano.composeproject.ui.components.Profile
 import com.lucasmarciano.composeproject.ui.components.SecondTitle
 import com.lucasmarciano.composeproject.ui.components.Title
 import com.lucasmarciano.composeproject.ui.theme.ColorBlueCard
@@ -21,18 +24,20 @@ import com.lucasmarciano.composeproject.ui.values.CardBlueListComponent
 import com.lucasmarciano.composeproject.ui.values.CardIconListComponent
 import com.lucasmarciano.composeproject.ui.values.ColorComponent
 import com.lucasmarciano.composeproject.ui.values.HomeTitleComponent
-import com.lucasmarciano.composeproject.ui.values.InterfaceItemVO
+import com.lucasmarciano.composeproject.ui.values.InterfaceItemComponent
+import com.lucasmarciano.composeproject.ui.values.MenuItemComponent
 import com.lucasmarciano.composeproject.ui.values.SecondTitleComponent
 import com.lucasmarciano.composeproject.ui.values.SpacerComponent
+import com.lucasmarciano.composeproject.ui.values.StoreProfileComponent
 import com.lucasmarciano.composeproject.ui.values.TitleComponent
 
 @Composable
-fun InterfaceFactory(listItems: List<InterfaceItemVO>) {
+fun InterfaceFactory(listItems: List<InterfaceItemComponent>, navController: NavController) {
     listItems.forEach { item ->
         when (item.typeComponent) {
             Components.HOME_TITLE -> {
                 val homeValue = (item as HomeTitleComponent)
-                HomeTitle(homeValue.name, homeValue.hasNotification)
+                HomeTitle(homeValue.name, homeValue.hasNotification, navController)
             }
             Components.MAIN_TITLE -> {
                 val homeValue = (item as TitleComponent)
@@ -62,6 +67,16 @@ fun InterfaceFactory(listItems: List<InterfaceItemVO>) {
                 val bannerComponent = (item as BannerComponent)
                 Banner(bannerComponent.item)
             }
+            Components.STORE_PROFILE -> {
+                val storeProfile = (item as StoreProfileComponent)
+                val store = storeProfile.store
+                Profile(store.profile, store.avatar)
+            }
+            Components.MENU_SETTINGS -> {
+                val menuItemList = (item as MenuItemComponent)
+                MenuList(menuItemList.buttons)
+            }
+            else -> {}
         }
     }
 }
