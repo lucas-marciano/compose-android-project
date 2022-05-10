@@ -2,7 +2,7 @@ package com.lucasmarciano.composeproject.features.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lucasmarciano.composeproject.ui.mockspreview.mockResult
+import com.lucasmarciano.composeproject.ui.mockspreview.mockHomeResult
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -21,7 +21,7 @@ internal class HomeViewModel : ViewModel() {
         viewModelScope.launch {
             _uiState.value = HomeUIState.Loading
             delay(3000)
-            _uiState.value = HomeUIState.Success(mockResult())
+            _uiState.value = HomeUIState.Success(mockHomeResult())
         }
     }
 }

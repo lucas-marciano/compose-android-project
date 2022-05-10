@@ -21,24 +21,30 @@ import com.lucasmarciano.composeproject.ui.utils.Spacing
 
 private val DarkColorScheme = lightColors(
     primary = Color(0xFF1C1B1F),
+    primaryVariant = Color(0xFF444444),
     secondary = Color(0xFF1C1B1F),
     background = Color(0xFF1C1B1F),
     surface = Color(0xFF1C1B1F),
+    error = Color(0xFFF44336),
     onPrimary = Color(0xFFFFFBFE),
     onSecondary = Color(0xFFFFFBFE),
     onBackground = Color(0xFFFFFBFE),
     onSurface = Color(0xFFFFFBFE),
+    onError = Color(0xFFFFFFFF),
 )
 
 private val LightColorScheme = lightColors(
     primary = Color(0xFFFFFBFE),
+    primaryVariant = Color(0xFF444444).copy(alpha = 0.7f),
     secondary = Color(0xFFFFFBFE),
     background = Color(0xFFFFFBFE),
     surface = Color(0xFFE8E2E6),
+    error = Color(0xFFF44336),
     onPrimary = Color(0xFF1C1B1F),
     onSecondary = Color(0xFF1C1B1F),
     onBackground = Color(0xFF1C1B1F),
     onSurface = Color(0x401C1B1F),
+    onError = Color(0x401C1B1F),
 )
 
 @Composable

@@ -46,5 +46,11 @@ val Typography = Typography(
         letterSpacing = 0.5.sp,
         textAlign = TextAlign.Start,
         fontWeight = FontWeight.Bold,
-    )
+    ),
+    button = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontSize = 13.sp,
+        textAlign = TextAlign.Center,
+        fontWeight = FontWeight.Bold,
+    ),
 )

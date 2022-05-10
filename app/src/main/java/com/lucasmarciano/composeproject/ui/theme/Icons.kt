@@ -1,15 +1,18 @@
 package com.lucasmarciano.composeproject.ui.theme
 
+import android.content.res.Configuration
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -19,11 +22,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import com.lucasmarciano.composeproject.R
 import com.lucasmarciano.composeproject.ui.utils.spacing
+import com.lucasmarciano.composeproject.utils.extensions.emptyString
 
 @Composable
 fun BackIcon(
     @StringRes contentDescription: Int = R.string.content_description_back_button_toolbar,
-    color: Color = MaterialTheme.colors.primary
+    color: Color = MaterialTheme.colors.onPrimary
 ) {
     Icon(
         painter = painterResource(id = R.drawable.ic_left_arrow),
@@ -35,7 +39,7 @@ fun BackIcon(
 @Composable
 fun HelpIcon(
     @StringRes contentDescription: Int = R.string.content_description_back_button_toolbar,
-    color: Color = MaterialTheme.colors.primary
+    color: Color = MaterialTheme.colors.onPrimary
 ) {
     Icon(
         painter = painterResource(id = R.drawable.ic_help_information),
@@ -47,7 +51,7 @@ fun HelpIcon(
 @Composable
 fun CoinIcon(
     @StringRes contentDescription: Int = R.string.content_description_money_icon,
-    color: Color = MaterialTheme.colors.primary,
+    color: Color = MaterialTheme.colors.onPrimary,
     size: Dp = MaterialTheme.spacing.extraMedium,
 ) {
     Icon(
@@ -64,43 +68,46 @@ fun StoreIcon(
     hasNotification: Boolean = true,
     onClick: () -> Unit = { }
 ) {
-    if (hasNotification) {
+    Box(
+        modifier = Modifier.selectable(selected = true, enabled = true, onClick = onClick)
+    ) {
         Icon(
             painter = painterResource(id = R.drawable.ic_store_menu),
             contentDescription = stringResource(id = contentDescription),
             tint = MaterialTheme.colors.onPrimary,
             modifier = Modifier.clickable(onClick = onClick)
         )
-    } else {
-        Icon(
-            painter = painterResource(id = R.drawable.ic_store_menu),
-            contentDescription = stringResource(id = contentDescription),
-            tint = MaterialTheme.colors.primary,
-            modifier = Modifier.clickable(onClick = onClick)
-        )
+        if (hasNotification) {
+            Box(
+                modifier = Modifier
+                    .size(MaterialTheme.spacing.small)
+                    .clip(CircleShape)
+                    .background(ColorPinkCaliforniaVariant)
+                    .align(alignment = Alignment.BottomEnd)
+            )
+        }
     }
 }
 
 @Composable
-fun HomeAvatar(onClick: () -> Unit = { }) {
+fun HomeAvatar(avatar: String = emptyString()) {
     Box(
         modifier = Modifier
             .size(MaterialTheme.spacing.huge)
             .clip(CircleShape)
             .background(ColorPinkCalifornia)
-            .clickable(onClick = onClick)
     )
 }
 
-@Preview(showBackground = false)
+@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
-fun DefaultIconsPreview() {
+private fun DefaultIconsPreview() {
     ComposeProjectTheme {
         Column {
             BackIcon()
-            BackIcon(color = Color.White)
+            BackIcon(color = Color.Blue)
             HelpIcon()
-            HelpIcon(color = Color.White)
+            HelpIcon(color = Color.Blue)
             StoreIcon(hasNotification = false)
             StoreIcon(hasNotification = true)
             CoinIcon()
@@ -108,10 +115,25 @@ fun DefaultIconsPreview() {
     }
 }
 
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+private fun DefaultIconsDarkPreview() {
+    ComposeProjectTheme {
+        Column {
+            BackIcon()
+            BackIcon(color = Color.Blue)
+            HelpIcon()
+            HelpIcon(color = Color.Blue)
+            StoreIcon(hasNotification = false)
+            StoreIcon(hasNotification = true)
+            CoinIcon()
+        }
+    }
+}
 
 @Preview(showBackground = false)
 @Composable
-fun AvatarIconPreview() {
+private fun AvatarIconPreview() {
     ComposeProjectTheme {
         HomeAvatar()
     }

@@ -1,174 +1,92 @@
 package com.lucasmarciano.composeproject.features.home
 
+import android.content.res.Configuration
 import android.widget.Toast
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.lucasmarciano.composeproject.R
-import com.lucasmarciano.composeproject.data.home.models.ItemCardHomeVO
-import com.lucasmarciano.composeproject.data.models.BannerVO
-import com.lucasmarciano.composeproject.ui.components.Banner
-import com.lucasmarciano.composeproject.ui.components.BlueCard
-import com.lucasmarciano.composeproject.ui.components.CardWithIcon
-import com.lucasmarciano.composeproject.ui.components.ContainerCircleLoading
-import com.lucasmarciano.composeproject.ui.components.SecondTitle
-import com.lucasmarciano.composeproject.ui.components.Title
-import com.lucasmarciano.composeproject.ui.mockspreview.mockHomeUIState
-import com.lucasmarciano.composeproject.ui.mockspreview.mockHomeUIStateWithLoading
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
-import com.lucasmarciano.composeproject.ui.theme.HomeAvatar
-import com.lucasmarciano.composeproject.ui.theme.StoreIcon
-import com.lucasmarciano.composeproject.ui.utils.spacing
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.lucasmarciano.composeproject.features.home.components.ShimmerHomeController
+import com.lucasmarciano.composeproject.ui.Components
+import com.lucasmarciano.composeproject.ui.InterfaceFactory
+import com.lucasmarciano.composeproject.ui.components.MainContainer
+import com.lucasmarciano.composeproject.ui.mockspreview.mockHomeResult
+import com.lucasmarciano.composeproject.ui.values.InterfaceItemComponent
+import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 
 @Composable
-fun HomeContent(state: HomeUIState) {
+fun HomeScreen(navController: NavController) {
+    val viewModel = viewModel<HomeViewModel>()
+    val state by viewModel.uiState.collectAsState()
+
     when (state) {
-        is HomeUIState.Loading -> Content()
-        is HomeUIState.Success -> Content(
+        is HomeUIState.Loading -> HomeContent()
+        is HomeUIState.Success -> HomeContent(
             isLoading = false,
-            state.response.listBlueCard,
-            state.response.listSimpleCard,
-            state.response.bannerInfo
+            listItems = (state as HomeUIState.Success).data.listItems,
+            navController
         )
         is HomeUIState.Error -> {
             Toast.makeText(
                 LocalContext.current,
-                "houve um erro: ${state.error.message}",
+                "houve um erro: ${(state as HomeUIState.Error).error.message}",
                 Toast.LENGTH_LONG
             ).show()
-            Content(isLoading = false)
-            TODO("build a error screen")
+            HomeContent(isLoading = false)
         }
     }
 }
 
 @Composable
-private fun Content(
+private fun HomeContent(
     isLoading: Boolean = true,
-    listBlueCard: List<ItemCardHomeVO> = emptyList(),
-    listSimpleCard: List<ItemCardHomeVO> = emptyList(),
-    banner: BannerVO? = null,
+    listItems: List<InterfaceItemComponent> = emptyList(),
+    navController: NavController = rememberNavController()
 ) {
-    val scrollState = rememberScrollState()
-
-    ContainerCircleLoading(isLoading) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(
-                    top = MaterialTheme.spacing.medium,
-                    start = MaterialTheme.spacing.medium,
-                    end = MaterialTheme.spacing.medium
-                )
-                .verticalScroll(scrollState)
-        ) {
-            HomeTitle()
-            Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
-            BlueCardsList(listBlueCard)
-
-            Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
-
-            SecondTitle(stringResource(id = R.string.label_selling))
-            CardsList(listSimpleCard)
-
-            Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
-
-            banner?.let {
-                SecondTitle(stringResource(id = R.string.label_emphasis))
-                Banner(banner)
-            }
+    var toolbar: ToolbarComponent? = null
+    if (listItems.isNotEmpty()) {
+        val toolbarData = listItems.find { it.typeComponent == Components.TOOLBAR }
+        toolbar = (toolbarData as ToolbarComponent)
+    }
+    ShimmerHomeController(isLoading) {
+        MainContainer(toolbarData = toolbar, navController) {
+            InterfaceFactory(listItems, navController)
         }
     }
 }
 
+@Preview(name = "Home Content", backgroundColor = 0xFFFFFFFF, showBackground = true)
 @Composable
-fun HomeTitle(
-    name: String = stringResource(id = R.string.label_my_business),
-    hasNotification: Boolean = false
-) {
-    Column(modifier = Modifier.fillMaxWidth()) {
-        HomeAvatar()
-        Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Title(name)
-            StoreIcon(hasNotification = hasNotification)
-        }
-    }
+private fun HomeContentPreview() {
+    HomeContent(false, mockHomeResult().listItems)
 }
 
+@Preview(
+    name = "Home Content Dark",
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    showBackground = true
+)
 @Composable
-fun BlueCardsList(cards: List<ItemCardHomeVO>) {
-    LazyRow(horizontalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.small)) {
-        items(cards) { card ->
-            BlueCard(item = card)
-        }
-    }
+private fun HomeContentDarkPreview() {
+    HomeContent(false, mockHomeResult().listItems)
 }
 
+@Preview(name = "Home Content Loading", backgroundColor = 0xFFFFFFFF, showBackground = true)
 @Composable
-fun CardsList(cards: List<ItemCardHomeVO>) {
-    LazyRow(
-        horizontalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.small),
-        contentPadding = PaddingValues(
-            end = MaterialTheme.spacing.small,
-            bottom = MaterialTheme.spacing.small
-        )
-    ) {
-        items(cards) { card ->
-            CardWithIcon(item = card)
-        }
-    }
+private fun HomeContentLoadingPreview() {
+    HomeContent()
 }
 
-@Preview("Home content show loading")
+@Preview(
+    name = "Home Content Loading Dark",
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    showBackground = true
+)
 @Composable
-fun HomeContentPreview() {
-    ComposeProjectTheme(darkTheme = false) {
-        HomeContent(mockHomeUIStateWithLoading())
-    }
-}
-
-@Preview("Home content no loading")
-@Composable
-fun HomeContentNoLoadingPreview() {
-    ComposeProjectTheme(darkTheme = false) {
-        HomeContent(mockHomeUIState())
-    }
-}
-
-@Preview("Title")
-@Composable
-fun HomeTitlePreview() {
-    ComposeProjectTheme(darkTheme = false) {
-        HomeTitle()
-    }
-}
-
-@Preview("Title with icon notification")
-@Composable
-fun HomeTitleWithNotificationPreview() {
-    ComposeProjectTheme(darkTheme = false) {
-        HomeTitle(hasNotification = true)
-    }
+private fun HomeContentLoadingDarkPreview() {
+    HomeContent()
 }

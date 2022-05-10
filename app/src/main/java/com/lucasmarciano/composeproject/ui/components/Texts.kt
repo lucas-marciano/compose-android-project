@@ -1,5 +1,6 @@
 package com.lucasmarciano.composeproject.ui.components
 
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
@@ -39,13 +40,40 @@ fun SecondTitle(
     )
 }
 
-@Preview(showBackground = true)
 @Composable
-fun TitlePreview() {
+fun Body(
+    text: String = stringResource(id = R.string.label_empty),
+    color: Color = MaterialTheme.colors.primaryVariant,
+) {
+    Text(
+        text = text,
+        color = color,
+        style = MaterialTheme.typography.body1,
+        modifier = Modifier.padding(bottom = MaterialTheme.spacing.small)
+    )
+}
+
+@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
+@Composable
+fun TextsPreviews() {
     ComposeProjectTheme {
         Column {
-            Title("Hello")
-            SecondTitle("Hello Second")
+            Title("Hello title")
+            SecondTitle("Hello second title")
+            Body("Hello body")
+        }
+    }
+}
+
+
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+fun TextsDarkPreviews() {
+    ComposeProjectTheme {
+        Column {
+            Title("Hello title")
+            SecondTitle("Hello second title")
+            Body("Hello body")
         }
     }
 }

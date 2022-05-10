@@ -1,5 +1,6 @@
 package com.lucasmarciano.composeproject.ui.components
 
+import android.content.res.Configuration
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -20,7 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import com.lucasmarciano.composeproject.data.models.BannerVO
+import com.lucasmarciano.composeproject.data.home.models.BannerVO
 import com.lucasmarciano.composeproject.ui.mockspreview.mockBanner
 import com.lucasmarciano.composeproject.ui.theme.ColorPinkCalifornia
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
@@ -28,8 +29,8 @@ import com.lucasmarciano.composeproject.ui.utils.elevation
 import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
-fun Banner(item: BannerVO, isVisible: Boolean = true) {
-    if (isVisible) {
+internal fun Banner(banner: BannerVO?) {
+    banner?.let { item ->
         Card(
             modifier = Modifier
                 .fillMaxWidth()
@@ -73,11 +74,18 @@ fun Banner(item: BannerVO, isVisible: Boolean = true) {
     }
 }
 
-
-@Preview(showBackground = true)
+@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
-fun BannerPreview() {
+private fun BannerPreview() {
     ComposeProjectTheme {
-        Banner(mockBanner(), true)
+        Banner(mockBanner())
+    }
+}
+
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+private fun BannerDarkPreview() {
+    ComposeProjectTheme {
+        Banner(mockBanner())
     }
 }
