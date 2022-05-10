@@ -12,6 +12,7 @@ import androidx.navigation.NavController
 import com.lucasmarciano.composeproject.features.home.components.BlueCardsList
 import com.lucasmarciano.composeproject.features.home.components.CardsList
 import com.lucasmarciano.composeproject.features.home.components.HomeTitle
+import com.lucasmarciano.composeproject.features.settings.components.MenuList
 import com.lucasmarciano.composeproject.ui.components.Banner
 import com.lucasmarciano.composeproject.ui.components.Profile
 import com.lucasmarciano.composeproject.ui.components.SecondTitle
@@ -29,7 +30,6 @@ import com.lucasmarciano.composeproject.ui.values.SecondTitleComponent
 import com.lucasmarciano.composeproject.ui.values.SpacerComponent
 import com.lucasmarciano.composeproject.ui.values.StoreProfileComponent
 import com.lucasmarciano.composeproject.ui.values.TitleComponent
-import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 
 @Composable
 fun InterfaceFactory(listItems: List<InterfaceItemComponent>, navController: NavController) {
@@ -72,12 +72,11 @@ fun InterfaceFactory(listItems: List<InterfaceItemComponent>, navController: Nav
                 val store = storeProfile.store
                 Profile(store.profile, store.avatar)
             }
-            Components.TOOLBAR -> {
-                val toolbar = (item as ToolbarComponent)
-            }
             Components.MENU_SETTINGS -> {
                 val menuItemList = (item as MenuItemComponent)
+                MenuList(menuItemList.buttons)
             }
+            else -> {}
         }
     }
 }

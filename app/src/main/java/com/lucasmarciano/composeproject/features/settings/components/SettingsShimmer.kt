@@ -1,6 +1,7 @@
 package com.lucasmarciano.composeproject.features.settings.components
 
 import android.content.res.Configuration
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -29,6 +30,7 @@ fun SettingsShimmerScreen(brush: Brush) {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(MaterialTheme.colors.background)
             .padding(
                 top = MaterialTheme.spacing.medium,
                 start = MaterialTheme.spacing.medium,

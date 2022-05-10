@@ -16,6 +16,7 @@ import com.lucasmarciano.composeproject.ui.values.MenuItemComponent
 import com.lucasmarciano.composeproject.ui.values.SecondTitleComponent
 import com.lucasmarciano.composeproject.ui.values.SpacerComponent
 import com.lucasmarciano.composeproject.ui.values.StoreProfileComponent
+import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
 
 internal fun mockBanner() = BannerVO(
@@ -64,8 +65,11 @@ internal fun mockListItemCard() = listOf(
 
 internal fun mockHomeResult() = ResponseBuildVO(
     listItems = listOf(
+        ToolbarComponent(
+            title = "seu negócio",
+        ),
         HomeTitleComponent(
-            name = "seu negócio online",
+            name = "teste negocio",
             color = ColorComponent.ON_BACKGROUND,
             hasNotification = true
         ),
@@ -83,17 +87,21 @@ internal fun mockHomeResult() = ResponseBuildVO(
         ),
         SpacerComponent(verticalSize = 16),
         SecondTitleComponent(
-            name = "vender",
+            name = "banners",
             color = ColorComponent.ON_BACKGROUND
         ),
         BannerComponent(
             item = mockBanner()
-        )
+        ),
+        SpacerComponent(verticalSize = 16),
     )
 )
 
 internal fun mockSettingsResult() = ResponseBuildVO(
     listItems = listOf(
+        ToolbarComponent(
+            title = "configurações",
+        ),
         StoreProfileComponent(
             StoreNameVO(
                 mockProfile(),
@@ -114,6 +122,13 @@ internal fun mockProfile() = listOf(
     )
 )
 
+internal fun mockProfileNonCallToAction() = listOf(
+    ProfileVO(
+        callToActionVO = CallToActionVO(),
+        name = "Loja Teste",
+        title = "Nome da loja"
+    )
+)
 
 internal fun mockTwoProfile() = listOf(
     ProfileVO(
@@ -123,6 +138,19 @@ internal fun mockTwoProfile() = listOf(
     ),
     ProfileVO(
         callToActionVO = CallToActionVO(name = "editar", action = "action"),
+        name = "Segunda loja",
+        title = "Segundo nome da loja"
+    )
+)
+
+internal fun mockTwoProfileNonAction() = listOf(
+    ProfileVO(
+        callToActionVO = CallToActionVO(),
+        name = "Loja Teste",
+        title = "Nome da loja"
+    ),
+    ProfileVO(
+        callToActionVO = CallToActionVO(),
         name = "Segunda loja",
         title = "Segundo nome da loja"
     )

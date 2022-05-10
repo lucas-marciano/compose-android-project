@@ -12,7 +12,11 @@ class SettingsViewModel : ViewModel() {
     private val _uiState = MutableStateFlow<SettingsUIState>(SettingsUIState.Loading)
     val uiState: StateFlow<SettingsUIState> = _uiState
 
-    fun fetchData() {
+    init {
+        fetchData()
+    }
+
+    private fun fetchData() {
         viewModelScope.launch {
             _uiState.value = SettingsUIState.Loading
             delay(3000)

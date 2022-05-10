@@ -15,7 +15,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.data.models.ProfileVO
 import com.lucasmarciano.composeproject.ui.mockspreview.mockProfile
+import com.lucasmarciano.composeproject.ui.mockspreview.mockProfileNonCallToAction
 import com.lucasmarciano.composeproject.ui.mockspreview.mockTwoProfile
+import com.lucasmarciano.composeproject.ui.mockspreview.mockTwoProfileNonAction
 import com.lucasmarciano.composeproject.ui.theme.HomeAvatar
 import com.lucasmarciano.composeproject.ui.utils.spacing
 
@@ -40,7 +42,6 @@ internal fun Profile(listProfile: List<ProfileVO>, avatar: String) {
             }
 
         }
-
     }
 }
 
@@ -50,10 +51,24 @@ private fun ProfilePreview() {
     Profile(mockProfile(), "")
 }
 
-@Preview(name = "Profile", showBackground = true, backgroundColor = 0xFFFFFFFF)
+
+@Preview(name = "Profile no edit", showBackground = true, backgroundColor = 0xFFFFFFFF)
+@Composable
+private fun ProfileNonEditPreview() {
+    Profile(mockProfileNonCallToAction(), "")
+}
+
+@Preview(name = "Profiles", showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 private fun TwoProfilePreview() {
     Profile(mockTwoProfile(), "")
+}
+
+
+@Preview(name = "Profiles non edit", showBackground = true, backgroundColor = 0xFFFFFFFF)
+@Composable
+private fun TwoProfileNonEditPreview() {
+    Profile(mockTwoProfileNonAction(), "")
 }
 
 @Preview(name = "Profile Dark", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
