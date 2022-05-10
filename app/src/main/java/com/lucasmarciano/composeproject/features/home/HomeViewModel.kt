@@ -13,11 +13,7 @@ internal class HomeViewModel : ViewModel() {
     private val _uiState = MutableStateFlow<HomeUIState>(HomeUIState.Loading)
     val uiState: StateFlow<HomeUIState> = _uiState
 
-    init {
-        fetchData()
-    }
-
-    private fun fetchData() {
+    fun fetchData() {
         viewModelScope.launch {
             _uiState.value = HomeUIState.Loading
             delay(3000)

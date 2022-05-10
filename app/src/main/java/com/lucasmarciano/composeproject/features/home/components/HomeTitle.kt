@@ -13,7 +13,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.lucasmarciano.composeproject.R
+import com.lucasmarciano.composeproject.routes.Screen
 import com.lucasmarciano.composeproject.ui.components.Title
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.theme.HomeAvatar
@@ -23,7 +26,8 @@ import com.lucasmarciano.composeproject.ui.utils.spacing
 @Composable
 fun HomeTitle(
     name: String = stringResource(id = R.string.label_my_business),
-    hasNotification: Boolean = false
+    hasNotification: Boolean = false,
+    navController: NavController
 ) {
     Column(modifier = Modifier.fillMaxWidth()) {
         HomeAvatar()
@@ -34,7 +38,9 @@ fun HomeTitle(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Title(name)
-            StoreIcon(hasNotification = hasNotification)
+            StoreIcon(
+                hasNotification = hasNotification,
+                onClick = { navController.navigate(Screen.SettingsScreen.route) })
         }
     }
 }
@@ -43,7 +49,8 @@ fun HomeTitle(
 @Composable
 fun HomeTitlePreview() {
     ComposeProjectTheme(darkTheme = false) {
-        HomeTitle()
+        val nav = rememberNavController()
+        HomeTitle(navController = nav)
     }
 }
 
@@ -51,7 +58,8 @@ fun HomeTitlePreview() {
 @Composable
 fun HomeTitleDarkPreview() {
     ComposeProjectTheme(darkTheme = false) {
-        HomeTitle()
+        val nav = rememberNavController()
+        HomeTitle(navController = nav)
     }
 }
 
@@ -59,7 +67,8 @@ fun HomeTitleDarkPreview() {
 @Composable
 fun HomeTitleWithNotificationPreview() {
     ComposeProjectTheme(darkTheme = false) {
-        HomeTitle(hasNotification = true)
+        val nav = rememberNavController()
+        HomeTitle(hasNotification = true, navController = nav)
     }
 }
 
@@ -71,6 +80,7 @@ fun HomeTitleWithNotificationPreview() {
 @Composable
 fun HomeTitleWithNotificationDarkPreview() {
     ComposeProjectTheme(darkTheme = false) {
-        HomeTitle(hasNotification = true)
+        val nav = rememberNavController()
+        HomeTitle(hasNotification = true, navController = nav)
     }
 }

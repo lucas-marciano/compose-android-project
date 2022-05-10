@@ -83,7 +83,6 @@ fun StoreIcon(
                     .size(MaterialTheme.spacing.small)
                     .clip(CircleShape)
                     .background(ColorPinkCaliforniaVariant)
-                    .clickable(onClick = onClick)
                     .align(alignment = Alignment.BottomEnd)
             )
         }

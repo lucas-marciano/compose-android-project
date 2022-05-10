@@ -1,6 +1,7 @@
 package com.lucasmarciano.composeproject.ui
 
 enum class Components {
+    TOOLBAR,
     HOME_TITLE,
     MAIN_TITLE,
     SECOND_TITLE,
