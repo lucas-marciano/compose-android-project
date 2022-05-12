@@ -32,52 +32,50 @@ import com.lucasmarciano.composeproject.ui.values.StoreProfileComponent
 import com.lucasmarciano.composeproject.ui.values.TitleComponent
 
 @Composable
-fun InterfaceFactory(listItems: List<InterfaceItemComponent>, navController: NavController) {
-    listItems.forEach { item ->
-        when (item.typeComponent) {
-            Components.HOME_TITLE -> {
-                val homeValue = (item as HomeTitleComponent)
-                HomeTitle(homeValue.name, homeValue.hasNotification, navController)
-            }
-            Components.MAIN_TITLE -> {
-                val homeValue = (item as TitleComponent)
-                Title(homeValue.name, composeColorValue(homeValue.color))
-            }
-            Components.SECOND_TITLE -> {
-                val secondTitle = (item as SecondTitleComponent)
-                SecondTitle(secondTitle.name, composeColorValue(secondTitle.color))
-            }
-            Components.CARD_ICON_LIST -> {
-                val cardIconList = (item as CardIconListComponent).items
-                CardsList(cardIconList)
-            }
-            Components.CARD_BLUE_LIST -> {
-                val cardList = (item as CardBlueListComponent).items
-                BlueCardsList(cardList)
-            }
-            Components.SPACER -> {
-                val spacerComponent = (item as SpacerComponent)
-                Spacer(
-                    modifier = Modifier
-                        .height(composeDimensionValue(spacerComponent.verticalSize))
-                        .width(composeDimensionValue(spacerComponent.horizontalSize))
-                )
-            }
-            Components.BANNER -> {
-                val bannerComponent = (item as BannerComponent)
-                Banner(bannerComponent.item)
-            }
-            Components.STORE_PROFILE -> {
-                val storeProfile = (item as StoreProfileComponent)
-                val store = storeProfile.store
-                Profile(store.profile, store.avatar)
-            }
-            Components.MENU_SETTINGS -> {
-                val menuItemList = (item as MenuItemComponent)
-                MenuList(menuItemList.buttons)
-            }
-            else -> {}
+fun InterfaceFactory(item: InterfaceItemComponent, navController: NavController) {
+    when (item.typeComponent) {
+        Components.HOME_TITLE -> {
+            val homeValue = (item as HomeTitleComponent)
+            HomeTitle(homeValue.name, homeValue.hasNotification, navController)
         }
+        Components.MAIN_TITLE -> {
+            val homeValue = (item as TitleComponent)
+            Title(homeValue.name, composeColorValue(homeValue.color))
+        }
+        Components.SECOND_TITLE -> {
+            val secondTitle = (item as SecondTitleComponent)
+            SecondTitle(secondTitle.name, composeColorValue(secondTitle.color))
+        }
+        Components.CARD_ICON_LIST -> {
+            val cardIconList = (item as CardIconListComponent).items
+            CardsList(cardIconList)
+        }
+        Components.CARD_BLUE_LIST -> {
+            val cardList = (item as CardBlueListComponent).items
+            BlueCardsList(cardList)
+        }
+        Components.SPACER -> {
+            val spacerComponent = (item as SpacerComponent)
+            Spacer(
+                modifier = Modifier
+                    .height(composeDimensionValue(spacerComponent.verticalSize))
+                    .width(composeDimensionValue(spacerComponent.horizontalSize))
+            )
+        }
+        Components.BANNER -> {
+            val bannerComponent = (item as BannerComponent)
+            Banner(bannerComponent.item)
+        }
+        Components.STORE_PROFILE -> {
+            val storeProfile = (item as StoreProfileComponent)
+            val store = storeProfile.store
+            Profile(store.profile, store.avatar)
+        }
+        Components.MENU_SETTINGS -> {
+            val menuItemList = (item as MenuItemComponent)
+            MenuList(menuItemList.buttons)
+        }
+        else -> {}
     }
 }
 

@@ -3,6 +3,7 @@ package com.lucasmarciano.composeproject.ui.theme
 import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -19,7 +20,7 @@ import com.lucasmarciano.composeproject.ui.utils.LocalFontSize
 import com.lucasmarciano.composeproject.ui.utils.LocalSpacing
 import com.lucasmarciano.composeproject.ui.utils.Spacing
 
-private val DarkColorScheme = lightColors(
+private val DarkColorScheme = darkColors(
     primary = Color(0xFF1C1B1F),
     primaryVariant = Color(0xFF444444),
     secondary = Color(0xFF1C1B1F),

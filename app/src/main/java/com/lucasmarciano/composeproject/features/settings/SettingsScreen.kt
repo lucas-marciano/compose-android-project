@@ -9,11 +9,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.lucasmarciano.composeproject.features.settings.components.ShimmerSettingsController
-import com.lucasmarciano.composeproject.ui.Components
-import com.lucasmarciano.composeproject.ui.InterfaceFactory
 import com.lucasmarciano.composeproject.ui.components.MainContainer
 import com.lucasmarciano.composeproject.ui.values.InterfaceItemComponent
-import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 
 @Composable
 fun SettingsScreen(navController: NavController) {
@@ -44,15 +41,7 @@ private fun SettingsContent(
     listItems: List<InterfaceItemComponent> = emptyList(),
     navController: NavController = rememberNavController()
 ) {
-    var toolbar: ToolbarComponent? = null
-    if (listItems.isNotEmpty()) {
-        val toolbarData = listItems.find { it.typeComponent == Components.TOOLBAR }
-        toolbar = (toolbarData as ToolbarComponent)
-    }
-
     ShimmerSettingsController(isLoading) {
-        MainContainer(toolbar, navController) {
-            InterfaceFactory(listItems, navController)
-        }
+        MainContainer(navController, listItems)
     }
 }
