@@ -6,7 +6,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
@@ -20,6 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.lucasmarciano.composeproject.R
 import com.lucasmarciano.composeproject.ui.utils.spacing
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
@@ -32,7 +36,11 @@ fun BackIcon(
     Icon(
         painter = painterResource(id = R.drawable.ic_left_arrow),
         contentDescription = stringResource(id = contentDescription),
-        tint = color
+        tint = color,
+        modifier = Modifier
+            .height(MaterialTheme.spacing.large)
+            .width(MaterialTheme.spacing.large)
+            .padding(MaterialTheme.spacing.extraSmall)
     )
 }
 
@@ -44,7 +52,11 @@ fun HelpIcon(
     Icon(
         painter = painterResource(id = R.drawable.ic_help_information),
         contentDescription = stringResource(id = contentDescription),
-        tint = color
+        tint = color,
+        modifier = Modifier
+            .height(MaterialTheme.spacing.large)
+            .width(MaterialTheme.spacing.large)
+            .padding(MaterialTheme.spacing.extraSmall)
     )
 }
 
@@ -52,13 +64,15 @@ fun HelpIcon(
 fun CoinIcon(
     @StringRes contentDescription: Int = R.string.content_description_money_icon,
     color: Color = MaterialTheme.colors.onPrimary,
-    size: Dp = MaterialTheme.spacing.extraMedium,
+    size: Dp = MaterialTheme.spacing.large,
 ) {
     Icon(
-        modifier = Modifier.size(size),
+        modifier = Modifier
+            .size(size)
+            .padding(MaterialTheme.spacing.extraSmall),
         painter = painterResource(id = R.drawable.ic_money_info),
         contentDescription = stringResource(id = contentDescription),
-        tint = color
+        tint = color,
     )
 }
 
@@ -75,12 +89,15 @@ fun StoreIcon(
             painter = painterResource(id = R.drawable.ic_store_menu),
             contentDescription = stringResource(id = contentDescription),
             tint = MaterialTheme.colors.onPrimary,
-            modifier = Modifier.clickable(onClick = onClick)
+            modifier = Modifier
+                .clickable(onClick = onClick)
+                .height(MaterialTheme.spacing.large)
+                .width(MaterialTheme.spacing.large)
         )
         if (hasNotification) {
             Box(
                 modifier = Modifier
-                    .size(MaterialTheme.spacing.small)
+                    .size(12.dp)
                     .clip(CircleShape)
                     .background(ColorPinkCaliforniaVariant)
                     .align(alignment = Alignment.BottomEnd)
@@ -96,6 +113,7 @@ fun HomeAvatar(avatar: String = emptyString()) {
             .size(MaterialTheme.spacing.huge)
             .clip(CircleShape)
             .background(ColorPinkCalifornia)
+            .padding(MaterialTheme.spacing.extraSmall)
     )
 }
 
@@ -105,9 +123,9 @@ private fun DefaultIconsPreview() {
     ComposeProjectTheme {
         Column {
             BackIcon()
-            BackIcon(color = Color.Blue)
+            BackIcon(color = ColorPinkCalifornia)
             HelpIcon()
-            HelpIcon(color = Color.Blue)
+            HelpIcon(color = ColorPinkCalifornia)
             StoreIcon(hasNotification = false)
             StoreIcon(hasNotification = true)
             CoinIcon()
@@ -121,9 +139,9 @@ private fun DefaultIconsDarkPreview() {
     ComposeProjectTheme {
         Column {
             BackIcon()
-            BackIcon(color = Color.Blue)
+            BackIcon(color = ColorPinkCalifornia)
             HelpIcon()
-            HelpIcon(color = Color.Blue)
+            HelpIcon(color = ColorPinkCalifornia)
             StoreIcon(hasNotification = false)
             StoreIcon(hasNotification = true)
             CoinIcon()
