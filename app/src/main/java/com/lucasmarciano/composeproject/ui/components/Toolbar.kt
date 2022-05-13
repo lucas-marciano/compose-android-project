@@ -13,8 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.lucasmarciano.composeproject.ui.theme.BackIcon
 import com.lucasmarciano.composeproject.ui.theme.ColorBlueCard
 import com.lucasmarciano.composeproject.ui.theme.ColorPinkCalifornia
@@ -28,7 +26,8 @@ import com.lucasmarciano.composeproject.ui.values.TypeToolbar
 @Composable
 internal fun Toolbar(
     toolbar: ToolbarComponent?,
-    navController: NavController
+    onClick: () -> Unit = { },
+    onClickMenu: () -> Unit = { }
 ) {
     toolbar?.let {
         val backgroundColor = when (toolbar.type) {
@@ -51,19 +50,19 @@ internal fun Toolbar(
                 }
             },
             navigationIcon = {
-                BuildBackAction(toolbar = toolbar, navController)
+                BuildBackAction(toolbar = toolbar, onClick)
             },
-            actions = { BuildAction(toolbar) },
+            actions = { BuildAction(toolbar, onClickMenu) },
             elevation = MaterialTheme.elevation.noElevation
         )
     }
 }
 
 @Composable
-private fun BuildAction(toolbar: ToolbarComponent) {
+private fun BuildAction(toolbar: ToolbarComponent, onClick: () -> Unit = { }) {
     return when (toolbar.contextualMenu) {
         ToolbarContextualMenu.HELP -> {
-            IconButton(onClick = { }) {
+            IconButton(onClick = onClick) {
                 HelpIcon(color = getColorIcons(toolbar.type))
             }
         }
@@ -72,12 +71,11 @@ private fun BuildAction(toolbar: ToolbarComponent) {
 }
 
 @Composable
-private fun BuildBackAction(toolbar: ToolbarComponent, navController: NavController) {
-    return IconButton(onClick = {
-        navController.navigate(toolbar.backTo) {
-            popUpTo(toolbar.backTo) { inclusive = true }
-        }
-    }) {
+private fun BuildBackAction(
+    toolbar: ToolbarComponent,
+    onClick: () -> Unit = { }
+) {
+    return IconButton(onClick = onClick) {
         BackIcon(color = getColorIcons(toolbar.type))
     }
 }
@@ -101,8 +99,7 @@ fun ToolbarPreview() {
             title = "title",
             contextualMenu = ToolbarContextualMenu.HELP
         )
-        val navController = rememberNavController()
-        Toolbar(toolbar, navController)
+        Toolbar(toolbar)
     }
 }
 
@@ -115,8 +112,7 @@ fun ToolbarBluePreview() {
             type = TypeToolbar.BLUE,
             contextualMenu = ToolbarContextualMenu.HELP
         )
-        val navController = rememberNavController()
-        Toolbar(toolbar, navController)
+        Toolbar(toolbar)
     }
 }
 
@@ -128,7 +124,6 @@ fun DarkToolbarPreview() {
             title = "title",
             contextualMenu = ToolbarContextualMenu.HELP
         )
-        val navController = rememberNavController()
-        Toolbar(toolbar, navController)
+        Toolbar(toolbar)
     }
 }

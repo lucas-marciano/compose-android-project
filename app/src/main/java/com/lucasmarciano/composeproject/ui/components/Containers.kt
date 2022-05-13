@@ -6,7 +6,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -20,11 +22,13 @@ import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.utils.spacing
 import com.lucasmarciano.composeproject.ui.values.InterfaceItemComponent
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
+import com.lucasmarciano.composeproject.utils.extensions.navBackTo
 
 @Composable
 internal fun MainContainer(
     navController: NavController,
     listItems: List<InterfaceItemComponent> = emptyList(),
+    state: LazyListState = rememberLazyListState(),
 ) {
     var toolbar: ToolbarComponent? = null
     if (listItems.isNotEmpty()) {
@@ -33,13 +37,16 @@ internal fun MainContainer(
     }
 
     ComposeProjectTheme {
-        LazyColumn(modifier = Modifier
-            .background(MaterialTheme.colors.background)
-            .fillMaxSize()) {
+        LazyColumn(
+            state = state,
+            modifier = Modifier
+                .background(MaterialTheme.colors.background)
+                .fillMaxSize()
+        ) {
             item {
                 Toolbar(
                     toolbar = toolbar,
-                    navController = navController
+                    onClick = { navController.navBackTo(toolbar?.backTo) }
                 )
             }
             items(listItems) { component ->
@@ -47,9 +54,9 @@ internal fun MainContainer(
                     modifier = Modifier
                         .background(MaterialTheme.colors.background)
                         .padding(
-                            top = MaterialTheme.spacing.medium,
                             start = MaterialTheme.spacing.medium,
-                            end = MaterialTheme.spacing.medium
+                            end = MaterialTheme.spacing.medium,
+                            top = MaterialTheme.spacing.medium
                         )
                 ) {
                     InterfaceFactory(component, navController)

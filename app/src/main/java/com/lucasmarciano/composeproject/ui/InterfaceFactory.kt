@@ -48,11 +48,11 @@ fun InterfaceFactory(item: InterfaceItemComponent, navController: NavController)
         }
         Components.CARD_ICON_LIST -> {
             val cardIconList = (item as CardIconListComponent).items
-            CardsList(cardIconList)
+            CardsList(cardIconList, navController)
         }
         Components.CARD_BLUE_LIST -> {
             val cardList = (item as CardBlueListComponent).items
-            BlueCardsList(cardList)
+            BlueCardsList(cardList, navController)
         }
         Components.SPACER -> {
             val spacerComponent = (item as SpacerComponent)

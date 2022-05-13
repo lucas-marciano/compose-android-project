@@ -2,6 +2,7 @@ package com.lucasmarciano.composeproject.features.home
 
 import android.content.res.Configuration
 import android.widget.Toast
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -44,8 +45,9 @@ private fun HomeContent(
     listItems: List<InterfaceItemComponent> = emptyList(),
     navController: NavController = rememberNavController()
 ) {
+    val state = rememberLazyListState()
     ShimmerHomeController(isLoading) {
-        MainContainer(navController, listItems)
+        MainContainer(navController, listItems, state)
     }
 }
 
