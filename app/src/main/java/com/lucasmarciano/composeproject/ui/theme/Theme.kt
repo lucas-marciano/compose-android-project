@@ -36,7 +36,7 @@ private val DarkColorScheme = darkColors(
 
 private val LightColorScheme = lightColors(
     primary = Color(0xFFFFFBFE),
-    primaryVariant = Color(0xFF444444).copy(alpha = 0.7f),
+    primaryVariant = Color(0xFFFFFBFE).copy(alpha = 0.7f),
     secondary = Color(0xFFFFFBFE),
     background = Color(0xFFFFFBFE),
     surface = Color(0xFFE8E2E6),

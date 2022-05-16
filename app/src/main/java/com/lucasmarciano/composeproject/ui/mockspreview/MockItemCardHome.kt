@@ -4,6 +4,7 @@ import com.lucasmarciano.composeproject.data.home.models.BannerVO
 import com.lucasmarciano.composeproject.data.home.models.ItemCardHomeVO
 import com.lucasmarciano.composeproject.data.home.models.ResponseBuildVO
 import com.lucasmarciano.composeproject.data.models.CallToActionVO
+import com.lucasmarciano.composeproject.data.models.ItemTimeLineVO
 import com.lucasmarciano.composeproject.data.models.ProfileVO
 import com.lucasmarciano.composeproject.data.settings.models.ItemMenuVO
 import com.lucasmarciano.composeproject.data.settings.models.StoreNameVO
@@ -190,5 +191,31 @@ internal fun mockItemMenuList() = listOf(
         callToActionVO = CallToActionVO(
             name = "menu 4"
         )
+    )
+)
+
+internal fun mockListItemTimeLine() = listOf(
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine()
+)
+
+internal fun mockItemTimeLine() = ItemTimeLineVO(
+    position = 1,
+    id = "1",
+    icon = "",
+    title = "pagamento pix",
+    value = "R$ 100,00",
+    description = "pagamento via pix",
+    tag = "pix",
+    callToActionVO = CallToActionVO(
+        "",
+        action = "sell/detail/{sellId}"
     )
 )
