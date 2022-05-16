@@ -25,7 +25,7 @@ fun BlueCardsList(
         state = rememberLazyListState(),
         horizontalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.small)
     ) {
-        items(cards) { card ->
+        items(cards, key = { it.id }) { card ->
             BlueCard(item = card) { navController.navTo(card.callToAction.action) }
         }
     }

@@ -43,11 +43,13 @@ internal fun MainContainer(
                 .background(MaterialTheme.colors.background)
                 .fillMaxSize()
         ) {
-            item {
-                Toolbar(
-                    toolbar = toolbar,
-                    onClick = { navController.navBackTo(toolbar?.backTo) }
-                )
+            toolbar?.let {
+                item {
+                    Toolbar(
+                        toolbar = toolbar,
+                        onClick = { navController.navBackTo(it.backTo) }
+                    )
+                }
             }
             items(listItems) { component ->
                 Column(

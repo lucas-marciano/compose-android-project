@@ -6,6 +6,8 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -45,9 +47,12 @@ private fun SettingsContent(
     listItems: List<InterfaceItemComponent> = emptyList(),
     navController: NavController = rememberNavController()
 ) {
+    val mListItems by remember { mutableStateOf(listItems) }
+    val mIsLoading by remember { mutableStateOf(isLoading) }
     val state = rememberLazyListState()
-    ShimmerSettingsController(isLoading) {
-        MainContainer(navController, listItems, state)
+
+    ShimmerSettingsController(mIsLoading) {
+        MainContainer(navController, mListItems, state)
     }
 }
 

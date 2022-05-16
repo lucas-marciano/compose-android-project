@@ -30,7 +30,7 @@ fun CardsList(
             bottom = MaterialTheme.spacing.small
         )
     ) {
-        items(cards) { card ->
+        items(cards, key = { it.id }) { card ->
             CardWithIcon(item = card) { navController.navTo(card.callToAction.action) }
         }
     }

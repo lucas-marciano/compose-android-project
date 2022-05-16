@@ -28,18 +28,21 @@ internal fun mockBanner() = BannerVO(
 )
 
 internal fun mockItemCard() = ItemCardHomeVO(
+    id = 0,
     text = "você não fez nenhuma venda este mês, bora vender?",
     icon = emptyString(),
     callToAction = CallToActionVO()
 )
 
 internal fun mockItemCardWithIcon() = ItemCardHomeVO(
+    id = 0,
     text = "você não fez nenhuma venda este mês, bora vender?",
     icon = "um icone",
     callToAction = CallToActionVO()
 )
 
 internal fun mockSimpleItemCardWithIcon() = ItemCardHomeVO(
+    id = 0,
     text = "sell",
     icon = "um icone",
     callToAction = CallToActionVO()
@@ -47,11 +50,13 @@ internal fun mockSimpleItemCardWithIcon() = ItemCardHomeVO(
 
 internal fun mockListSimpleItemCardWithIcon() = listOf(
     ItemCardHomeVO(
+        id = 0,
         text = "pix",
         icon = "um icone",
         callToAction = CallToActionVO()
     ),
     ItemCardHomeVO(
+        id = 1,
         text = "cartão",
         icon = "um icone",
         callToAction = CallToActionVO()
