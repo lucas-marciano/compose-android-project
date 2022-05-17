@@ -1,5 +1,10 @@
 package com.lucasmarciano.composeproject.data.models
 
+import androidx.compose.ui.graphics.Color
+import com.lucasmarciano.composeproject.ui.theme.ColorBlueCard
+import com.lucasmarciano.composeproject.ui.theme.ColorBlueChipInfo
+import com.lucasmarciano.composeproject.ui.theme.ColorRedChipInfo
+
 internal data class ItemTimeLineVO(
     val position: Int,
     val id: String,
@@ -12,7 +17,7 @@ internal data class ItemTimeLineVO(
     val callToActionVO: CallToActionVO
 )
 
-internal enum class ChipType {
-    ERROR,
-    INFO
+internal enum class ChipType(val mainColor: Color, val secondaryColor: Color) {
+    ERROR(Color.Red, ColorRedChipInfo),
+    INFO(ColorBlueCard, ColorBlueChipInfo)
 }
