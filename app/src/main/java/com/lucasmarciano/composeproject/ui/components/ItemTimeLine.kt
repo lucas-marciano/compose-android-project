@@ -23,11 +23,22 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.lucasmarciano.composeproject.data.models.ItemTimeLineVO
+import com.lucasmarciano.composeproject.ui.components.shimmer.ItemTimeLineShimmer
+import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.ShimmerView
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemTimeLine
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 
 @Composable
-internal fun ItemTimeLine(item: ItemTimeLineVO, onClick: (String) -> Unit = { }) {
+internal fun ItemTimeLine(
+    item: ItemTimeLineVO,
+    isLoading: Boolean = false,
+    onClick: (String) -> Unit = { },
+) {
+    ShimmerView(isLoading, { ItemTimeLineContainer(item, onClick) }) { ItemTimeLineShimmer(brush = it) }
+}
+
+@Composable
+internal fun ItemTimeLineContainer(item: ItemTimeLineVO, onClick: (String) -> Unit = { }) {
     ConstraintLayout(
         modifier = Modifier
             .clickable { onClick(item.callToActionVO.action) }
@@ -104,16 +115,32 @@ internal fun ItemTimeLine(item: ItemTimeLineVO, onClick: (String) -> Unit = { })
 
 @Preview
 @Composable
-private fun ItemTimeLinePreview() {
+private fun ItemTimeLineShimmerOnPreview() {
     ComposeProjectTheme {
-        ItemTimeLine(mockItemTimeLine())
+        ItemTimeLine(mockItemTimeLine(), true)
+    }
+}
+
+@Preview
+@Composable
+private fun ItemTimeLineShimmerOffPreview() {
+    ComposeProjectTheme {
+        ItemTimeLine(mockItemTimeLine(), false)
     }
 }
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun ItemTimeLineDarkPreview() {
+private fun ItemTimeLineShimmerOnDarkPreview() {
     ComposeProjectTheme {
-        ItemTimeLine(mockItemTimeLine())
+        ItemTimeLine(mockItemTimeLine(), true)
+    }
+}
+
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+private fun ItemTimeLineShimmerOffDarkPreview() {
+    ComposeProjectTheme {
+        ItemTimeLine(mockItemTimeLine(), false)
     }
 }

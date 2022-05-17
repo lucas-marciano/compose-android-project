@@ -19,7 +19,7 @@ import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimme
 import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
-fun TitleShimmer(brush: Brush) {
+fun TitleShimmer(brush: Brush, widthFraction: Float = 1f) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -28,10 +28,9 @@ fun TitleShimmer(brush: Brush) {
     ) {
         Spacer(
             modifier = Modifier
-                .fillMaxWidth()
                 .height(MaterialTheme.spacing.extraMedium)
                 .clip(RoundedCornerShape(MaterialTheme.spacing.small))
-                .fillMaxWidth(fraction = 0.9f)
+                .fillMaxWidth(fraction = widthFraction)
                 .background(brush = brush)
         )
     }

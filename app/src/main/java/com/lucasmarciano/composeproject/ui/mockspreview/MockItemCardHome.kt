@@ -120,6 +120,8 @@ internal fun mockSettingsResult() = ResponseBuildVO(
     )
 )
 
+internal fun mockSalesResult() = ResponseBuildVO()
+
 internal fun mockProfile() = listOf(
     ProfileVO(
         callToActionVO = CallToActionVO(name = "editar", action = "action"),
