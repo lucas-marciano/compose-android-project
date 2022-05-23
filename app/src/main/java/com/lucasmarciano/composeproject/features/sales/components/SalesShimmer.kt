@@ -30,8 +30,8 @@ import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
-fun ShimmerSalesTopController(isLoading: Boolean = true, content: @Composable () -> Unit) {
-    ShimmerView(isLoading, content) { SalesShimmerTopScreen(brush = it) }
+fun ShimmerSalesHeaderController(isLoading: Boolean = true, content: @Composable () -> Unit) {
+    ShimmerView(isLoading, content) { SalesShimmerHeaderScreen(brush = it) }
 }
 
 @Composable
@@ -40,7 +40,7 @@ fun ShimmerSalesTimeListController(isLoading: Boolean = true, content: @Composab
 }
 
 @Composable
-private fun SalesShimmerTopScreen(brush: Brush) {
+private fun SalesShimmerHeaderScreen(brush: Brush) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -110,7 +110,7 @@ private fun SalesShimmerListScreen(brush: Brush) {
 @Composable
 private fun SalesShimmerTopScreenPreview() {
     ComposeProjectTheme {
-        SalesShimmerTopScreen(MainAnimatedShimmer.brushColors)
+        SalesShimmerHeaderScreen(MainAnimatedShimmer.brushColors)
     }
 }
 
@@ -126,7 +126,7 @@ private fun SalesShimmerListScreenPreview() {
 @Composable
 private fun SalesShimmerTopScreenDarkPreview() {
     ComposeProjectTheme {
-        SalesShimmerTopScreen(MainAnimatedShimmer.brushColors)
+        SalesShimmerHeaderScreen(MainAnimatedShimmer.brushColors)
     }
 }
 

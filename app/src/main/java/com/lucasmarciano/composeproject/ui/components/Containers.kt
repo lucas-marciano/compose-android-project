@@ -36,33 +36,31 @@ internal fun MainContainer(
         toolbar = (toolbarData as ToolbarComponent)
     }
 
-    ComposeProjectTheme {
-        LazyColumn(
-            state = state,
-            modifier = Modifier
-                .background(MaterialTheme.colors.background)
-                .fillMaxSize()
-        ) {
-            toolbar?.let {
-                item {
-                    Toolbar(
-                        toolbar = toolbar,
-                        onClick = { navController.navBackTo(it.backTo) }
-                    )
-                }
+    LazyColumn(
+        state = state,
+        modifier = Modifier
+            .background(MaterialTheme.colors.background)
+            .fillMaxSize()
+    ) {
+        toolbar?.let {
+            item {
+                Toolbar(
+                    toolbar = toolbar,
+                    onClick = { navController.navBackTo(it.backTo) }
+                )
             }
-            items(listItems) { component ->
-                Column(
-                    modifier = Modifier
-                        .background(MaterialTheme.colors.background)
-                        .padding(
-                            start = MaterialTheme.spacing.medium,
-                            end = MaterialTheme.spacing.medium,
-                            top = MaterialTheme.spacing.medium
-                        )
-                ) {
-                    InterfaceFactory(component, navController)
-                }
+        }
+        items(listItems) { component ->
+            Column(
+                modifier = Modifier
+                    .background(MaterialTheme.colors.background)
+                    .padding(
+                        start = MaterialTheme.spacing.medium,
+                        end = MaterialTheme.spacing.medium,
+                        top = MaterialTheme.spacing.medium
+                    )
+            ) {
+                InterfaceFactory(component, navController)
             }
         }
     }

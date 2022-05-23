@@ -19,7 +19,6 @@ import com.lucasmarciano.composeproject.ui.components.shimmer.MenuItemShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.SubTitleShimmer
 import com.lucasmarciano.composeproject.ui.utils.spacing
 
-
 @Composable
 fun ShimmerSettingsController(isLoading: Boolean = true, content: @Composable () -> Unit) {
     ShimmerView(isLoading, content) { SettingsShimmerScreen(brush = it) }

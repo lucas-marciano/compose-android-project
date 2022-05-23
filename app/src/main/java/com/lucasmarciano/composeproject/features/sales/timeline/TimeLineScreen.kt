@@ -6,10 +6,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.lucasmarciano.composeproject.ui.values.InterfaceItemComponent
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.lucasmarciano.composeproject.data.models.ItemTimeLineVO
+import com.lucasmarciano.composeproject.features.sales.components.ShimmerSalesTimeListController
 
 @Composable
-fun TimeLineScreen() {
+fun TimeLineScreen(navController: NavController = rememberNavController()) {
     val viewModel = viewModel<TimeLineViewModel>()
     val state by viewModel.uiState.collectAsState()
 
@@ -17,7 +20,8 @@ fun TimeLineScreen() {
         is TimeLineUIState.Loading -> TimeLineContent()
         is TimeLineUIState.Success -> TimeLineContent(
             isLoading = false,
-            listItems = (state as TimeLineUIState.Success).data.listItems,
+            listItems = (state as TimeLineUIState.Success).data,
+            navController = navController
         )
         is TimeLineUIState.ErrorEmpty -> {
 
@@ -34,9 +38,12 @@ fun TimeLineScreen() {
 }
 
 @Composable
-fun TimeLineContent(
+private fun TimeLineContent(
     isLoading: Boolean = true,
-    listItems: List<InterfaceItemComponent> = emptyList()
+    listItems: List<ItemTimeLineVO> = emptyList(),
+    navController: NavController = rememberNavController()
 ) {
+    ShimmerSalesTimeListController(isLoading = isLoading) {
 
+    }
 }
