@@ -5,6 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.lucasmarciano.composeproject.features.home.HomeScreen
+import com.lucasmarciano.composeproject.features.sales.SalesScreen
 import com.lucasmarciano.composeproject.features.settings.SettingsScreen
 
 @Composable
@@ -13,5 +14,6 @@ fun Navigation() {
     NavHost(navController = navController, startDestination = Screen.HomeScreen.route) {
         composable(route = Screen.HomeScreen.route) { HomeScreen(navController) }
         composable(route = Screen.SettingsScreen.route) { SettingsScreen(navController) }
+        composable(route = Screen.SalesScreen.route) { SalesScreen(navController) }
     }
 }
