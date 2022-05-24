@@ -101,6 +101,8 @@
         <entry key="app/src/main/java/com/lucasmarciano/composeproject/ui/components/shimmer/ItemTimeLineShimmer.kt" value="0.18796296296296297" />
         <entry key="app/src/main/java/com/lucasmarciano/composeproject/ui/components/shimmer/ListShimmer.kt" value="0.18796296296296297" />
         <entry key="app/src/main/java/com/lucasmarciano/composeproject/ui/components/shimmer/TitleShimmer.kt" value="0.18796296296296297" />
+        <entry key="app/src/main/java/com/lucasmarciano/composeproject/ui/components/toolbar/CollapseToolBar.kt" value="0.27280405405405406" />
+        <entry key="app/src/main/java/com/lucasmarciano/composeproject/ui/components/toolbar/Toolbar.kt" value="0.1574074074074074" />
         <entry key="app/src/main/java/com/lucasmarciano/composeproject/ui/theme/Icons.kt" value="0.8367346938775511" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1015" />
         <entry key="app/src/main/res/drawable/ic_help_information.xml" value="0.1455" />

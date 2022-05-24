@@ -17,6 +17,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.lucasmarciano.composeproject.ui.Components
 import com.lucasmarciano.composeproject.ui.InterfaceFactory
+import com.lucasmarciano.composeproject.ui.components.toolbar.Toolbar
 import com.lucasmarciano.composeproject.ui.mockspreview.mockHomeResult
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.utils.spacing
@@ -42,11 +43,11 @@ internal fun MainContainer(
             .background(MaterialTheme.colors.background)
             .fillMaxSize()
     ) {
-        toolbar?.let {
+        toolbar?.let { bar ->
             item {
                 Toolbar(
                     toolbar = toolbar,
-                    onClick = { navController.navBackTo(it.backTo) }
+                    onClick = { navController.navBackTo(bar.backTo) }
                 )
             }
         }
