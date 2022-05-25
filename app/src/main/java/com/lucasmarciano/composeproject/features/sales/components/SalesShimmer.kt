@@ -61,34 +61,6 @@ private fun SalesShimmerHeaderScreen(brush: Brush) {
 
                 TitleShimmer(brush = brush, 0.5f)
             }
-            Surface(
-                elevation = 4.dp, modifier = Modifier
-                    .height(56.dp)
-                    .fillMaxWidth()
-            ) {
-
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceAround,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .height(20.dp)
-                            .width(130.dp)
-                            .clip(RoundedCornerShape(MaterialTheme.spacing.small))
-                            .background(brush)
-                    )
-                    Box(
-                        modifier = Modifier
-                            .height(20.dp)
-                            .width(130.dp)
-                            .clip(RoundedCornerShape(MaterialTheme.spacing.small))
-                            .background(brush)
-                    )
-                }
-            }
         }
     }
 }
@@ -100,6 +72,34 @@ private fun SalesShimmerListScreen(brush: Brush) {
             .fillMaxWidth()
             .background(MaterialTheme.colors.background)
     ) {
+        Surface(
+            elevation = 4.dp, modifier = Modifier
+                .height(56.dp)
+                .fillMaxWidth()
+        ) {
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceAround,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Box(
+                    modifier = Modifier
+                        .height(20.dp)
+                        .width(130.dp)
+                        .clip(RoundedCornerShape(MaterialTheme.spacing.small))
+                        .background(brush)
+                )
+                Box(
+                    modifier = Modifier
+                        .height(20.dp)
+                        .width(130.dp)
+                        .clip(RoundedCornerShape(MaterialTheme.spacing.small))
+                        .background(brush)
+                )
+            }
+        }
         repeat(4) {
             ItemTimeLineShimmer(brush = brush)
         }
