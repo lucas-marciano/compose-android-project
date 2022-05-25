@@ -24,7 +24,7 @@ private fun SalesContent(navController: NavController) {
             .background(MaterialTheme.colors.background)
             .fillMaxSize()
     ) {
-        HeaderSalesScreen(navController)
+        HeaderSalesScreen()
         TimeLineScreen(navController)
     }
 }
