@@ -17,7 +17,9 @@ internal class HeaderSalesViewModel : ViewModel() {
         fetchData()
     }
 
-    private fun fetchData() {
+    fun fetchData() {
+        _uiState.value = HeaderSalesUIState.Loading
+
         viewModelScope.launch {
             _uiState.value = HeaderSalesUIState.Loading
             delay(3000)

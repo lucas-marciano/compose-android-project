@@ -1,37 +1,45 @@
 package com.lucasmarciano.composeproject.features.sales.header
 
-import android.widget.Toast
+import android.content.res.Configuration
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.layout.width
+import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.outlined.MonetizationOn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
+import com.lucasmarciano.composeproject.R
+import com.lucasmarciano.composeproject.data.models.SalesInformationVO
 import com.lucasmarciano.composeproject.features.sales.components.ShimmerSalesHeaderController
 import com.lucasmarciano.composeproject.ui.components.SecondTitle
 import com.lucasmarciano.composeproject.ui.components.Title
+import com.lucasmarciano.composeproject.ui.mockspreview.mockSalesResult
 import com.lucasmarciano.composeproject.ui.theme.ColorSalesToolbar
-import com.lucasmarciano.composeproject.ui.values.InterfaceItemComponent
+import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
+import com.lucasmarciano.composeproject.ui.utils.spacing
+import com.lucasmarciano.composeproject.utils.extensions.emptyString
 
 @Composable
-fun HeaderSalesScreen(navController: NavController = rememberNavController()) {
+fun HeaderSalesScreen() {
     val viewModel = viewModel<HeaderSalesViewModel>()
     val state by viewModel.uiState.collectAsState()
 
@@ -39,16 +47,10 @@ fun HeaderSalesScreen(navController: NavController = rememberNavController()) {
         is HeaderSalesUIState.Loading -> HeaderSalesContent()
         is HeaderSalesUIState.Success -> HeaderSalesContent(
             isLoading = false,
-            listItems = (state as HeaderSalesUIState.Success).data.listItems,
-            navController
+            item = (state as HeaderSalesUIState.Success).data,
         )
         is HeaderSalesUIState.Error -> {
-            Toast.makeText(
-                LocalContext.current,
-                "houve um erro: ${(state as HeaderSalesUIState.Error).error.message}",
-                Toast.LENGTH_LONG
-            ).show()
-            HeaderSalesContent(isLoading = false)
+            MessageError(retryClick = { viewModel.fetchData() })
         }
     }
 }
@@ -56,50 +58,97 @@ fun HeaderSalesScreen(navController: NavController = rememberNavController()) {
 @Composable
 private fun HeaderSalesContent(
     isLoading: Boolean = true,
-    listItems: List<InterfaceItemComponent> = emptyList(),
-    navController: NavController = rememberNavController()
+    item: SalesInformationVO = SalesInformationVO(),
 ) {
-    val mListItems by remember { mutableStateOf(listItems) }
+    val mItem by remember { mutableStateOf(item) }
     val mIsLoading by remember { mutableStateOf(isLoading) }
-    val state = rememberLazyListState()
 
-    ShimmerSalesHeaderController(isLoading = isLoading) {
+    ShimmerSalesHeaderController(isLoading = mIsLoading) {
+
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(MaterialTheme.colors.background)
+                .background(ColorSalesToolbar)
+                .padding(all = MaterialTheme.spacing.extraMedium)
+                .fillMaxWidth()
         ) {
-            Column {
-                Column(
-                    modifier = Modifier
-                        .background(ColorSalesToolbar)
-                        .padding(all = 24.dp)
-                        .fillMaxWidth()
-                ) {
+            Icon(
+                imageVector = Icons.Outlined.MonetizationOn,
+                contentDescription = emptyString(),
+                tint = Color.Yellow,
+                modifier = Modifier
+                    .height(80.dp)
+                    .width(80.dp)
+            )
 
-                    SecondTitle("value")
+            SecondTitle(
+                text = mItem.title,
+                color = Color.White,
+                modifier = Modifier.padding(
+                    top = MaterialTheme.spacing.medium,
+                    bottom = 0.dp
+                )
+            )
 
-                    Title("value")
+            Title(text = mItem.value, color = Color.White)
 
-                    Title("value")
-                }
-                Surface(
-                    elevation = 4.dp, modifier = Modifier
-                        .height(56.dp)
-                        .fillMaxWidth()
-                ) {
-
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceAround,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(text = "item 1")
-                        Text(text = "item 2")
-                    }
-                }
-            }
+            SecondTitle(text = mItem.subtitle, color = Color.White)
         }
+    }
+}
+
+@Composable
+private fun MessageError(retryClick: () -> Unit = {}) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(ColorSalesToolbar)
+            .padding(all = MaterialTheme.spacing.extraMedium)
+            .padding(vertical = MaterialTheme.spacing.huge)
+            .clickable(enabled = true, onClick = retryClick)
+    ) {
+        Icon(
+            imageVector = Icons.Filled.Info,
+            contentDescription = emptyString(),
+            tint = Color.White,
+            modifier = Modifier
+                .height(80.dp)
+                .width(80.dp)
+        )
+        Text(
+            text = stringResource(id = R.string.my_business_error_message_header_sales),
+            fontWeight = FontWeight.Normal,
+            color = Color.White
+        )
+    }
+}
+
+@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
+@Composable
+private fun HeaderSalesContentPreview() {
+    ComposeProjectTheme {
+        HeaderSalesContent(
+            isLoading = false,
+            item = mockSalesResult(),
+        )
+    }
+}
+
+@Preview(
+    showBackground = true,
+    uiMode = Configuration.UI_MODE_TYPE_NORMAL
+)
+@Composable
+private fun HeaderSalesContentLoadingPreview() {
+    ComposeProjectTheme {
+        HeaderSalesContent(isLoading = true)
+    }
+}
+
+@Preview
+@Composable
+private fun MessageErrorPreview() {
+    ComposeProjectTheme {
+        MessageError()
     }
 }
