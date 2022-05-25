@@ -36,11 +36,11 @@ fun InterfaceFactory(item: InterfaceItemComponent, navController: NavController)
         }
         Components.MAIN_TITLE -> {
             val homeValue = (item as TitleComponent)
-            Title(homeValue.name, getColorValue(homeValue.color))
+            Title(text = homeValue.name, color = getColorValue(homeValue.color))
         }
         Components.SECOND_TITLE -> {
             val secondTitle = (item as SecondTitleComponent)
-            SecondTitle(secondTitle.name, getColorValue(secondTitle.color))
+            SecondTitle(text = secondTitle.name, color = getColorValue(secondTitle.color))
         }
         Components.CARD_ICON_LIST -> {
             val cardIconList = (item as CardIconListComponent).items

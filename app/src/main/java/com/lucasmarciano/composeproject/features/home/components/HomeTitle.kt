@@ -37,7 +37,7 @@ fun HomeTitle(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Title(name)
+            Title(text = name)
             StoreIcon(
                 hasNotification = hasNotification,
                 onClick = { navController.navigate(Screen.SettingsScreen.route) })

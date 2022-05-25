@@ -35,8 +35,8 @@ internal fun Profile(listProfile: List<ProfileVO>, avatar: String) {
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Column {
-                    Body(it.name, MaterialTheme.colors.onBackground)
-                    Body(it.title)
+                    Body(text = it.name, color = MaterialTheme.colors.onBackground)
+                    Body(text = it.title)
                 }
                 ButtonBordLess(it.callToActionVO)
             }
