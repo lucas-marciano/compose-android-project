@@ -20,10 +20,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.statusBarsPadding
+import com.lucasmarciano.composeproject.ui.theme.ColorSalesToolbar
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.utils.Const.APP_BAR_COLLAPSED_HEIGHT
 import com.lucasmarciano.composeproject.ui.utils.Const.BottomSheetShape
-import com.lucasmarciano.composeproject.ui.utils.getBgToolbarColor
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.ui.values.TypeToolbar
 
@@ -39,9 +39,9 @@ internal fun CollapseToolbar(
     val backDropState = rememberBackdropScaffoldState(BackdropValue.Revealed)
 
     BackdropScaffold(
-        modifier = Modifier.background(getBgToolbarColor(typeToolbar = toolbar.type)),
+        modifier = Modifier.background(ColorSalesToolbar),
         frontLayerShape = BottomSheetShape,
-        frontLayerScrimColor = Color.Unspecified,
+        frontLayerScrimColor = MaterialTheme.colors.background,
         scaffoldState = backDropState,
         appBar = {
             Row(
@@ -49,7 +49,7 @@ internal fun CollapseToolbar(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(getBgToolbarColor(typeToolbar = toolbar.type))
+                    .background(ColorSalesToolbar)
                     .statusBarsPadding()
                     .height(APP_BAR_COLLAPSED_HEIGHT)
                     .padding(horizontal = 8.dp)
@@ -71,10 +71,10 @@ internal fun CollapseToolbar(
 
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF, showSystemUi = true)
 @Composable
-fun CollapseToolBarPreview() {
+private fun CollapseToolBarPreview() {
     ComposeProjectTheme {
         CollapseToolbar(
-            toolbar = ToolbarComponent("seu négocio", type = TypeToolbar.BLUE),
+            toolbar = ToolbarComponent("toolbar", type = TypeToolbar.BLUE),
             header = {
                 Row(
                     modifier = Modifier

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Meu projeto</string>
+    <string name="app_name">seu negócio</string>
     <string name="content_description_back_button_toolbar">voltar</string>
     <string name="content_description_store_icon">menu</string>
     <string name="content_description_money_icon">dinheiro</string>
@@ -11,4 +11,6 @@
     <string name="my_business_charges">cobranças</string>
     <string name="my_business_sales">vendas</string>
     <string name="my_business_error_message_header_sales">desculpa, mas ocorreu um erro ao tentar buscar as informações necessárias. Click aqui para tentar recarregar os dados</string>
+    <string name="my_business_toolbar_sale_name">seu negócio</string>
+
 </resources>
