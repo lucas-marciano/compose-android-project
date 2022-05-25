@@ -8,4 +8,7 @@
     <string name="label_empty" />
     <string name="label_emphasis">destaques</string>
     <string name="title_settings">configurações</string>
+    <string name="my_business_charges">cobranças</string>
+    <string name="my_business_sales">vendas</string>
+    <string name="my_business_error_message_header_sales">desculpa, mas ocorreu um erro ao tentar buscar as informações necessárias. Click aqui para tentar recarregar os dados</string>
 </resources>
