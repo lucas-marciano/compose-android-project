@@ -16,11 +16,15 @@ internal class TimeLineViewModel : ViewModel() {
         fetchData()
     }
 
-    private fun fetchData() {
+    fun fetchData() {
+        _uiState.value = TimeLineUIState.Loading
         viewModelScope.launch {
             _uiState.value = TimeLineUIState.Loading
             delay(3000)
-            _uiState.value = TimeLineUIState.Success(mockListItemTimeLine())
+            if (mockListItemTimeLine().isNotEmpty())
+                _uiState.value = TimeLineUIState.Success(mockListItemTimeLine())
+            else
+                _uiState.value = TimeLineUIState.ErrorEmpty
         }
     }
 }

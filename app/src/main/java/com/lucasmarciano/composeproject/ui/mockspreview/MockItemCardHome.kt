@@ -20,6 +20,7 @@ import com.lucasmarciano.composeproject.ui.values.SpacerComponent
 import com.lucasmarciano.composeproject.ui.values.StoreProfileComponent
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
+import kotlin.random.Random
 
 internal fun mockBanner() = BannerVO(
     description = "que tal uma maquininha pra\naceitar cartões de crédito? :D",
@@ -30,21 +31,21 @@ internal fun mockBanner() = BannerVO(
 )
 
 internal fun mockItemCard() = ItemCardHomeVO(
-    id = 0,
+    id = Random.nextInt(),
     text = "você não fez nenhuma venda este mês, bora vender?",
     icon = emptyString(),
-    callToAction = CallToActionVO()
+    callToAction = CallToActionVO(action = "sales_screen_route")
 )
 
 internal fun mockItemCardWithIcon() = ItemCardHomeVO(
-    id = 0,
+    id = Random.nextInt(),
     text = "você não fez nenhuma venda este mês, bora vender?",
     icon = "um icone",
     callToAction = CallToActionVO()
 )
 
 internal fun mockSimpleItemCardWithIcon() = ItemCardHomeVO(
-    id = 0,
+    id = Random.nextInt(),
     text = "sell",
     icon = "um icone",
     callToAction = CallToActionVO()
@@ -52,13 +53,13 @@ internal fun mockSimpleItemCardWithIcon() = ItemCardHomeVO(
 
 internal fun mockListSimpleItemCardWithIcon() = listOf(
     ItemCardHomeVO(
-        id = 0,
+        id = Random.nextInt(),
         text = "pix",
         icon = "um icone",
         callToAction = CallToActionVO()
     ),
     ItemCardHomeVO(
-        id = 1,
+        id = Random.nextInt(),
         text = "cartão",
         icon = "um icone",
         callToAction = CallToActionVO()
@@ -204,19 +205,19 @@ internal fun mockItemMenuList() = listOf(
 
 internal fun mockListItemTimeLine() = listOf(
     mockItemTimeLine(),
-    mockItemTimeLine(),
-    mockItemTimeLine(),
-    mockItemTimeLine(),
-    mockItemTimeLine(),
-    mockItemTimeLine(),
-    mockItemTimeLine(),
-    mockItemTimeLine(),
-    mockItemTimeLine()
+    mockItemTimeLine().copy(position = 2),
+    mockItemTimeLine().copy(position = 3),
+    mockItemTimeLine().copy(position = 4),
+    mockItemTimeLine().copy(position = 5),
+    mockItemTimeLine().copy(position = 6),
+    mockItemTimeLine().copy(position = 7),
+    mockItemTimeLine().copy(position = 8),
+    mockItemTimeLine().copy(position = 9)
 )
 
 internal fun mockItemTimeLine() = ItemTimeLineVO(
     position = 1,
-    id = "1",
+    id = Random.nextInt().toString(),
     icon = "",
     title = "pagamento pix",
     value = "R$ 100,00",

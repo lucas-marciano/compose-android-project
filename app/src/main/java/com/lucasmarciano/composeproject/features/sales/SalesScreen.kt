@@ -12,9 +12,11 @@ import androidx.navigation.compose.rememberNavController
 import com.lucasmarciano.composeproject.R
 import com.lucasmarciano.composeproject.features.sales.header.HeaderSalesScreen
 import com.lucasmarciano.composeproject.features.sales.timeline.TimeLineScreen
+import com.lucasmarciano.composeproject.routes.Screen
 import com.lucasmarciano.composeproject.ui.components.toolbar.CollapseToolbar
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.ui.values.TypeToolbar
+import com.lucasmarciano.composeproject.utils.extensions.navBackTo
 
 @Composable
 fun SalesScreen(navController: NavController = rememberNavController()) {
@@ -32,9 +34,11 @@ private fun SalesContent(navController: NavController) {
             toolbar = ToolbarComponent(
                 title = stringResource(R.string.my_business_toolbar_sale_name),
                 type = TypeToolbar.BLUE
-                ),
+            ),
+            onClickBack = { navController.navBackTo(Screen.HomeScreen.route) },
+            onClick = {},
             header = { HeaderSalesScreen() },
-            content = { TimeLineScreen(navController) }
+            content = { TimeLineScreen(navController) },
         )
     }
 }

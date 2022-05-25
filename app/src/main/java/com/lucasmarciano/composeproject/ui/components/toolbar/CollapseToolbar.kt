@@ -41,7 +41,7 @@ internal fun CollapseToolbar(
     BackdropScaffold(
         modifier = Modifier.background(ColorSalesToolbar),
         frontLayerShape = BottomSheetShape,
-        frontLayerScrimColor = MaterialTheme.colors.background,
+        frontLayerScrimColor = Color.Unspecified,
         scaffoldState = backDropState,
         appBar = {
             Row(

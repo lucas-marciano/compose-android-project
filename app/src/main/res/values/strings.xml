@@ -12,5 +12,9 @@
     <string name="my_business_sales">vendas</string>
     <string name="my_business_error_message_header_sales">desculpa, mas ocorreu um erro ao tentar buscar as informações necessárias. Click aqui para tentar recarregar os dados</string>
     <string name="my_business_toolbar_sale_name">seu negócio</string>
+    <string name="my_business_title_connection_error">ocorreu um erro</string>
+    <string name="my_business_describe_connection_error">não conseguimos conectar, tente novamente</string>
+    <string name="my_business_title_no_sales">não existem vendas</string>
+    <string name="my_business_describe_no_sales">começe a vendar para poder listar novas vendas</string>
 
 </resources>
