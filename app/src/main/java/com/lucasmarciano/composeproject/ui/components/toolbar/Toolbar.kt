@@ -10,15 +10,15 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.ui.theme.BackIcon
 import com.lucasmarciano.composeproject.ui.theme.ColorBlueCard
-import com.lucasmarciano.composeproject.ui.theme.ColorPinkCalifornia
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.theme.HelpIcon
 import com.lucasmarciano.composeproject.ui.utils.elevation
+import com.lucasmarciano.composeproject.ui.utils.getColorToolbarIcons
+import com.lucasmarciano.composeproject.ui.utils.getColorToolbarTitle
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.ui.values.ToolbarContextualMenu
 import com.lucasmarciano.composeproject.ui.values.TypeToolbar
@@ -45,7 +45,7 @@ internal fun Toolbar(
                         text = toolbar.title,
                         textAlign = TextAlign.Center,
                         style = MaterialTheme.typography.subtitle1,
-                        color = getColorTitle(toolbar.type)
+                        color = getColorToolbarTitle(toolbar.type)
                     )
                 }
             },
@@ -63,7 +63,7 @@ internal fun BuildAction(toolbar: ToolbarComponent, onClick: () -> Unit = { }) {
     return when (toolbar.contextualMenu) {
         ToolbarContextualMenu.HELP -> {
             IconButton(onClick = onClick) {
-                HelpIcon(color = getColorIcons(toolbar.type))
+                HelpIcon(color = getColorToolbarIcons(toolbar.type))
             }
         }
         else -> {}
@@ -76,19 +76,8 @@ internal fun BuildBackAction(
     onClick: (String) -> Unit = { },
 ) {
     return IconButton(onClick = { onClick(toolbar.backTo) }) {
-        BackIcon(color = getColorIcons(toolbar.type))
+        BackIcon(color = getColorToolbarIcons(toolbar.type))
     }
-}
-
-private fun getColorIcons(type: TypeToolbar) = when (type) {
-    TypeToolbar.BLUE -> Color.White
-    else -> ColorPinkCalifornia
-}
-
-@Composable
-fun getColorTitle(type: TypeToolbar) = when (type) {
-    TypeToolbar.BLUE -> Color.White
-    else -> MaterialTheme.colors.onBackground
 }
 
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
