@@ -6,6 +6,7 @@ import com.lucasmarciano.composeproject.data.home.models.ResponseBuildVO
 import com.lucasmarciano.composeproject.data.models.CallToActionVO
 import com.lucasmarciano.composeproject.data.models.ItemTimeLineVO
 import com.lucasmarciano.composeproject.data.models.ProfileVO
+import com.lucasmarciano.composeproject.data.models.SalesInformationVO
 import com.lucasmarciano.composeproject.data.settings.models.ItemMenuVO
 import com.lucasmarciano.composeproject.data.settings.models.StoreNameVO
 import com.lucasmarciano.composeproject.ui.values.BannerComponent
@@ -120,7 +121,12 @@ internal fun mockSettingsResult() = ResponseBuildVO(
     )
 )
 
-internal fun mockSalesResult() = ResponseBuildVO()
+internal fun mockSalesResult() = SalesInformationVO(
+    "seu negócio",
+    "suas vendas totais",
+    "R$ 1234,56",
+    "gold_coin"
+)
 
 internal fun mockProfile() = listOf(
     ProfileVO(
