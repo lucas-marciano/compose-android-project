@@ -16,5 +16,7 @@
     <string name="my_business_describe_connection_error">não conseguimos conectar, tente novamente</string>
     <string name="my_business_title_no_sales">não existem vendas</string>
     <string name="my_business_describe_no_sales">começe a vendar para poder listar novas vendas</string>
+    <string name="my_business_tab_name_sell">vendas</string>
+    <string name="my_business_tab_name_charges">cobranças</string>
 
 </resources>

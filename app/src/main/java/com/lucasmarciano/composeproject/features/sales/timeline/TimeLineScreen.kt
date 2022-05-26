@@ -6,6 +6,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -19,13 +20,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.lucasmarciano.composeproject.R
 import com.lucasmarciano.composeproject.data.models.ErrorImage
 import com.lucasmarciano.composeproject.data.models.ErrorVO
 import com.lucasmarciano.composeproject.data.models.ItemTimeLineVO
+import com.lucasmarciano.composeproject.features.sales.components.SalesTabBar
 import com.lucasmarciano.composeproject.features.sales.components.ShimmerSalesTimeListController
+import com.lucasmarciano.composeproject.features.sales.components.TabItem
+import com.lucasmarciano.composeproject.features.sales.components.TabItem.Charges.getTabs
 import com.lucasmarciano.composeproject.ui.components.Body
 import com.lucasmarciano.composeproject.ui.components.ItemTimeLineContainer
 import com.lucasmarciano.composeproject.ui.components.Title
@@ -35,7 +37,11 @@ import com.lucasmarciano.composeproject.ui.utils.spacing
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
 
 @Composable
-fun TimeLineScreen(navController: NavController = rememberNavController()) {
+fun TimeLineScreen(
+    tabSelected: TabItem = TabItem.Selling,
+    onClick: (String) -> Unit = {},
+    onTabSelected: (TabItem) -> Unit = {},
+) {
     val viewModel = viewModel<TimeLineViewModel>()
     val state by viewModel.uiState.collectAsState()
 
@@ -43,8 +49,11 @@ fun TimeLineScreen(navController: NavController = rememberNavController()) {
         is TimeLineUIState.Loading -> TimeLineContent()
         is TimeLineUIState.Success -> TimeLineContent(
             isLoading = false,
-            listItems = (state as TimeLineUIState.Success).data,
-            navController = navController
+            listSells = (state as TimeLineUIState.Success).data,
+            listCharges = (state as TimeLineUIState.Success).data,
+            tabSelected = tabSelected,
+            onClick = onClick,
+            onTabSelected = onTabSelected,
         )
         is TimeLineUIState.ErrorEmpty -> {
             MessageError(
@@ -72,14 +81,39 @@ fun TimeLineScreen(navController: NavController = rememberNavController()) {
 @Composable
 private fun TimeLineContent(
     isLoading: Boolean = true,
-    listItems: List<ItemTimeLineVO> = emptyList(),
-    navController: NavController = rememberNavController()
+    listSells: List<ItemTimeLineVO> = emptyList(),
+    listCharges: List<ItemTimeLineVO> = emptyList(),
+    onClick: (String) -> Unit = {},
+    tabSelected: TabItem = TabItem.Selling,
+    onTabSelected: (TabItem) -> Unit = {},
 ) {
     ShimmerSalesTimeListController(isLoading = isLoading) {
-        LazyColumn {
-            items(listItems, key = { it.id }) { sell ->
-                ItemTimeLineContainer(item = sell) {/*passing id to next screen */ }
+        Column(modifier = Modifier.fillMaxWidth()) {
+            SalesTabBar(
+                tabs = getTabs(),
+                tabSelected = tabSelected,
+                onTabSelected = onTabSelected
+            )
+            when (tabSelected) {
+                TabItem.Charges -> {
+                    ListCompose(listCharges, onClick)
+                }
+                TabItem.Selling -> {
+                    ListCompose(listSells, onClick)
+                }
             }
+        }
+    }
+}
+
+@Composable
+private fun ListCompose(
+    list: List<ItemTimeLineVO> = emptyList(),
+    onClick: (String) -> Unit = {},
+) {
+    LazyColumn {
+        items(list, key = { it.id }) { item ->
+            ItemTimeLineContainer(item = item) { onClick(item.id) }
         }
     }
 }
@@ -110,7 +144,8 @@ private fun TimeLineContentPreview() {
     ComposeProjectTheme {
         TimeLineContent(
             isLoading = false,
-            listItems = mockListItemTimeLine(),
+            listCharges = mockListItemTimeLine(),
+            listSells = mockListItemTimeLine(),
         )
     }
 }
