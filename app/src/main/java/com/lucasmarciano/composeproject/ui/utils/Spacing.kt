@@ -25,6 +25,7 @@ data class Spacing(
 
     val cardWidth: Dp = 150.dp,
     val cardHeight: Dp = 200.dp,
+    val toolbarHeight: Dp = 56.dp,
 )
 
 val LocalSpacing = compositionLocalOf { Spacing() }
