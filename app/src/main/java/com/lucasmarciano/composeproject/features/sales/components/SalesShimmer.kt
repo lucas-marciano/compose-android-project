@@ -21,6 +21,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.lucasmarciano.composeproject.utils.ComposableAlias
 import com.lucasmarciano.composeproject.ui.components.shimmer.ItemTimeLineShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.ShimmerView
@@ -30,12 +31,12 @@ import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
-fun ShimmerSalesHeaderController(isLoading: Boolean = true, content: @Composable () -> Unit) {
+fun ShimmerSalesHeaderController(isLoading: Boolean = true, content: ComposableAlias) {
     ShimmerView(isLoading, content) { SalesShimmerHeaderScreen(brush = it) }
 }
 
 @Composable
-fun ShimmerSalesTimeListController(isLoading: Boolean = true, content: @Composable () -> Unit) {
+fun ShimmerSalesTimeListController(isLoading: Boolean = true, content: ComposableAlias) {
     ShimmerView(isLoading, content) { SalesShimmerListScreen(brush = it) }
 }
 

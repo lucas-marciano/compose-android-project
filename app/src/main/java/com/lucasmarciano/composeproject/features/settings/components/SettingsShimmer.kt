@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
+import com.lucasmarciano.composeproject.utils.ComposableAlias
 import com.lucasmarciano.composeproject.ui.components.shimmer.CircleShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.ShimmerView
@@ -20,7 +21,7 @@ import com.lucasmarciano.composeproject.ui.components.shimmer.SubTitleShimmer
 import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
-fun ShimmerSettingsController(isLoading: Boolean = true, content: @Composable () -> Unit) {
+fun ShimmerSettingsController(isLoading: Boolean = true, content: ComposableAlias) {
     ShimmerView(isLoading, content) { SettingsShimmerScreen(brush = it) }
 }
 
