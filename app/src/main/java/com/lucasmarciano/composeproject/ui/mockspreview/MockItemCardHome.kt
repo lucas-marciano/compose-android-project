@@ -205,22 +205,23 @@ internal fun mockItemMenuList() = listOf(
 
 internal fun mockListItemTimeLine() = listOf(
     mockItemTimeLine(),
-    mockItemTimeLine().copy(position = 2),
-    mockItemTimeLine().copy(position = 3),
-    mockItemTimeLine().copy(position = 4),
-    mockItemTimeLine().copy(position = 5),
-    mockItemTimeLine().copy(position = 6),
-    mockItemTimeLine().copy(position = 7),
-    mockItemTimeLine().copy(position = 8),
-    mockItemTimeLine().copy(position = 9)
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine()
 )
 
 internal fun mockItemTimeLine() = ItemTimeLineVO(
-    position = 1,
+    position = Random.nextInt(),
     id = Random.nextInt().toString(),
     icon = "",
     title = "pagamento pix",
-    value = "R$ 100,00",
+    value = "R$ ${Random.nextInt(10, 100)},00",
     description = "pagamento via pix",
     tag = "pix",
     callToActionVO = CallToActionVO(
