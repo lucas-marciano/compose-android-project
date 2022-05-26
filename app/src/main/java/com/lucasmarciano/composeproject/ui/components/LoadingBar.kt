@@ -13,11 +13,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.lucasmarciano.composeproject.utils.ComposableAlias
 import com.lucasmarciano.composeproject.ui.theme.ColorPinkCalifornia
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 
 @Composable
-fun ContainerCircleLoading(isLoading: Boolean = true, content: @Composable () -> Unit) {
+fun ContainerCircleLoading(isLoading: Boolean = true, content: ComposableAlias) {
     val currentPage by remember { mutableStateOf(isLoading) }
     Crossfade(targetState = currentPage) { screen ->
         when (screen) {

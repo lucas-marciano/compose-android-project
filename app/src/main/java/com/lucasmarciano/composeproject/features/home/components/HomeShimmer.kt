@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
+import com.lucasmarciano.composeproject.utils.ComposableAlias
 import com.lucasmarciano.composeproject.ui.components.shimmer.BannerShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.BlueCardShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.CardWithIconShimmer
@@ -23,7 +24,7 @@ import com.lucasmarciano.composeproject.ui.components.shimmer.TitleShimmer
 import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
-fun ShimmerHomeController(isLoading: Boolean = true, content: @Composable () -> Unit) {
+fun ShimmerHomeController(isLoading: Boolean = true, content: ComposableAlias) {
     ShimmerView(isLoading, content) { HomeShimmerScreen(brush = it) }
 }
 

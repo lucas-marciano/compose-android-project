@@ -22,10 +22,11 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.statusBarsPadding
 import com.lucasmarciano.composeproject.ui.theme.ColorSalesToolbar
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
-import com.lucasmarciano.composeproject.ui.utils.Const.APP_BAR_COLLAPSED_HEIGHT
 import com.lucasmarciano.composeproject.ui.utils.Const.BottomSheetShape
+import com.lucasmarciano.composeproject.ui.utils.spacing
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.ui.values.TypeToolbar
+import com.lucasmarciano.composeproject.utils.ComposableAlias
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -33,8 +34,8 @@ internal fun CollapseToolbar(
     toolbar: ToolbarComponent,
     onClickBack: (String) -> Unit = { },
     onClick: () -> Unit = { },
-    header: @Composable () -> Unit,
-    content: @Composable () -> Unit,
+    header: ComposableAlias,
+    content: ComposableAlias,
 ) {
     val backDropState = rememberBackdropScaffoldState(BackdropValue.Revealed)
 
@@ -51,7 +52,7 @@ internal fun CollapseToolbar(
                     .fillMaxWidth()
                     .background(ColorSalesToolbar)
                     .statusBarsPadding()
-                    .height(APP_BAR_COLLAPSED_HEIGHT)
+                    .height(MaterialTheme.spacing.toolbarHeight)
                     .padding(horizontal = 8.dp)
             ) {
                 BuildBackAction(toolbar, onClickBack)

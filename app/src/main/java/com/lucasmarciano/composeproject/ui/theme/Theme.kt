@@ -20,6 +20,7 @@ import com.lucasmarciano.composeproject.ui.utils.LocalElevation
 import com.lucasmarciano.composeproject.ui.utils.LocalFontSize
 import com.lucasmarciano.composeproject.ui.utils.LocalSpacing
 import com.lucasmarciano.composeproject.ui.utils.Spacing
+import com.lucasmarciano.composeproject.utils.ComposableAlias
 
 private val DarkColorScheme = darkColors(
     primary = ColorDarkPrimary,
@@ -52,7 +53,7 @@ private val LightColorScheme = lightColors(
 @Composable
 fun ComposeProjectTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
+    content: ComposableAlias
 ) {
     val colorScheme = when {
         darkTheme -> DarkColorScheme
