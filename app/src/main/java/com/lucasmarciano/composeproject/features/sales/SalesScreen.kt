@@ -5,14 +5,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.lucasmarciano.composeproject.features.sales.components.TabItem
 import com.lucasmarciano.composeproject.features.sales.header.HeaderSalesScreen
 import com.lucasmarciano.composeproject.features.sales.timeline.TimeLineScreen
 import com.lucasmarciano.composeproject.routes.Screen
@@ -35,8 +30,6 @@ private fun SalesContent(navController: NavController) {
             .fillMaxSize()
     ) {
 
-        var tabSelected by remember { mutableStateOf<TabItem>(TabItem.Selling) }
-
         CollapseToolbar(
             toolbar = ToolbarComponent(
                 title = emptyString(),
@@ -46,10 +39,7 @@ private fun SalesContent(navController: NavController) {
             onClick = {},
             header = { HeaderSalesScreen() },
             content = {
-                TimeLineScreen(
-                    tabSelected,
-                    onTabSelected = { tabSelected = it }
-                )
+                TimeLineScreen()
             },
         )
     }
