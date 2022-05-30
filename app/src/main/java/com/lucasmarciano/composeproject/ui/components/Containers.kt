@@ -1,6 +1,10 @@
+@file:OptIn(ExperimentalAnimationApi::class)
+@file:Suppress("OPT_IN_IS_NOT_ENABLED")
+
 package com.lucasmarciano.composeproject.ui.components
 
 import android.content.res.Configuration
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,7 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.lucasmarciano.composeproject.ui.Components
 import com.lucasmarciano.composeproject.ui.InterfaceFactory
 import com.lucasmarciano.composeproject.ui.components.toolbar.Toolbar
@@ -71,7 +75,7 @@ internal fun MainContainer(
 @Composable
 fun MainContainerHomePreview() {
     ComposeProjectTheme(darkTheme = false) {
-        val navController = rememberNavController()
+        val navController = rememberAnimatedNavController()
         MainContainer(navController, mockHomeResult().listItems)
     }
 }
@@ -80,7 +84,7 @@ fun MainContainerHomePreview() {
 @Composable
 fun DarkMainContainerHomePreview() {
     ComposeProjectTheme(darkTheme = true) {
-        val navController = rememberNavController()
+        val navController = rememberAnimatedNavController()
         MainContainer(navController, mockHomeResult().listItems)
     }
 }

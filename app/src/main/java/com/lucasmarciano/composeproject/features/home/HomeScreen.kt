@@ -1,7 +1,11 @@
+@file:OptIn(ExperimentalAnimationApi::class)
+@file:Suppress("OPT_IN_IS_NOT_ENABLED")
+
 package com.lucasmarciano.composeproject.features.home
 
 import android.content.res.Configuration
 import android.widget.Toast
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -12,14 +16,14 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.lucasmarciano.composeproject.features.home.components.ShimmerHomeController
 import com.lucasmarciano.composeproject.ui.components.MainContainer
 import com.lucasmarciano.composeproject.ui.mockspreview.mockHomeResult
 import com.lucasmarciano.composeproject.ui.values.InterfaceItemComponent
 
 @Composable
-fun HomeScreen(navController: NavController = rememberNavController()) {
+fun HomeScreen(navController: NavController = rememberAnimatedNavController()) {
     val viewModel = viewModel<HomeViewModel>()
     val state by viewModel.uiState.collectAsState()
 
@@ -45,7 +49,7 @@ fun HomeScreen(navController: NavController = rememberNavController()) {
 private fun HomeContent(
     isLoading: Boolean = true,
     listItems: List<InterfaceItemComponent> = emptyList(),
-    navController: NavController = rememberNavController()
+    navController: NavController = rememberAnimatedNavController()
 ) {
     val mListItems by remember { mutableStateOf(listItems) }
     val mIsLoading by remember { mutableStateOf(isLoading) }

@@ -1,19 +1,60 @@
+@file:Suppress("OPT_IN_IS_NOT_ENABLED")
+
 package com.lucasmarciano.composeproject.routes
 
+import androidx.compose.animation.AnimatedContentScope
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
+import androidx.navigation.NavBackStackEntry
+import com.google.accompanist.navigation.animation.AnimatedNavHost
+import com.google.accompanist.navigation.animation.composable
+import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.lucasmarciano.composeproject.features.home.HomeScreen
 import com.lucasmarciano.composeproject.features.sales.SalesScreen
 import com.lucasmarciano.composeproject.features.settings.SettingsScreen
 
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun Navigation() {
-    val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Screen.HomeScreen.route) {
-        composable(route = Screen.HomeScreen.route) { HomeScreen(navController) }
-        composable(route = Screen.SettingsScreen.route) { SettingsScreen(navController) }
-        composable(route = Screen.SalesScreen.route) { SalesScreen(navController) }
+    val navController = rememberAnimatedNavController()
+    AnimatedNavHost(navController = navController, startDestination = Screen.HomeScreen.route) {
+        composable(
+            route = Screen.HomeScreen.route,
+            enterTransition = { enterSlideTransition() },
+            exitTransition = { exitSlideTransition(false) },
+            popEnterTransition = { enterSlideTransition(false) },
+            popExitTransition = { exitSlideTransition() },
+        ) { HomeScreen(navController) }
+        composable(
+            route = Screen.SettingsScreen.route,
+            enterTransition = { enterSlideTransition() },
+            exitTransition = { exitSlideTransition(false) },
+            popEnterTransition = { enterSlideTransition(false) },
+            popExitTransition = { exitSlideTransition() },
+        ) { SettingsScreen(navController) }
+        composable(
+            route = Screen.SalesScreen.route,
+            enterTransition = { enterSlideTransition() },
+            exitTransition = { exitSlideTransition(false) },
+            popEnterTransition = { enterSlideTransition(false) },
+            popExitTransition = { exitSlideTransition() },
+        ) { SalesScreen(navController) }
     }
+}
+
+@OptIn(ExperimentalAnimationApi::class)
+private fun AnimatedContentScope<NavBackStackEntry>.enterSlideTransition(isLeft: Boolean = true): EnterTransition {
+    val transitionDirection =
+        if (isLeft) AnimatedContentScope.SlideDirection.Left else AnimatedContentScope.SlideDirection.Right
+    return slideIntoContainer(transitionDirection, animationSpec = tween(700))
+}
+
+@OptIn(ExperimentalAnimationApi::class)
+private fun AnimatedContentScope<NavBackStackEntry>.exitSlideTransition(isLeft: Boolean = true): ExitTransition {
+    val transitionDirection =
+        if (isLeft) AnimatedContentScope.SlideDirection.Left else AnimatedContentScope.SlideDirection.Right
+    return slideOutOfContainer(transitionDirection, animationSpec = tween(700))
 }
