@@ -16,51 +16,54 @@ import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
 fun Title(
+    modifier: Modifier = Modifier,
     text: String = stringResource(id = R.string.label_empty),
-    color: Color = MaterialTheme.colors.onBackground
+    color: Color = MaterialTheme.colors.onBackground,
 ) {
     Text(
         text = text,
         color = color,
         style = MaterialTheme.typography.h1,
-        modifier = Modifier.padding(bottom = MaterialTheme.spacing.small)
+        modifier = modifier.padding(bottom = MaterialTheme.spacing.small)
     )
 }
 
 @Composable
 fun SecondTitle(
+    modifier: Modifier = Modifier,
     text: String = stringResource(id = R.string.label_empty),
-    color: Color = MaterialTheme.colors.onBackground
+    color: Color = MaterialTheme.colors.onBackground,
 ) {
     Text(
         text = text,
         color = color,
         style = MaterialTheme.typography.h2,
-        modifier = Modifier.padding(bottom = MaterialTheme.spacing.small)
+        modifier = modifier.padding(bottom = MaterialTheme.spacing.small)
     )
 }
 
 @Composable
 fun Body(
+    modifier: Modifier = Modifier,
     text: String = stringResource(id = R.string.label_empty),
-    color: Color = MaterialTheme.colors.primaryVariant,
+    color: Color = MaterialTheme.colors.onBackground,
 ) {
     Text(
         text = text,
         color = color,
         style = MaterialTheme.typography.body1,
-        modifier = Modifier.padding(bottom = MaterialTheme.spacing.small)
+        modifier = modifier.padding(bottom = MaterialTheme.spacing.small)
     )
 }
 
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
-fun TextsPreviews() {
+private fun TextsPreviews() {
     ComposeProjectTheme {
         Column {
-            Title("Hello title")
-            SecondTitle("Hello second title")
-            Body("Hello body")
+            Title(text = "Hello title")
+            SecondTitle(text = "Hello second title")
+            Body(text = "Hello body")
         }
     }
 }
@@ -68,12 +71,12 @@ fun TextsPreviews() {
 
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-fun TextsDarkPreviews() {
+private fun TextsDarkPreviews() {
     ComposeProjectTheme {
         Column {
-            Title("Hello title")
-            SecondTitle("Hello second title")
-            Body("Hello body")
+            Title(text = "Hello title")
+            SecondTitle(text = "Hello second title")
+            Body(text = "Hello body")
         }
     }
 }

@@ -4,6 +4,7 @@ import com.lucasmarciano.composeproject.data.models.CallToActionVO
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
 
 data class ItemCardHomeVO(
+    val id: Int,
     val text: String,
     val icon: String = emptyString(),
     val callToAction: CallToActionVO,
