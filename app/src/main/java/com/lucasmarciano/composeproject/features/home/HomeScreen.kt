@@ -1,25 +1,29 @@
+@file:OptIn(ExperimentalAnimationApi::class)
+@file:Suppress("OPT_IN_IS_NOT_ENABLED")
+
 package com.lucasmarciano.composeproject.features.home
 
 import android.content.res.Configuration
 import android.widget.Toast
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.lucasmarciano.composeproject.features.home.components.ShimmerHomeController
-import com.lucasmarciano.composeproject.ui.Components
-import com.lucasmarciano.composeproject.ui.InterfaceFactory
 import com.lucasmarciano.composeproject.ui.components.MainContainer
 import com.lucasmarciano.composeproject.ui.mockspreview.mockHomeResult
 import com.lucasmarciano.composeproject.ui.values.InterfaceItemComponent
-import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 
 @Composable
-fun HomeScreen(navController: NavController) {
+fun HomeScreen(navController: NavController = rememberAnimatedNavController()) {
     val viewModel = viewModel<HomeViewModel>()
     val state by viewModel.uiState.collectAsState()
 
@@ -45,17 +49,14 @@ fun HomeScreen(navController: NavController) {
 private fun HomeContent(
     isLoading: Boolean = true,
     listItems: List<InterfaceItemComponent> = emptyList(),
-    navController: NavController = rememberNavController()
+    navController: NavController = rememberAnimatedNavController()
 ) {
-    var toolbar: ToolbarComponent? = null
-    if (listItems.isNotEmpty()) {
-        val toolbarData = listItems.find { it.typeComponent == Components.TOOLBAR }
-        toolbar = (toolbarData as ToolbarComponent)
-    }
-    ShimmerHomeController(isLoading) {
-        MainContainer(toolbarData = toolbar, navController) {
-            InterfaceFactory(listItems, navController)
-        }
+    val mListItems by remember { mutableStateOf(listItems) }
+    val mIsLoading by remember { mutableStateOf(isLoading) }
+    val state = rememberLazyListState()
+
+    ShimmerHomeController(mIsLoading) {
+        MainContainer(navController, mListItems, state)
     }
 }
 

@@ -4,7 +4,9 @@ import com.lucasmarciano.composeproject.data.home.models.BannerVO
 import com.lucasmarciano.composeproject.data.home.models.ItemCardHomeVO
 import com.lucasmarciano.composeproject.data.home.models.ResponseBuildVO
 import com.lucasmarciano.composeproject.data.models.CallToActionVO
+import com.lucasmarciano.composeproject.data.models.ItemTimeLineVO
 import com.lucasmarciano.composeproject.data.models.ProfileVO
+import com.lucasmarciano.composeproject.data.models.SalesInformationVO
 import com.lucasmarciano.composeproject.data.settings.models.ItemMenuVO
 import com.lucasmarciano.composeproject.data.settings.models.StoreNameVO
 import com.lucasmarciano.composeproject.ui.values.BannerComponent
@@ -18,6 +20,7 @@ import com.lucasmarciano.composeproject.ui.values.SpacerComponent
 import com.lucasmarciano.composeproject.ui.values.StoreProfileComponent
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
+import kotlin.random.Random
 
 internal fun mockBanner() = BannerVO(
     description = "que tal uma maquininha pra\naceitar cartões de crédito? :D",
@@ -28,18 +31,21 @@ internal fun mockBanner() = BannerVO(
 )
 
 internal fun mockItemCard() = ItemCardHomeVO(
+    id = Random.nextInt(),
     text = "você não fez nenhuma venda este mês, bora vender?",
     icon = emptyString(),
-    callToAction = CallToActionVO()
+    callToAction = CallToActionVO(action = "sales_screen_route")
 )
 
 internal fun mockItemCardWithIcon() = ItemCardHomeVO(
+    id = Random.nextInt(),
     text = "você não fez nenhuma venda este mês, bora vender?",
     icon = "um icone",
     callToAction = CallToActionVO()
 )
 
 internal fun mockSimpleItemCardWithIcon() = ItemCardHomeVO(
+    id = Random.nextInt(),
     text = "sell",
     icon = "um icone",
     callToAction = CallToActionVO()
@@ -47,11 +53,13 @@ internal fun mockSimpleItemCardWithIcon() = ItemCardHomeVO(
 
 internal fun mockListSimpleItemCardWithIcon() = listOf(
     ItemCardHomeVO(
+        id = Random.nextInt(),
         text = "pix",
         icon = "um icone",
         callToAction = CallToActionVO()
     ),
     ItemCardHomeVO(
+        id = Random.nextInt(),
         text = "cartão",
         icon = "um icone",
         callToAction = CallToActionVO()
@@ -112,6 +120,13 @@ internal fun mockSettingsResult() = ResponseBuildVO(
             mockItemMenuList()
         )
     )
+)
+
+internal fun mockSalesResult() = SalesInformationVO(
+    "seu negócio",
+    "suas vendas totais",
+    "R$ 1234,56",
+    "gold_coin"
 )
 
 internal fun mockProfile() = listOf(
@@ -185,5 +200,32 @@ internal fun mockItemMenuList() = listOf(
         callToActionVO = CallToActionVO(
             name = "menu 4"
         )
+    )
+)
+
+internal fun mockListItemTimeLine() = listOf(
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine(),
+    mockItemTimeLine()
+)
+
+internal fun mockItemTimeLine() = ItemTimeLineVO(
+    position = Random.nextInt(),
+    id = Random.nextInt().toString(),
+    icon = "",
+    title = "pagamento pix",
+    value = "R$ ${Random.nextInt(10, 100)},00",
+    description = "pagamento via pix",
+    tag = "pix",
+    callToActionVO = CallToActionVO(
+        "",
+        action = "sell/detail/{sellId}"
     )
 )
