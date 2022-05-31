@@ -3,7 +3,6 @@ package com.lucasmarciano.composeproject.ui.components
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -12,19 +11,18 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.R
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
-import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
 fun Title(
     modifier: Modifier = Modifier,
     text: String = stringResource(id = R.string.label_empty),
-    color: Color = MaterialTheme.colors.onBackground,
+    color: Color = ComposeProjectTheme.colors.onBg,
 ) {
     Text(
         text = text,
         color = color,
-        style = MaterialTheme.typography.h1,
-        modifier = modifier.padding(bottom = MaterialTheme.spacing.small)
+        style = ComposeProjectTheme.type.h1,
+        modifier = modifier.padding(bottom = ComposeProjectTheme.spacing.small)
     )
 }
 
@@ -32,13 +30,13 @@ fun Title(
 fun SecondTitle(
     modifier: Modifier = Modifier,
     text: String = stringResource(id = R.string.label_empty),
-    color: Color = MaterialTheme.colors.onBackground,
+    color: Color = ComposeProjectTheme.colors.onBg,
 ) {
     Text(
         text = text,
         color = color,
-        style = MaterialTheme.typography.h2,
-        modifier = modifier.padding(bottom = MaterialTheme.spacing.small)
+        style = ComposeProjectTheme.type.h2,
+        modifier = modifier.padding(bottom = ComposeProjectTheme.spacing.small)
     )
 }
 
@@ -46,13 +44,13 @@ fun SecondTitle(
 fun Body(
     modifier: Modifier = Modifier,
     text: String = stringResource(id = R.string.label_empty),
-    color: Color = MaterialTheme.colors.onBackground,
+    color: Color = ComposeProjectTheme.colors.onBg,
 ) {
     Text(
         text = text,
         color = color,
-        style = MaterialTheme.typography.body1,
-        modifier = modifier.padding(bottom = MaterialTheme.spacing.small)
+        style = ComposeProjectTheme.type.body1,
+        modifier = modifier.padding(bottom = ComposeProjectTheme.spacing.small)
     )
 }
 

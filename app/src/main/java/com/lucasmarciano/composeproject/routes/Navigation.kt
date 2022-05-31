@@ -7,7 +7,9 @@ import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.background
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavBackStackEntry
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
@@ -15,12 +17,19 @@ import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.lucasmarciano.composeproject.features.home.HomeScreen
 import com.lucasmarciano.composeproject.features.sales.SalesScreen
 import com.lucasmarciano.composeproject.features.settings.SettingsScreen
+import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun Navigation() {
     val navController = rememberAnimatedNavController()
-    AnimatedNavHost(navController = navController, startDestination = Screen.HomeScreen.route) {
+    AnimatedNavHost(
+        navController = navController,
+        startDestination = Screen.HomeScreen.route,
+        modifier = Modifier.background(
+            ComposeProjectTheme.colors.bg
+        )
+    ) {
         composable(
             route = Screen.HomeScreen.route,
             enterTransition = { enterSlideTransition() },

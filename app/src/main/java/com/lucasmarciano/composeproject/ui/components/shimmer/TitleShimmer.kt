@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -16,20 +15,20 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.brushColors
-import com.lucasmarciano.composeproject.ui.utils.spacing
+import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 
 @Composable
 fun TitleShimmer(brush: Brush, widthFraction: Float = 1f) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(all = MaterialTheme.spacing.small),
+            .padding(all = ComposeProjectTheme.spacing.small),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Spacer(
             modifier = Modifier
-                .height(MaterialTheme.spacing.extraMedium)
-                .clip(RoundedCornerShape(MaterialTheme.spacing.small))
+                .height(ComposeProjectTheme.spacing.extraMedium)
+                .clip(RoundedCornerShape(ComposeProjectTheme.spacing.small))
                 .fillMaxWidth(fraction = widthFraction)
                 .background(brush = brush)
         )
@@ -41,14 +40,14 @@ fun SubTitleShimmer(brush: Brush) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(all = MaterialTheme.spacing.small),
+            .padding(all = ComposeProjectTheme.spacing.small),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Spacer(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(MaterialTheme.spacing.medium)
-                .clip(RoundedCornerShape(MaterialTheme.spacing.small))
+                .height(ComposeProjectTheme.spacing.medium)
+                .clip(RoundedCornerShape(ComposeProjectTheme.spacing.small))
                 .fillMaxWidth(fraction = 0.9f)
                 .background(brush = brush)
         )

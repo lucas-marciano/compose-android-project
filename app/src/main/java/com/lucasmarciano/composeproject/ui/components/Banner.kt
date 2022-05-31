@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChevronRight
@@ -25,8 +24,6 @@ import com.lucasmarciano.composeproject.data.home.models.BannerVO
 import com.lucasmarciano.composeproject.ui.mockspreview.mockBanner
 import com.lucasmarciano.composeproject.ui.theme.ColorPinkCalifornia
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
-import com.lucasmarciano.composeproject.ui.utils.elevation
-import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
 internal fun Banner(banner: BannerVO?) {
@@ -35,33 +32,33 @@ internal fun Banner(banner: BannerVO?) {
             modifier = Modifier
                 .fillMaxWidth()
                 .clickable(onClick = { }),
-            shape = RoundedCornerShape(MaterialTheme.spacing.small),
-            elevation = MaterialTheme.elevation.extraSmall,
-            backgroundColor = MaterialTheme.colors.background
+            shape = RoundedCornerShape(ComposeProjectTheme.spacing.small),
+            elevation = ComposeProjectTheme.elevation.extraSmall,
+            backgroundColor = ComposeProjectTheme.colors.bg
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(MaterialTheme.spacing.defaultPadding),
+                    .padding(ComposeProjectTheme.spacing.defaultPadding),
                 horizontalAlignment = Alignment.Start,
                 verticalArrangement = Arrangement.SpaceBetween,
             ) {
                 Text(
                     text = item.description,
-                    color = MaterialTheme.colors.onSurface,
-                    style = MaterialTheme.typography.body2,
+                    color = ComposeProjectTheme.colors.onBrandVariant,
+                    style = ComposeProjectTheme.type.body2,
                 )
-                Spacer(modifier = Modifier.height(height = MaterialTheme.spacing.extraMedium))
+                Spacer(modifier = Modifier.height(height = ComposeProjectTheme.spacing.extraMedium))
                 Row(
                     horizontalArrangement = Arrangement.Start,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
                         text = item.callToAction.name,
-                        color = MaterialTheme.colors.onBackground,
+                        color = ComposeProjectTheme.colors.onBg,
                         fontWeight = FontWeight.SemiBold,
-                        style = MaterialTheme.typography.body2,
-                        modifier = Modifier.padding(end = MaterialTheme.spacing.extraSmall)
+                        style = ComposeProjectTheme.type.body2,
+                        modifier = Modifier.padding(end = ComposeProjectTheme.spacing.extraSmall)
                     )
                     Icon(
                         Icons.Filled.ChevronRight,

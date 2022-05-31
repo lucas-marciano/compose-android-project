@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,24 +17,24 @@ import com.lucasmarciano.composeproject.ui.mockspreview.mockProfile
 import com.lucasmarciano.composeproject.ui.mockspreview.mockProfileNonCallToAction
 import com.lucasmarciano.composeproject.ui.mockspreview.mockTwoProfile
 import com.lucasmarciano.composeproject.ui.mockspreview.mockTwoProfileNonAction
+import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.theme.HomeAvatar
-import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
 internal fun Profile(listProfile: List<ProfileVO>, avatar: String) {
     Column(modifier = Modifier.fillMaxWidth()) {
         HomeAvatar()
-        Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
+        Spacer(modifier = Modifier.height(ComposeProjectTheme.spacing.medium))
         listProfile.forEach {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = MaterialTheme.spacing.small),
+                    .padding(bottom = ComposeProjectTheme.spacing.small),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Column {
-                    Body(text = it.name, color = MaterialTheme.colors.onBackground)
+                    Body(text = it.name, color = ComposeProjectTheme.colors.onBg)
                     Body(text = it.title)
                 }
                 ButtonBordLess(it.callToActionVO)

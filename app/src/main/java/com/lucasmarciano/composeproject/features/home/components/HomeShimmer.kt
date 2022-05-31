@@ -7,12 +7,10 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
-import com.lucasmarciano.composeproject.utils.ComposableAlias
 import com.lucasmarciano.composeproject.ui.components.shimmer.BannerShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.BlueCardShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.CardWithIconShimmer
@@ -21,7 +19,8 @@ import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimme
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.brushColors
 import com.lucasmarciano.composeproject.ui.components.shimmer.SubTitleShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.TitleShimmer
-import com.lucasmarciano.composeproject.ui.utils.spacing
+import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
+import com.lucasmarciano.composeproject.utils.ComposableAlias
 
 @Composable
 fun ShimmerHomeController(isLoading: Boolean = true, content: ComposableAlias) {
@@ -33,14 +32,14 @@ private fun HomeShimmerScreen(brush: Brush) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colors.background)
+            .background(ComposeProjectTheme.colors.bg)
             .padding(
-                top = MaterialTheme.spacing.medium,
-                start = MaterialTheme.spacing.medium,
-                end = MaterialTheme.spacing.medium
+                top = ComposeProjectTheme.spacing.medium,
+                start = ComposeProjectTheme.spacing.medium,
+                end = ComposeProjectTheme.spacing.medium
             )
     ) {
-        Spacer(modifier = Modifier.height(MaterialTheme.spacing.huge))
+        Spacer(modifier = Modifier.height(ComposeProjectTheme.spacing.huge))
         CircleShimmer(brush = brush)
         TitleShimmer(brush = brush)
         BlueCardShimmer(brush = brush)

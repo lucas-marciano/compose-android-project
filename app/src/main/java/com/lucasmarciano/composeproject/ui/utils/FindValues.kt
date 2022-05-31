@@ -1,24 +1,24 @@
 package com.lucasmarciano.composeproject.ui.utils
 
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import com.lucasmarciano.composeproject.ui.theme.ColorBlueCard
 import com.lucasmarciano.composeproject.ui.theme.ColorPinkCalifornia
+import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.values.ColorComponent
 import com.lucasmarciano.composeproject.ui.values.TypeToolbar
 
 @Composable
 fun getBgToolbarColor(typeToolbar: TypeToolbar) = when (typeToolbar) {
-    TypeToolbar.NORMAL -> MaterialTheme.colors.primary
+    TypeToolbar.NORMAL -> ComposeProjectTheme.colors.brand
     TypeToolbar.BLUE -> ColorBlueCard
 }
 
 @Composable
 fun getColorToolbarTitle(type: TypeToolbar) = when (type) {
     TypeToolbar.BLUE -> Color.White
-    TypeToolbar.NORMAL -> MaterialTheme.colors.onBackground
+    TypeToolbar.NORMAL -> ComposeProjectTheme.colors.onBg
 }
 
 @Composable
@@ -32,14 +32,14 @@ fun getColorValue(colorComponent: ColorComponent): Color {
     return when (colorComponent) {
         ColorComponent.PINK -> ColorPinkCalifornia
         ColorComponent.BLUE_CARD_BG -> ColorBlueCard
-        ColorComponent.BACKGROUND -> MaterialTheme.colors.background
-        ColorComponent.SECONDARY -> MaterialTheme.colors.secondary
-        ColorComponent.SURFACE -> MaterialTheme.colors.surface
-        ColorComponent.ON_PRIMARY -> MaterialTheme.colors.onPrimary
-        ColorComponent.ON_SECONDARY -> MaterialTheme.colors.onSecondary
-        ColorComponent.ON_BACKGROUND -> MaterialTheme.colors.onBackground
-        ColorComponent.ON_SURFACE -> MaterialTheme.colors.onSurface
-        else -> MaterialTheme.colors.primary
+        ColorComponent.BACKGROUND -> ComposeProjectTheme.colors.bg
+        ColorComponent.SECONDARY -> ComposeProjectTheme.colors.brandVariant
+        ColorComponent.SURFACE -> ComposeProjectTheme.colors.bgVariant
+        ColorComponent.ON_PRIMARY -> ComposeProjectTheme.colors.onBrand
+        ColorComponent.ON_SECONDARY -> ComposeProjectTheme.colors.onBrandVariant
+        ColorComponent.ON_BACKGROUND -> ComposeProjectTheme.colors.onBg
+        ColorComponent.ON_SURFACE -> ComposeProjectTheme.colors.onBrandVariant
+        else -> ComposeProjectTheme.colors.brand
     }
 }
 

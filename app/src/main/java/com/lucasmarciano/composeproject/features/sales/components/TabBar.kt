@@ -5,11 +5,11 @@ package com.lucasmarciano.composeproject.features.sales.components
 import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Tab
 import androidx.compose.material.TabRow
 import androidx.compose.material.Text
@@ -27,7 +27,6 @@ import com.google.accompanist.pager.rememberPagerState
 import com.lucasmarciano.composeproject.data.models.ItemTimeLineVO
 import com.lucasmarciano.composeproject.features.sales.timeline.ListCompose
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
-import com.lucasmarciano.composeproject.ui.utils.spacing
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class)
@@ -35,7 +34,6 @@ import kotlinx.coroutines.launch
 internal fun CombinedTab(
     modifier: Modifier = Modifier,
     vararg tabs: TabItem,
-    backgroundColor: Color = MaterialTheme.colors.background,
     onClickItem: (String) -> Unit = {},
     listSells: List<ItemTimeLineVO> = emptyList(),
     listCharges: List<ItemTimeLineVO> = emptyList(),
@@ -50,15 +48,18 @@ internal fun CombinedTab(
     val tabIndex = pagerState.currentPage
     val coroutineScope = rememberCoroutineScope()
 
-    Column(modifier = Modifier.fillMaxWidth()) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(ComposeProjectTheme.colors.bgVariant)
+    ) {
         TabRow(
             selectedTabIndex = tabIndex,
             modifier = modifier
-                .height(MaterialTheme.spacing.toolbarHeight)
-                .background(backgroundColor),
-            contentColor = MaterialTheme.colors.onSurface,
-            divider = { },
-            indicator = { }
+                .height(ComposeProjectTheme.spacing.toolbarHeight),
+            contentColor = ComposeProjectTheme.colors.onBrandVariant,
+            divider = {},
+            indicator = {}
         ) {
             tabs.forEachIndexed { index, tab ->
                 SalesTab(
@@ -75,8 +76,11 @@ internal fun CombinedTab(
 
         HorizontalPager(
             state = pagerState,
-            modifier = Modifier.weight(1f)
-        ) {
+            modifier = Modifier
+                .weight(1f)
+                .background(ComposeProjectTheme.colors.bg),
+
+            ) {
             when (pagerState.currentPage) {
                 TabItem.Charges.id -> {
                     ListCompose(listCharges, onClickItem)
@@ -97,15 +101,17 @@ private fun SalesTab(
 ) {
     Tab(
         modifier = Modifier
-            .padding(horizontal = MaterialTheme.spacing.extraSmall)
-            .clip(RoundedCornerShape(MaterialTheme.spacing.medium)),
+            .fillMaxHeight()
+            .background(ComposeProjectTheme.colors.bg)
+            .padding(horizontal = ComposeProjectTheme.spacing.extraSmall)
+            .clip(RoundedCornerShape(ComposeProjectTheme.spacing.medium)),
         selected = isSelected,
         onClick = { onTabSelected() }
     ) {
         Text(
             text = stringResource(id = tab.name),
             fontWeight = FontWeight.SemiBold,
-            color = if (isSelected) MaterialTheme.colors.onBackground else Color.Gray
+            color = if (isSelected) ComposeProjectTheme.colors.onBg else Color.Gray
         )
     }
 }

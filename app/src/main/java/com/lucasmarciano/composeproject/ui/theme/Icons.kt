@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,51 +24,50 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.lucasmarciano.composeproject.R
-import com.lucasmarciano.composeproject.ui.utils.spacing
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
 
 @Composable
 fun BackIcon(
     @StringRes contentDescription: Int = R.string.content_description_back_button_toolbar,
-    color: Color = MaterialTheme.colors.onPrimary
+    color: Color = ComposeProjectTheme.colors.onBrand
 ) {
     Icon(
         painter = painterResource(id = R.drawable.ic_left_arrow),
         contentDescription = stringResource(id = contentDescription),
         tint = color,
         modifier = Modifier
-            .height(MaterialTheme.spacing.large)
-            .width(MaterialTheme.spacing.large)
-            .padding(MaterialTheme.spacing.extraSmall)
+            .height(ComposeProjectTheme.spacing.large)
+            .width(ComposeProjectTheme.spacing.large)
+            .padding(ComposeProjectTheme.spacing.extraSmall)
     )
 }
 
 @Composable
 fun HelpIcon(
     @StringRes contentDescription: Int = R.string.content_description_back_button_toolbar,
-    color: Color = MaterialTheme.colors.onPrimary
+    color: Color = ComposeProjectTheme.colors.onBrand
 ) {
     Icon(
         painter = painterResource(id = R.drawable.ic_help_information),
         contentDescription = stringResource(id = contentDescription),
         tint = color,
         modifier = Modifier
-            .height(MaterialTheme.spacing.large)
-            .width(MaterialTheme.spacing.large)
-            .padding(MaterialTheme.spacing.extraSmall)
+            .height(ComposeProjectTheme.spacing.large)
+            .width(ComposeProjectTheme.spacing.large)
+            .padding(ComposeProjectTheme.spacing.extraSmall)
     )
 }
 
 @Composable
 fun CoinIcon(
     @StringRes contentDescription: Int = R.string.content_description_money_icon,
-    color: Color = MaterialTheme.colors.onPrimary,
-    size: Dp = MaterialTheme.spacing.large,
+    color: Color = ComposeProjectTheme.colors.onBrand,
+    size: Dp = ComposeProjectTheme.spacing.large,
 ) {
     Icon(
         modifier = Modifier
             .size(size)
-            .padding(MaterialTheme.spacing.extraSmall),
+            .padding(ComposeProjectTheme.spacing.extraSmall),
         painter = painterResource(id = R.drawable.ic_money_info),
         contentDescription = stringResource(id = contentDescription),
         tint = color,
@@ -88,11 +86,11 @@ fun StoreIcon(
         Icon(
             painter = painterResource(id = R.drawable.ic_store_menu),
             contentDescription = stringResource(id = contentDescription),
-            tint = MaterialTheme.colors.onPrimary,
+            tint = ComposeProjectTheme.colors.onBrand,
             modifier = Modifier
                 .clickable(onClick = onClick)
-                .height(MaterialTheme.spacing.large)
-                .width(MaterialTheme.spacing.large)
+                .height(ComposeProjectTheme.spacing.large)
+                .width(ComposeProjectTheme.spacing.large)
         )
         if (hasNotification) {
             Box(
@@ -110,10 +108,10 @@ fun StoreIcon(
 fun HomeAvatar(avatar: String = emptyString()) {
     Box(
         modifier = Modifier
-            .size(MaterialTheme.spacing.huge)
+            .size(ComposeProjectTheme.spacing.huge)
             .clip(CircleShape)
             .background(ColorPinkCalifornia)
-            .padding(MaterialTheme.spacing.extraSmall)
+            .padding(ComposeProjectTheme.spacing.extraSmall)
     )
 }
 

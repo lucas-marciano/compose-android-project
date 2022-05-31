@@ -13,7 +13,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -24,7 +23,6 @@ import com.lucasmarciano.composeproject.ui.InterfaceFactory
 import com.lucasmarciano.composeproject.ui.components.toolbar.Toolbar
 import com.lucasmarciano.composeproject.ui.mockspreview.mockHomeResult
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
-import com.lucasmarciano.composeproject.ui.utils.spacing
 import com.lucasmarciano.composeproject.ui.values.InterfaceItemComponent
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.utils.extensions.navBackTo
@@ -44,7 +42,7 @@ internal fun MainContainer(
     LazyColumn(
         state = state,
         modifier = Modifier
-            .background(MaterialTheme.colors.background)
+            .background(ComposeProjectTheme.colors.bg)
             .fillMaxSize()
     ) {
         toolbar?.let { bar ->
@@ -58,11 +56,11 @@ internal fun MainContainer(
         items(listItems) { component ->
             Column(
                 modifier = Modifier
-                    .background(MaterialTheme.colors.background)
+                    .background(ComposeProjectTheme.colors.bg)
                     .padding(
-                        start = MaterialTheme.spacing.medium,
-                        end = MaterialTheme.spacing.medium,
-                        top = MaterialTheme.spacing.medium
+                        start = ComposeProjectTheme.spacing.medium,
+                        end = ComposeProjectTheme.spacing.medium,
+                        top = ComposeProjectTheme.spacing.medium
                     )
             ) {
                 InterfaceFactory(component, navController)

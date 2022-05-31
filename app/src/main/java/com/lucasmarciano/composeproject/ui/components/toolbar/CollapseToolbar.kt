@@ -1,3 +1,5 @@
+@file:Suppress("OPT_IN_IS_NOT_ENABLED")
+
 package com.lucasmarciano.composeproject.ui.components.toolbar
 
 import androidx.compose.foundation.background
@@ -9,7 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BackdropScaffold
 import androidx.compose.material.BackdropValue
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.rememberBackdropScaffoldState
 import androidx.compose.runtime.Composable
@@ -23,7 +24,6 @@ import com.google.accompanist.insets.statusBarsPadding
 import com.lucasmarciano.composeproject.ui.theme.ColorSalesToolbar
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.utils.Const.BottomSheetShape
-import com.lucasmarciano.composeproject.ui.utils.spacing
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.ui.values.TypeToolbar
 import com.lucasmarciano.composeproject.utils.ComposableAlias
@@ -52,14 +52,14 @@ internal fun CollapseToolbar(
                     .fillMaxWidth()
                     .background(ColorSalesToolbar)
                     .statusBarsPadding()
-                    .height(MaterialTheme.spacing.toolbarHeight)
+                    .height(ComposeProjectTheme.spacing.toolbarHeight)
                     .padding(horizontal = 8.dp)
             ) {
                 BuildBackAction(toolbar, onClickBack)
                 Text(
                     text = toolbar.title,
                     textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.subtitle1,
+                    style = ComposeProjectTheme.type.subtitle1,
                     color = Color.White
                 )
                 BuildAction(toolbar, onClick)

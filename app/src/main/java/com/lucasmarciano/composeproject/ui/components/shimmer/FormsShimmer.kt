@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -16,13 +15,13 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.brushColors
-import com.lucasmarciano.composeproject.ui.utils.spacing
+import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 
 @Composable
-fun CircleShimmer(brush: Brush, size: Dp = MaterialTheme.spacing.extraHuge) {
+fun CircleShimmer(brush: Brush, size: Dp = ComposeProjectTheme.spacing.extraHuge) {
     Row(
         modifier = Modifier
-            .padding(all = MaterialTheme.spacing.small),
+            .padding(all = ComposeProjectTheme.spacing.small),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Spacer(

@@ -7,14 +7,11 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Shapes
+import androidx.compose.material.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
-import androidx.compose.runtime.Stable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
@@ -26,43 +23,14 @@ import com.lucasmarciano.composeproject.ui.utils.FontSize
 import com.lucasmarciano.composeproject.ui.utils.LocalElevation
 import com.lucasmarciano.composeproject.ui.utils.LocalFontSize
 import com.lucasmarciano.composeproject.ui.utils.LocalSpacing
+import com.lucasmarciano.composeproject.ui.utils.LocalType
 import com.lucasmarciano.composeproject.ui.utils.Spacing
+import com.lucasmarciano.composeproject.ui.utils.Type
 import com.lucasmarciano.composeproject.utils.ComposableAlias
-
-private val DarkColorPalette = MainThemeColors(
-    primary = ColorDarkPrimary,
-    primaryVariant = ColorDarkPrimaryVariant,
-    secondary = ColorDarkSecondary,
-    background = ColorDarkBackground,
-    surface = ColorDarkSurface,
-    error = ColorDarkError,
-    onPrimary = ColorDarkOnPrimary,
-    onSecondary = ColorDarkOnSecondary,
-    onBackground = ColorDarkOnBackground,
-    onSurface = ColorDarkOnSurface,
-    onError = ColorDarkOnError,
-    isDark = true
-)
-
-private val LightColorPalette = MainThemeColors(
-    primary = ColorPrimary,
-    primaryVariant = ColorPrimaryVariant,
-    secondary = ColorSecondary,
-    background = ColorBackground,
-    surface = ColorSurface,
-    error = ColorError,
-    onPrimary = ColorOnPrimary,
-    onSecondary = ColorOnSecondary,
-    onBackground = ColorOnBackground,
-    onSurface = ColorOnSurface,
-    onError = ColorOnError,
-    isDark = false
-)
 
 @Composable
 fun ComposeProjectTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    content: ComposableAlias
+    darkTheme: Boolean = isSystemInDarkTheme(), content: ComposableAlias
 ) {
     val colorScheme = when {
         darkTheme -> DarkColorPalette
@@ -74,11 +42,10 @@ fun ComposeProjectTheme(
 
     if (!view.isInEditMode) {
         SideEffect {
-            (view.context as Activity).window.statusBarColor = colorScheme.primary.toArgb()
+            (view.context as Activity).window.statusBarColor = colorScheme.brand.toArgb()
             ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = darkTheme
             systemUiController.setSystemBarsColor(
-                color = colorScheme.primary,
-                darkIcons = darkTheme.not()
+                color = colorScheme.brand, darkIcons = darkTheme.not()
             )
         }
     }
@@ -86,7 +53,7 @@ fun ComposeProjectTheme(
     ProvideThemeColors(colorScheme) {
         MaterialTheme(
             colors = debugColors(darkTheme),
-            typography = Typography,
+            typography = debugType(),
             shapes = Shapes(),
             content = content
         )
@@ -94,91 +61,31 @@ fun ComposeProjectTheme(
 }
 
 object ComposeProjectTheme {
-    val colors: MainThemeColors
-        @Composable
-        get() = LocalColors.current
-}
+    val colors: ColorsMainTheme
+        @Composable get() = LocalColors.current
 
-@Stable
-class MainThemeColors(
-    primary: Color,
-    primaryVariant: Color,
-    secondary: Color,
-    background: Color,
-    surface: Color,
-    error: Color,
-    onPrimary: Color,
-    onSecondary: Color,
-    onBackground: Color,
-    onSurface: Color,
-    onError: Color,
-    isDark: Boolean
-) {
-    var primary by mutableStateOf(primary)
-        private set
-    var primaryVariant by mutableStateOf(primaryVariant)
-        private set
-    var secondary by mutableStateOf(secondary)
-        private set
-    var background by mutableStateOf(background)
-        private set
-    var surface by mutableStateOf(surface)
-        private set
-    var onPrimary by mutableStateOf(onPrimary)
-        private set
-    var onSecondary by mutableStateOf(onSecondary)
-        private set
-    var onBackground by mutableStateOf(onBackground)
-        private set
-    var onError by mutableStateOf(onError)
-        private set
-    var onSurface by mutableStateOf(onSurface)
-        private set
-    var error by mutableStateOf(error)
-        private set
-    var isDark by mutableStateOf(isDark)
-        private set
+    val spacing: Spacing
+        @Composable get() = LocalSpacing.current
 
-    fun update(other: MainThemeColors) {
-        primary = other.primary
-        primaryVariant = other.primaryVariant
-        secondary = other.secondary
-        background = other.background
-        surface = other.surface
-        onPrimary = other.onPrimary
-        onSecondary = other.onSecondary
-        onBackground = other.onBackground
-        onSurface = other.onSurface
-        onError = other.onError
-        error = other.error
-        isDark = other.isDark
-    }
+    val elevation: Elevation
+        @Composable get() = LocalElevation.current
 
-    fun copy(): MainThemeColors = MainThemeColors(
-        primary = primary,
-        primaryVariant = primaryVariant,
-        secondary = secondary,
-        background = background,
-        surface = surface,
-        onPrimary = onPrimary,
-        onSecondary = onSecondary,
-        onBackground = onBackground,
-        onSurface = onSurface,
-        onError = onError,
-        error = error,
-        isDark = isDark,
-    )
+    val fontSize: FontSize
+        @Composable get() = LocalFontSize.current
+
+    val type: Type
+        @Composable get() = LocalType.current
 }
 
 @Composable
 fun ProvideThemeColors(
-    colors: MainThemeColors,
-    content: @Composable () -> Unit
+    colors: ColorsMainTheme, content: @Composable () -> Unit
 ) {
     val colorPalette = remember { colors.copy() }
     colorPalette.update(colors)
     CompositionLocalProvider(
         LocalColors provides colorPalette,
+        LocalType provides Type(),
         LocalSpacing provides Spacing(),
         LocalElevation provides Elevation(),
         LocalFontSize provides FontSize(),
@@ -186,11 +93,11 @@ fun ProvideThemeColors(
     )
 }
 
-private val LocalColors = staticCompositionLocalOf<MainThemeColors> {
+private val LocalColors = staticCompositionLocalOf<ColorsMainTheme> {
     error("No ColorPalette provided")
 }
 
-fun debugColors(darkTheme: Boolean, debugColor: Color = Color.Gray) = Colors(
+fun debugColors(darkTheme: Boolean, debugColor: Color = Color.Magenta) = Colors(
     primary = debugColor,
     primaryVariant = debugColor,
     secondary = debugColor,
@@ -205,3 +112,5 @@ fun debugColors(darkTheme: Boolean, debugColor: Color = Color.Gray) = Colors(
     onError = debugColor,
     isLight = !darkTheme
 )
+
+fun debugType() = Typography()

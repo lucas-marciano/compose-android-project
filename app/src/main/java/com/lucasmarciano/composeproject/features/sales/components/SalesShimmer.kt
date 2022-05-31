@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,14 +20,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.lucasmarciano.composeproject.utils.ComposableAlias
 import com.lucasmarciano.composeproject.ui.components.shimmer.ItemTimeLineShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.ShimmerView
 import com.lucasmarciano.composeproject.ui.components.shimmer.TitleShimmer
 import com.lucasmarciano.composeproject.ui.theme.ColorSalesToolbar
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
-import com.lucasmarciano.composeproject.ui.utils.spacing
+import com.lucasmarciano.composeproject.utils.ComposableAlias
 
 @Composable
 fun ShimmerSalesHeaderController(isLoading: Boolean = true, content: ComposableAlias) {
@@ -45,7 +43,7 @@ private fun SalesShimmerHeaderScreen(brush: Brush) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(MaterialTheme.colors.background)
+            .background(ComposeProjectTheme.colors.bg)
     ) {
         Column {
             Column(
@@ -54,7 +52,7 @@ private fun SalesShimmerHeaderScreen(brush: Brush) {
                     .padding(all = 24.dp)
                     .fillMaxWidth()
             ) {
-                Spacer(modifier = Modifier.height(MaterialTheme.spacing.giga))
+                Spacer(modifier = Modifier.height(ComposeProjectTheme.spacing.giga))
 
                 TitleShimmer(brush = brush, 0.4f)
 
@@ -71,7 +69,7 @@ private fun SalesShimmerListScreen(brush: Brush) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(MaterialTheme.colors.background)
+            .background(ComposeProjectTheme.colors.bg)
     ) {
         Surface(
             elevation = 4.dp, modifier = Modifier
@@ -81,7 +79,8 @@ private fun SalesShimmerListScreen(brush: Brush) {
 
             Row(
                 modifier = Modifier
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .background(ComposeProjectTheme.colors.bg),
                 horizontalArrangement = Arrangement.SpaceAround,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -89,14 +88,14 @@ private fun SalesShimmerListScreen(brush: Brush) {
                     modifier = Modifier
                         .height(20.dp)
                         .width(130.dp)
-                        .clip(RoundedCornerShape(MaterialTheme.spacing.small))
+                        .clip(RoundedCornerShape(ComposeProjectTheme.spacing.small))
                         .background(brush)
                 )
                 Box(
                     modifier = Modifier
                         .height(20.dp)
                         .width(130.dp)
-                        .clip(RoundedCornerShape(MaterialTheme.spacing.small))
+                        .clip(RoundedCornerShape(ComposeProjectTheme.spacing.small))
                         .background(brush)
                 )
             }

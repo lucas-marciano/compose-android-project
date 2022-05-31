@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -21,7 +20,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.google.accompanist.pager.ExperimentalPagerApi
 import com.lucasmarciano.composeproject.R
 import com.lucasmarciano.composeproject.data.models.ErrorImage
 import com.lucasmarciano.composeproject.data.models.ErrorVO
@@ -34,7 +32,6 @@ import com.lucasmarciano.composeproject.ui.components.ItemTimeLineContainer
 import com.lucasmarciano.composeproject.ui.components.Title
 import com.lucasmarciano.composeproject.ui.mockspreview.mockListItemTimeLine
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
-import com.lucasmarciano.composeproject.ui.utils.spacing
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
 
 @Composable
@@ -75,7 +72,6 @@ fun TimeLineScreen(
     }
 }
 
-@OptIn(ExperimentalPagerApi::class)
 @Composable
 private fun TimeLineContent(
     isLoading: Boolean = true,
@@ -110,18 +106,18 @@ private fun MessageError(error: ErrorVO, retryAction: () -> Unit = { }) {
     Column(
         modifier = Modifier
             .clickable(onClick = retryAction)
-            .background(MaterialTheme.colors.background)
-            .padding(MaterialTheme.spacing.medium),
+            .background(ComposeProjectTheme.colors.bg)
+            .padding(ComposeProjectTheme.spacing.medium),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
         Image(
-            modifier = Modifier.padding(bottom = MaterialTheme.spacing.small),
+            modifier = Modifier.padding(bottom = ComposeProjectTheme.spacing.small),
             painter = painterResource(id = error.image.imageId),
             contentDescription = emptyString()
         )
-        Title(text = error.title, color = MaterialTheme.colors.onBackground)
-        Body(text = error.description, color = MaterialTheme.colors.onSurface)
+        Title(text = error.title, color = ComposeProjectTheme.colors.onBg)
+        Body(text = error.description, color = ComposeProjectTheme.colors.onBgVariant)
     }
 }
 
