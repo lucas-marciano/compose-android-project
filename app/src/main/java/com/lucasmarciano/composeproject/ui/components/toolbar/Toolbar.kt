@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
@@ -16,7 +15,6 @@ import com.lucasmarciano.composeproject.ui.theme.BackIcon
 import com.lucasmarciano.composeproject.ui.theme.ColorBlueCard
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.theme.HelpIcon
-import com.lucasmarciano.composeproject.ui.utils.elevation
 import com.lucasmarciano.composeproject.ui.utils.getColorToolbarIcons
 import com.lucasmarciano.composeproject.ui.utils.getColorToolbarTitle
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
@@ -31,7 +29,7 @@ internal fun Toolbar(
 ) {
     toolbar?.let {
         val backgroundColor = when (toolbar.type) {
-            TypeToolbar.NORMAL -> MaterialTheme.colors.background
+            TypeToolbar.NORMAL -> ComposeProjectTheme.colors.bg
             TypeToolbar.BLUE -> ColorBlueCard
         }
         TopAppBar(
@@ -44,7 +42,7 @@ internal fun Toolbar(
                     Text(
                         text = toolbar.title,
                         textAlign = TextAlign.Center,
-                        style = MaterialTheme.typography.subtitle1,
+                        style = ComposeProjectTheme.type.subtitle1,
                         color = getColorToolbarTitle(toolbar.type)
                     )
                 }
@@ -53,7 +51,7 @@ internal fun Toolbar(
                 BuildBackAction(toolbar = toolbar, onClick = onClick)
             },
             actions = { BuildAction(toolbar, onClickMenu) },
-            elevation = MaterialTheme.elevation.noElevation
+            elevation = ComposeProjectTheme.elevation.noElevation
         )
     }
 }

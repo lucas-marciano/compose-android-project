@@ -4,22 +4,21 @@ import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
-import com.lucasmarciano.composeproject.ui.utils.spacing
+import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 
 @Composable
 fun MenuItemShimmer(brush: Brush) {
     Row(
-        modifier = Modifier.padding(bottom = MaterialTheme.spacing.extraSmall),
+        modifier = Modifier.padding(bottom = ComposeProjectTheme.spacing.extraSmall),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        CircleShimmer(brush = brush, size = MaterialTheme.spacing.extraLarge)
+        CircleShimmer(brush = brush, size = ComposeProjectTheme.spacing.extraLarge)
         SubTitleShimmer(brush = brush)
     }
 }

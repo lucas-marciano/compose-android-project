@@ -1,56 +1,57 @@
-package com.lucasmarciano.composeproject.ui.theme
+package com.lucasmarciano.composeproject.ui.utils
 
-import androidx.compose.material.Typography
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.sp
 
-val Typography = Typography(
-    body1 = TextStyle(
+data class Type(
+    val body1: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 16.sp,
+        fontSize = FontSize().medium,
         textAlign = TextAlign.Start
     ),
-    body2 = TextStyle(
+    val body2: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Thin,
-        fontSize = 13.sp,
+        fontSize = FontSize().minimum,
         textAlign = TextAlign.Start
     ),
-    subtitle1 = TextStyle(
+    val subtitle1: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
-        fontSize = 20.sp,
-        letterSpacing = 0.5.sp,
+        fontSize = FontSize().large,
+        letterSpacing = FontSize().letterSpacingDefault,
         textAlign = TextAlign.Start
     ),
-    subtitle2 = TextStyle(
+    val subtitle2: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
-        fontSize = 14.sp,
+        fontSize = FontSize().small,
         textAlign = TextAlign.Center
     ),
-    h1 = TextStyle(
+    val h1: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
-        fontSize = 24.sp,
-        letterSpacing = 0.5.sp,
+        fontSize = FontSize().midLarge,
+        letterSpacing = FontSize().letterSpacingDefault,
         textAlign = TextAlign.Start,
         fontWeight = FontWeight.Bold,
     ),
-    h2 = TextStyle(
+    val h2: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
-        fontSize = 20.sp,
-        letterSpacing = 0.5.sp,
+        fontSize = FontSize().large,
+        letterSpacing = FontSize().letterSpacingDefault,
         textAlign = TextAlign.Start,
         fontWeight = FontWeight.Bold,
     ),
-    button = TextStyle(
+    val button: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
-        fontSize = 13.sp,
+        fontSize = FontSize().minimum,
         textAlign = TextAlign.Center,
         fontWeight = FontWeight.Bold,
-    ),
+    )
 )
+
+val LocalType = compositionLocalOf { Type() }

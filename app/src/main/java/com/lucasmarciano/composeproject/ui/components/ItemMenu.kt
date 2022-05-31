@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChevronRight
@@ -22,14 +21,13 @@ import com.lucasmarciano.composeproject.data.settings.models.ItemMenuVO
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemMenu
 import com.lucasmarciano.composeproject.ui.theme.ColorPinkCalifornia
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
-import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
 internal fun ItemMenu(item: ItemMenuVO) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(all = MaterialTheme.spacing.medium)
+            .padding(all = ComposeProjectTheme.spacing.medium)
             .clickable(enabled = true, onClick = { }),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -38,7 +36,7 @@ internal fun ItemMenu(item: ItemMenuVO) {
             contentDescription = "",
             tint = ColorPinkCalifornia
         )
-        Spacer(modifier = Modifier.width(width = MaterialTheme.spacing.medium))
+        Spacer(modifier = Modifier.width(width = ComposeProjectTheme.spacing.medium))
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
@@ -46,8 +44,8 @@ internal fun ItemMenu(item: ItemMenuVO) {
         ) {
             Text(
                 text = item.callToActionVO.name,
-                style = MaterialTheme.typography.body2,
-                color = MaterialTheme.colors.onBackground
+                style = ComposeProjectTheme.type.body2,
+                color = ComposeProjectTheme.colors.onBg
             )
             Icon(
                 imageVector = Icons.Filled.ChevronRight,

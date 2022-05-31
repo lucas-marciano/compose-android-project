@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -21,14 +20,13 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
-import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
 fun ItemTimeLineShimmer(brush: Brush) {
     ConstraintLayout(
         modifier = Modifier
             .fillMaxWidth()
-            .background(MaterialTheme.colors.background)
+            .background(ComposeProjectTheme.colors.bg)
     ) {
 
         val (line, icon, content, tag) = createRefs()
@@ -48,9 +46,9 @@ fun ItemTimeLineShimmer(brush: Brush) {
 
         Box(
             modifier = Modifier
-                .padding(4.dp)
-                .height(MaterialTheme.spacing.medium)
-                .width(MaterialTheme.spacing.medium)
+                .padding(ComposeProjectTheme.spacing.small)
+                .height(ComposeProjectTheme.spacing.medium)
+                .width(ComposeProjectTheme.spacing.medium)
                 .clip(CircleShape)
                 .background(brush)
                 .constrainAs(icon) {
@@ -68,31 +66,31 @@ fun ItemTimeLineShimmer(brush: Brush) {
         ) {
             Box(
                 modifier = Modifier
-                    .height(MaterialTheme.spacing.medium)
+                    .height(ComposeProjectTheme.spacing.medium)
                     .width(150.dp)
-                    .clip(RoundedCornerShape(MaterialTheme.spacing.extraMedium))
+                    .clip(RoundedCornerShape(ComposeProjectTheme.spacing.extraMedium))
                     .background(brush)
             )
             Spacer(modifier = Modifier.height(8.dp))
             Box(
                 modifier = Modifier
-                    .height(MaterialTheme.spacing.large)
+                    .height(ComposeProjectTheme.spacing.large)
                     .width(100.dp)
-                    .clip(RoundedCornerShape(MaterialTheme.spacing.extraMedium))
+                    .clip(RoundedCornerShape(ComposeProjectTheme.spacing.extraMedium))
                     .background(brush)
             )
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(ComposeProjectTheme.spacing.extraSmall))
             Box(
                 modifier = Modifier
-                    .height(MaterialTheme.spacing.medium)
+                    .height(ComposeProjectTheme.spacing.medium)
                     .width(50.dp)
-                    .clip(RoundedCornerShape(MaterialTheme.spacing.extraMedium))
+                    .clip(RoundedCornerShape(ComposeProjectTheme.spacing.extraMedium))
                     .background(brush)
             )
         }
         Box(modifier = Modifier
-            .height(MaterialTheme.spacing.medium)
-            .width(MaterialTheme.spacing.large)
+            .height(ComposeProjectTheme.spacing.medium)
+            .width(ComposeProjectTheme.spacing.large)
             .clip(CircleShape)
             .background(brush)
             .constrainAs(tag) {

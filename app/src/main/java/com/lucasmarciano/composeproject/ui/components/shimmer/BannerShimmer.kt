@@ -8,26 +8,25 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
-import com.lucasmarciano.composeproject.ui.utils.spacing
+import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 
 @Composable
 fun BannerShimmer(brush: Brush) {
     Row(
         modifier = Modifier
-            .padding(all = MaterialTheme.spacing.small)
+            .padding(all = ComposeProjectTheme.spacing.small)
             .fillMaxWidth()
     ) {
         Box(
             modifier = Modifier
-                .height(MaterialTheme.spacing.giga)
+                .height(ComposeProjectTheme.spacing.giga)
                 .fillMaxWidth()
-                .clip(RoundedCornerShape(MaterialTheme.spacing.small))
+                .clip(RoundedCornerShape(ComposeProjectTheme.spacing.small))
                 .background(brush)
         )
     }

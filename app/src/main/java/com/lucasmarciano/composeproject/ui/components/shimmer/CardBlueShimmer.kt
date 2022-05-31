@@ -10,31 +10,30 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
-import com.lucasmarciano.composeproject.ui.utils.spacing
+import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 
 @Composable
 fun BlueCardShimmer(brush: Brush) {
     Row(
         modifier = Modifier
-            .padding(all = MaterialTheme.spacing.small)
+            .padding(all = ComposeProjectTheme.spacing.small)
             .fillMaxWidth()
     ) {
         repeat(3) {
             Row {
                 Box(
                     modifier = Modifier
-                        .height(MaterialTheme.spacing.cardHeight)
-                        .width(MaterialTheme.spacing.cardWidth)
-                        .clip(RoundedCornerShape(MaterialTheme.spacing.small))
+                        .height(ComposeProjectTheme.spacing.cardHeight)
+                        .width(ComposeProjectTheme.spacing.cardWidth)
+                        .clip(RoundedCornerShape(ComposeProjectTheme.spacing.small))
                         .background(brush)
                 )
-                Spacer(modifier = Modifier.width(MaterialTheme.spacing.medium))
+                Spacer(modifier = Modifier.width(ComposeProjectTheme.spacing.medium))
             }
         }
     }

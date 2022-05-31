@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.LockClock
@@ -34,7 +33,9 @@ internal fun ItemTimeLine(
     isLoading: Boolean = false,
     onClick: (String) -> Unit = { },
 ) {
-    ShimmerView(isLoading, { ItemTimeLineContainer(item, onClick) }) { ItemTimeLineShimmer(brush = it) }
+    ShimmerView(
+        isLoading,
+        { ItemTimeLineContainer(item, onClick) }) { ItemTimeLineShimmer(brush = it) }
 }
 
 @Composable
@@ -43,7 +44,7 @@ internal fun ItemTimeLineContainer(item: ItemTimeLineVO, onClick: (String) -> Un
         modifier = Modifier
             .clickable { onClick(item.callToActionVO.action) }
             .fillMaxWidth()
-            .background(MaterialTheme.colors.background)
+            .background(ComposeProjectTheme.colors.bg)
     ) {
 
         val (line, icon, content, tag) = createRefs()
@@ -51,7 +52,7 @@ internal fun ItemTimeLineContainer(item: ItemTimeLineVO, onClick: (String) -> Un
         Divider(
             modifier = Modifier
                 .width(1.dp)
-                .background(MaterialTheme.colors.onBackground)
+                .background(ComposeProjectTheme.colors.onBg)
                 .constrainAs(line) {
                     top.linkTo(parent.top)
                     bottom.linkTo(parent.bottom)
@@ -64,10 +65,10 @@ internal fun ItemTimeLineContainer(item: ItemTimeLineVO, onClick: (String) -> Un
         Icon(
             imageVector = Icons.Default.LockClock,
             contentDescription = "",
-            tint = MaterialTheme.colors.onBackground,
+            tint = ComposeProjectTheme.colors.onBg,
             modifier = Modifier
                 .padding(4.dp)
-                .background(color = MaterialTheme.colors.background)
+                .background(color = ComposeProjectTheme.colors.bg)
                 .constrainAs(icon) {
                     top.linkTo(parent.top, margin = 20.dp)
                     start.linkTo(parent.start, margin = 25.dp)
@@ -85,21 +86,20 @@ internal fun ItemTimeLineContainer(item: ItemTimeLineVO, onClick: (String) -> Un
         ) {
             Text(
                 text = item.title,
-                style = MaterialTheme.typography.subtitle1,
-                color = MaterialTheme.colors.onSurface,
+                style = ComposeProjectTheme.type.subtitle1,
+                color = ComposeProjectTheme.colors.onBgVariant,
                 maxLines = 1
             )
             Text(
                 text = item.value,
-                style = MaterialTheme.typography.h4,
-                color = MaterialTheme.colors.onBackground,
+                color = ComposeProjectTheme.colors.onBg,
                 fontWeight = FontWeight.Bold,
                 maxLines = 1
             )
             Text(
                 text = item.description,
-                style = MaterialTheme.typography.subtitle2,
-                color = MaterialTheme.colors.onSurface,
+                style = ComposeProjectTheme.type.subtitle2,
+                color = ComposeProjectTheme.colors.onBgVariant,
                 maxLines = 1
             )
         }

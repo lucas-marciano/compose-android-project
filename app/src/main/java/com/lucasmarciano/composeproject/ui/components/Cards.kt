@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -32,33 +31,31 @@ import com.lucasmarciano.composeproject.ui.theme.CoinIcon
 import com.lucasmarciano.composeproject.ui.theme.ColorBlueCard
 import com.lucasmarciano.composeproject.ui.theme.ColorPinkCalifornia
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
-import com.lucasmarciano.composeproject.ui.utils.elevation
-import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
 fun BlueCard(item: ItemCardHomeVO, onClick: () -> Unit = { }) {
     Box(
         modifier = Modifier
-            .height(MaterialTheme.spacing.cardHeight)
-            .width(MaterialTheme.spacing.cardWidth)
-            .clip(RoundedCornerShape(MaterialTheme.spacing.small))
+            .height(ComposeProjectTheme.spacing.cardHeight)
+            .width(ComposeProjectTheme.spacing.cardWidth)
+            .clip(RoundedCornerShape(ComposeProjectTheme.spacing.small))
             .background(ColorBlueCard)
             .clickable(onClick = onClick)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxHeight()
-                .padding(MaterialTheme.spacing.defaultPadding),
+                .padding(ComposeProjectTheme.spacing.defaultPadding),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
                 text = item.text,
                 color = Color.White,
-                style = MaterialTheme.typography.body1,
+                style = ComposeProjectTheme.type.body1,
             )
             if (item.hasIcon()) {
                 CoinIcon(
-                    size = MaterialTheme.spacing.largeIcon,
+                    size = ComposeProjectTheme.spacing.largeIcon,
                     color = Color.White
                 )
             }
@@ -71,30 +68,30 @@ fun BlueCard(item: ItemCardHomeVO, onClick: () -> Unit = { }) {
 fun CardWithIcon(item: ItemCardHomeVO, onClick: () -> Unit = { }) {
     Card(
         modifier = Modifier
-            .height(MaterialTheme.spacing.extraHuge)
-            .width(MaterialTheme.spacing.extraHuge)
+            .height(ComposeProjectTheme.spacing.extraHuge)
+            .width(ComposeProjectTheme.spacing.extraHuge)
             .clickable(onClick = onClick),
-        shape = RoundedCornerShape(MaterialTheme.spacing.small),
-        elevation = MaterialTheme.elevation.extraSmall,
-        backgroundColor = MaterialTheme.colors.background
+        shape = RoundedCornerShape(ComposeProjectTheme.spacing.small),
+        elevation = ComposeProjectTheme.elevation.extraSmall,
+        backgroundColor = ComposeProjectTheme.colors.bg
     ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(MaterialTheme.spacing.defaultPadding),
+                .padding(ComposeProjectTheme.spacing.defaultPadding),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceBetween,
         ) {
             Icon(
-                modifier = Modifier.size(MaterialTheme.spacing.smallIcon),
+                modifier = Modifier.size(ComposeProjectTheme.spacing.smallIcon),
                 painter = painterResource(id = R.drawable.ic_money_info),
                 contentDescription = "",
                 tint = ColorPinkCalifornia
             )
             Text(
                 text = item.text,
-                color = MaterialTheme.colors.onBackground,
-                style = MaterialTheme.typography.subtitle2,
+                color = ComposeProjectTheme.colors.onBg,
+                style = ComposeProjectTheme.type.subtitle2,
             )
 
         }
