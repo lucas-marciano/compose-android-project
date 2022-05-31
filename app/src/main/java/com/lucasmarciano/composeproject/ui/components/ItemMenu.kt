@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.data.settings.models.ItemMenuVO
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemMenu
 import com.lucasmarciano.composeproject.ui.theme.ColorPinkCalifornia
+import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.utils.spacing
 
 @Composable
@@ -46,7 +47,7 @@ internal fun ItemMenu(item: ItemMenuVO) {
             Text(
                 text = item.callToActionVO.name,
                 style = MaterialTheme.typography.body2,
-                color = MaterialTheme.colors.primaryVariant
+                color = MaterialTheme.colors.onBackground
             )
             Icon(
                 imageVector = Icons.Filled.ChevronRight,
@@ -60,11 +61,15 @@ internal fun ItemMenu(item: ItemMenuVO) {
 @Preview(name = "Item menu", showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 private fun ItemMenuPreview() {
-    ItemMenu(item = mockItemMenu())
+    ComposeProjectTheme {
+        ItemMenu(item = mockItemMenu())
+    }
 }
 
 @Preview(name = "Item Menu Dark", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun ItemMenuDarkPreview() {
-    ItemMenu(item = mockItemMenu())
+    ComposeProjectTheme {
+        ItemMenu(item = mockItemMenu())
+    }
 }
