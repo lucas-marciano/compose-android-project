@@ -1,6 +1,7 @@
 package com.lucasmarciano.composeproject.features.sales.header
 
 import android.content.res.Configuration
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -13,7 +14,6 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.outlined.MonetizationOn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -21,6 +21,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -70,10 +71,9 @@ private fun HeaderSalesContent(
                 .padding(all = ComposeProjectTheme.spacing.extraMedium)
                 .fillMaxWidth()
         ) {
-            Icon(
-                imageVector = Icons.Outlined.MonetizationOn,
+            Image(
+                painter = painterResource(R.drawable.my_business_img_coin),
                 contentDescription = emptyString(),
-                tint = Color.Yellow,
                 modifier = Modifier
                     .height(80.dp)
                     .width(80.dp)

@@ -100,7 +100,7 @@ private fun SalesShimmerListScreen(brush: Brush) {
                 )
             }
         }
-        repeat(4) {
+        repeat(7) {
             ItemTimeLineShimmer(brush = brush)
         }
     }
