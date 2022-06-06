@@ -4,9 +4,11 @@ import com.lucasmarciano.composeproject.data.home.models.BannerVO
 import com.lucasmarciano.composeproject.data.home.models.ItemCardHomeVO
 import com.lucasmarciano.composeproject.data.home.models.ResponseBuildVO
 import com.lucasmarciano.composeproject.data.models.CallToActionVO
+import com.lucasmarciano.composeproject.data.models.HeaderTimeLineVO
 import com.lucasmarciano.composeproject.data.models.ItemTimeLineVO
 import com.lucasmarciano.composeproject.data.models.ProfileVO
 import com.lucasmarciano.composeproject.data.models.SalesInformationVO
+import com.lucasmarciano.composeproject.data.models.TimeLineVO
 import com.lucasmarciano.composeproject.data.settings.models.ItemMenuVO
 import com.lucasmarciano.composeproject.data.settings.models.StoreNameVO
 import com.lucasmarciano.composeproject.ui.values.BannerComponent
@@ -201,6 +203,27 @@ internal fun mockItemMenuList() = listOf(
             name = "menu 4"
         )
     )
+)
+
+internal fun mockListTimeLine() = listOf(
+    mockTimeLine().copy(headerTimeLineVO = HeaderTimeLineVO("item 1", "info 1")),
+    mockTimeLine().copy(headerTimeLineVO = HeaderTimeLineVO("item 2", "info 2")),
+    mockTimeLine().copy(headerTimeLineVO = HeaderTimeLineVO("item 3", "info 3")),
+    mockTimeLine().copy(headerTimeLineVO = HeaderTimeLineVO("item 4", "info 4")),
+    mockTimeLine().copy(headerTimeLineVO = HeaderTimeLineVO("item 5", "info 5")),
+    mockTimeLine().copy(headerTimeLineVO = HeaderTimeLineVO("item 6", "info 6")),
+    mockTimeLine().copy(headerTimeLineVO = HeaderTimeLineVO("item 7", "info 7")),
+    mockTimeLine().copy(headerTimeLineVO = HeaderTimeLineVO("item 8", "info 8")),
+    mockTimeLine().copy(headerTimeLineVO = HeaderTimeLineVO("item 9", "info 9")),
+    mockTimeLine().copy(headerTimeLineVO = HeaderTimeLineVO("item 10", "info 10")),
+    mockTimeLine().copy(headerTimeLineVO = HeaderTimeLineVO("item 11", "info 11")),
+)
+
+internal fun mockTimeLine() = TimeLineVO(
+    HeaderTimeLineVO(
+        "title", "info"
+    ),
+    mockListItemTimeLine()
 )
 
 internal fun mockListItemTimeLine() = listOf(

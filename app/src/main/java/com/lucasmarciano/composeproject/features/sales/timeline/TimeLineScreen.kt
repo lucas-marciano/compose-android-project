@@ -1,16 +1,20 @@
 @file:Suppress("OPT_IN_IS_NOT_ENABLED")
+@file:OptIn(ExperimentalFoundationApi::class)
 
 package com.lucasmarciano.composeproject.features.sales.timeline
 
 import android.content.res.Configuration
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -23,14 +27,15 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.lucasmarciano.composeproject.R
 import com.lucasmarciano.composeproject.data.models.ErrorImage
 import com.lucasmarciano.composeproject.data.models.ErrorVO
-import com.lucasmarciano.composeproject.data.models.ItemTimeLineVO
+import com.lucasmarciano.composeproject.data.models.TimeLineVO
 import com.lucasmarciano.composeproject.features.sales.components.CombinedTab
+import com.lucasmarciano.composeproject.features.sales.components.HeaderItem
 import com.lucasmarciano.composeproject.features.sales.components.ShimmerSalesTimeListController
 import com.lucasmarciano.composeproject.features.sales.components.TabItem.Charges.getTabs
 import com.lucasmarciano.composeproject.ui.components.Body
 import com.lucasmarciano.composeproject.ui.components.ItemTimeLineContainer
 import com.lucasmarciano.composeproject.ui.components.Title
-import com.lucasmarciano.composeproject.ui.mockspreview.mockListItemTimeLine
+import com.lucasmarciano.composeproject.ui.mockspreview.mockListTimeLine
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
 
@@ -75,28 +80,44 @@ fun TimeLineScreen(
 @Composable
 private fun TimeLineContent(
     isLoading: Boolean = true,
-    listSells: List<ItemTimeLineVO> = emptyList(),
-    listCharges: List<ItemTimeLineVO> = emptyList(),
+    listSells: List<TimeLineVO> = emptyList(),
+    listCharges: List<TimeLineVO> = emptyList(),
     onClick: (String) -> Unit = {},
 ) {
     ShimmerSalesTimeListController(isLoading = isLoading) {
         CombinedTab(
             tabs = getTabs(),
-            onClickItem = onClick,
-            listSells = listSells,
-            listCharges = listCharges
+            listContents = listOf(
+                { ListCompose(listSells, onClick) },
+                { ListCompose(listCharges, onClick) },
+            )
         )
     }
 }
 
 @Composable
 internal fun ListCompose(
-    list: List<ItemTimeLineVO> = emptyList(),
+    list: List<TimeLineVO> = emptyList(),
     onClick: (String) -> Unit = {},
 ) {
     LazyColumn {
-        items(list, key = { it.id }) { item ->
-            ItemTimeLineContainer(item = item) { onClick(item.id) }
+        list.forEach { timeline ->
+            stickyHeader {
+                Surface(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(ComposeProjectTheme.colors.bgVariant)
+                ) {
+                    HeaderItem(
+                        title = timeline.headerTimeLineVO.title,
+                        info = timeline.headerTimeLineVO.info
+                    )
+                }
+            }
+
+            items(timeline.list, key = { it.id }) { item ->
+                ItemTimeLineContainer(item = item) { onClick(item.id) }
+            }
         }
     }
 }
@@ -127,8 +148,8 @@ private fun TimeLineContentPreview() {
     ComposeProjectTheme {
         TimeLineContent(
             isLoading = false,
-            listCharges = mockListItemTimeLine(),
-            listSells = mockListItemTimeLine(),
+            listCharges = mockListTimeLine(),
+            listSells = mockListTimeLine(),
         )
     }
 }

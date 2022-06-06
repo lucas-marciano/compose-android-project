@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Surface
 import androidx.compose.material.Tab
 import androidx.compose.material.TabRow
 import androidx.compose.material.Text
@@ -24,8 +25,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
-import com.lucasmarciano.composeproject.data.models.ItemTimeLineVO
-import com.lucasmarciano.composeproject.features.sales.timeline.ListCompose
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import kotlinx.coroutines.launch
 
@@ -34,9 +33,7 @@ import kotlinx.coroutines.launch
 internal fun CombinedTab(
     modifier: Modifier = Modifier,
     vararg tabs: TabItem,
-    onClickItem: (String) -> Unit = {},
-    listSells: List<ItemTimeLineVO> = emptyList(),
-    listCharges: List<ItemTimeLineVO> = emptyList(),
+    listContents: List<@Composable () -> Unit> = emptyList()
 ) {
     val pagerState = rememberPagerState(
         pageCount = TabItem.Charges.getTabs().size,
@@ -83,10 +80,20 @@ internal fun CombinedTab(
             ) {
             when (pagerState.currentPage) {
                 TabItem.Charges.id -> {
-                    ListCompose(listCharges, onClickItem)
+                    Surface(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(ComposeProjectTheme.colors.bg),
+                        content = listContents[TabItem.Charges.id]
+                    )
                 }
                 TabItem.Selling.id -> {
-                    ListCompose(listSells, onClickItem)
+                    Surface(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(ComposeProjectTheme.colors.bg),
+                        content = listContents[TabItem.Selling.id]
+                    )
                 }
             }
         }
@@ -132,6 +139,7 @@ private fun TabsDarkPreview() {
     ComposeProjectTheme {
         CombinedTab(
             tabs = arrayOf(TabItem.Selling, TabItem.Charges),
+            listContents = listOf({ Text(text = "aba 1") }, { Text(text = "aba 2") })
         )
     }
 }

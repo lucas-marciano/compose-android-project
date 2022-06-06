@@ -19,8 +19,8 @@ import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 fun HeaderItem(modifier: Modifier = Modifier, title: String, info: String) {
     Row(
         modifier = modifier
-            .background(ComposeProjectTheme.colors.brandVariant)
             .fillMaxWidth()
+            .background(ComposeProjectTheme.colors.bgVariant)
             .height(ComposeProjectTheme.spacing.extraLarge)
             .padding(horizontal = ComposeProjectTheme.spacing.extraLarge),
         horizontalArrangement = Arrangement.SpaceBetween,
