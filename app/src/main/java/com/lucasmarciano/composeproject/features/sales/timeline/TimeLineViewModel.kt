@@ -3,6 +3,7 @@ package com.lucasmarciano.composeproject.features.sales.timeline
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lucasmarciano.composeproject.ui.mockspreview.mockListItemTimeLine
+import com.lucasmarciano.composeproject.ui.mockspreview.mockListTimeLine
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -22,7 +23,7 @@ internal class TimeLineViewModel : ViewModel() {
             _uiState.value = TimeLineUIState.Loading
             delay(3000)
             if (mockListItemTimeLine().isNotEmpty())
-                _uiState.value = TimeLineUIState.Success(mockListItemTimeLine())
+                _uiState.value = TimeLineUIState.Success(mockListTimeLine())
             else
                 _uiState.value = TimeLineUIState.ErrorEmpty
         }

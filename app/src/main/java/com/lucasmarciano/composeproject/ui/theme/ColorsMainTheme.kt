@@ -7,7 +7,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 
 val ColorPrimary = Color(0xFFFFFBFE)
-val ColorPrimaryVariant = Color(0xFFFFFBFE).copy(alpha = 0.7f)
+val ColorPrimaryVariant = Color(0xFFFFFBFE)
 val ColorSecondary = Color(0xFFFFFBFE)
 val ColorBackground = Color(0xFFFFFBFE)
 val ColorSurface = Color(0xFFE8E2E6)
