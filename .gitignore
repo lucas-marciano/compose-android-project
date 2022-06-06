@@ -19,6 +19,8 @@ output.json
 # IntelliJ
 *.iml
 .idea/
+.idea/misc.xml
+.idea/inspectionProfiles/Project_Default.xml
 .idea/*.xml
 
 # Keystore files
@@ -97,6 +99,7 @@ obj/
 /out/
 
 # User-specific configurations
+.idea/*
 .idea/caches/
 .idea/libraries/
 .idea/shelf/
@@ -167,4 +170,5 @@ fabric.properties
 ### AndroidStudio Patch ###
 
 !/gradle/wrapper/gradle-wrapper.jar
+/.idea/
 /.idea/
