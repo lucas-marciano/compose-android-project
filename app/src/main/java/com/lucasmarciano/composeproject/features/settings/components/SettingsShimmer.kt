@@ -17,10 +17,10 @@ import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimme
 import com.lucasmarciano.composeproject.ui.components.shimmer.MenuItemShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.SubTitleShimmer
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
-import com.lucasmarciano.composeproject.utils.ComposableAlias
+import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
 
 @Composable
-fun ShimmerSettingsController(isLoading: Boolean = true, content: ComposableAlias) {
+fun ShimmerSettingsController(isLoading: Boolean = true, content: ComposableAliasSimple) {
     ShimmerView(isLoading, content) { SettingsShimmerScreen(brush = it) }
 }
 

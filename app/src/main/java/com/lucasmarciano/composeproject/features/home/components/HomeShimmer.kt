@@ -20,10 +20,10 @@ import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimme
 import com.lucasmarciano.composeproject.ui.components.shimmer.SubTitleShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.TitleShimmer
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
-import com.lucasmarciano.composeproject.utils.ComposableAlias
+import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
 
 @Composable
-fun ShimmerHomeController(isLoading: Boolean = true, content: ComposableAlias) {
+fun ShimmerHomeController(isLoading: Boolean = true, content: ComposableAliasSimple) {
     ShimmerView(isLoading, content) { HomeShimmerScreen(brush = it) }
 }
 

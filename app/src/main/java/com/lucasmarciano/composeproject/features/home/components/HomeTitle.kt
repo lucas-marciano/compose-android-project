@@ -42,7 +42,7 @@ fun HomeTitle(
             Title(text = name)
             StoreIcon(
                 hasNotification = hasNotification,
-                onClick = { navController.navigate(Screen.SettingsScreen.route) })
+                onClick = { navController.navigate(Screen.SettingsScreen.buildPath()) })
         }
     }
 }

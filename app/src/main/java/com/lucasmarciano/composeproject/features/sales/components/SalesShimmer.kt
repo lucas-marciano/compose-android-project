@@ -26,15 +26,15 @@ import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimme
 import com.lucasmarciano.composeproject.ui.components.shimmer.TitleShimmer
 import com.lucasmarciano.composeproject.ui.theme.ColorSalesToolbar
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
-import com.lucasmarciano.composeproject.utils.ComposableAlias
+import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
 
 @Composable
-fun ShimmerSalesHeaderController(isLoading: Boolean = true, content: ComposableAlias) {
+fun ShimmerSalesHeaderController(isLoading: Boolean = true, content: ComposableAliasSimple) {
     ShimmerView(isLoading, content) { SalesShimmerHeaderScreen(brush = it) }
 }
 
 @Composable
-fun ShimmerSalesTimeListController(isLoading: Boolean = true, content: ComposableAlias) {
+fun ShimmerSalesTimeListController(isLoading: Boolean = true, content: ComposableAliasSimple) {
     ShimmerView(isLoading, content) { SalesShimmerListScreen(brush = it) }
 }
 
