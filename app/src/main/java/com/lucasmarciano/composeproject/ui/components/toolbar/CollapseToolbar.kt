@@ -26,7 +26,7 @@ import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.utils.Const.BottomSheetShape
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.ui.values.TypeToolbar
-import com.lucasmarciano.composeproject.utils.ComposableAlias
+import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -34,8 +34,8 @@ internal fun CollapseToolbar(
     toolbar: ToolbarComponent,
     onClickBack: (String) -> Unit = { },
     onClick: () -> Unit = { },
-    header: ComposableAlias,
-    content: ComposableAlias,
+    header: ComposableAliasSimple,
+    content: ComposableAliasSimple,
 ) {
     val backDropState = rememberBackdropScaffoldState(BackdropValue.Revealed)
 

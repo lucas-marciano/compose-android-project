@@ -11,12 +11,16 @@ import androidx.compose.foundation.background
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavType
+import androidx.navigation.navArgument
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import com.lucasmarciano.composeproject.features.detailsale.DetailSaleScreen
 import com.lucasmarciano.composeproject.features.home.HomeScreen
 import com.lucasmarciano.composeproject.features.sales.SalesScreen
 import com.lucasmarciano.composeproject.features.settings.SettingsScreen
+import com.lucasmarciano.composeproject.routes.Screen.DetailSale.KEY_SALE_ID
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 
 @OptIn(ExperimentalAnimationApi::class)
@@ -25,32 +29,47 @@ fun Navigation() {
     val navController = rememberAnimatedNavController()
     AnimatedNavHost(
         navController = navController,
-        startDestination = Screen.HomeScreen.route,
+        startDestination = Screen.HomeScreen.buildPath(),
         modifier = Modifier.background(
             ComposeProjectTheme.colors.bg
         )
     ) {
         composable(
-            route = Screen.HomeScreen.route,
+            route = Screen.HomeScreen.buildPath(),
             enterTransition = { enterSlideTransition() },
             exitTransition = { exitSlideTransition(false) },
             popEnterTransition = { enterSlideTransition(false) },
             popExitTransition = { exitSlideTransition() },
         ) { HomeScreen(navController) }
         composable(
-            route = Screen.SettingsScreen.route,
+            route = Screen.SettingsScreen.buildPath(),
             enterTransition = { enterSlideTransition() },
             exitTransition = { exitSlideTransition(false) },
             popEnterTransition = { enterSlideTransition(false) },
             popExitTransition = { exitSlideTransition() },
         ) { SettingsScreen(navController) }
         composable(
-            route = Screen.SalesScreen.route,
+            route = Screen.SalesScreen.buildPath(),
             enterTransition = { enterSlideTransition() },
             exitTransition = { exitSlideTransition(false) },
             popEnterTransition = { enterSlideTransition(false) },
             popExitTransition = { exitSlideTransition() },
         ) { SalesScreen(navController) }
+        composable(route = Screen.DetailSale.buildPath(),
+            enterTransition = { enterSlideTransition() },
+            exitTransition = { exitSlideTransition(false) },
+            popEnterTransition = { enterSlideTransition(false) },
+            popExitTransition = { exitSlideTransition() },
+            arguments = listOf(navArgument(KEY_SALE_ID) {
+                type = NavType.StringType
+                defaultValue = null
+                nullable = true
+            })) { entry ->
+            DetailSaleScreen(
+                entry.arguments?.getString(KEY_SALE_ID),
+                navController
+            )
+        }
     }
 }
 

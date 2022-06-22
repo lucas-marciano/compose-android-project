@@ -26,11 +26,11 @@ import com.lucasmarciano.composeproject.ui.utils.LocalSpacing
 import com.lucasmarciano.composeproject.ui.utils.LocalType
 import com.lucasmarciano.composeproject.ui.utils.Spacing
 import com.lucasmarciano.composeproject.ui.utils.Type
-import com.lucasmarciano.composeproject.utils.ComposableAlias
+import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
 
 @Composable
 fun ComposeProjectTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(), content: ComposableAlias
+    darkTheme: Boolean = isSystemInDarkTheme(), content: ComposableAliasSimple
 ) {
     val colorScheme = when {
         darkTheme -> DarkColorPalette
@@ -79,7 +79,7 @@ object ComposeProjectTheme {
 
 @Composable
 fun ProvideThemeColors(
-    colors: ColorsMainTheme, content: @Composable () -> Unit
+    colors: ColorsMainTheme, content: ComposableAliasSimple
 ) {
     val colorPalette = remember { colors.copy() }
     colorPalette.update(colors)

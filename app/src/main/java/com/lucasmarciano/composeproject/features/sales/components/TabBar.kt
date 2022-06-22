@@ -26,6 +26,7 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
+import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class)
@@ -33,7 +34,7 @@ import kotlinx.coroutines.launch
 internal fun CombinedTab(
     modifier: Modifier = Modifier,
     vararg tabs: TabItem,
-    listContents: List<@Composable () -> Unit> = emptyList()
+    listContents: List<ComposableAliasSimple> = emptyList()
 ) {
     val pagerState = rememberPagerState(
         pageCount = TabItem.Charges.getTabs().size,

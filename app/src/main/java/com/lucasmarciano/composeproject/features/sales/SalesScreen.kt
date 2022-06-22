@@ -39,12 +39,16 @@ private fun SalesContent(navController: NavController) {
                 title = emptyString(),
                 type = TypeToolbar.BLUE
             ),
-            onClickBack = { navController.navBackTo(Screen.HomeScreen.route) },
+            onClickBack = { navController.navBackTo(Screen.HomeScreen.buildPath()) },
             onClick = {},
             header = { HeaderSalesScreen() },
             content = {
-                TimeLineScreen()
+                TimeLineScreen { saleId -> goToDetail(saleId, navController) }
             },
         )
     }
+}
+
+private fun goToDetail(saleId: String, navController: NavController) {
+    navController.navigate(Screen.DetailSale.mountPathWithArgs(saleId))
 }

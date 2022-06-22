@@ -15,6 +15,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import com.lucasmarciano.composeproject.utils.ComposableAlias
+import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
 
 object MainAnimatedShimmer {
 
@@ -29,8 +30,8 @@ object MainAnimatedShimmer {
     @Composable
     fun ShimmerView(
         isLoading: Boolean = true,
-        content: ComposableAlias,
-        contentShimmer: @Composable (Brush) -> Unit
+        content: ComposableAliasSimple,
+        contentShimmer: ComposableAlias<Brush>
     ) {
         val currentPage by remember { mutableStateOf(isLoading) }
         val brush = configAnimatedShimmer()
