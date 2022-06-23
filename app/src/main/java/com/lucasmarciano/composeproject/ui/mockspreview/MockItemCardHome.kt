@@ -73,6 +73,22 @@ internal fun mockListItemCard() = listOf(
     mockItemCardWithIcon(),
 )
 
+internal fun mockSailDetailResult() = ResponseBuildVO(
+    listItems = listOf(
+        ToolbarComponent(
+            title = "detalhe de venda",
+        ),
+        SpacerComponent(verticalSize = 16),
+        //TODO("card detail")
+        SpacerComponent(verticalSize = 16),
+        //TODO("card payment")
+        SpacerComponent(verticalSize = 16),
+        //TODO("botao sem linha")
+        SpacerComponent(verticalSize = 8),
+        //TODO("botao")
+    )
+)
+
 internal fun mockHomeResult() = ResponseBuildVO(
     listItems = listOf(
         ToolbarComponent(
