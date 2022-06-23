@@ -33,7 +33,7 @@ import com.lucasmarciano.composeproject.features.sales.components.ShimmerSalesHe
 import com.lucasmarciano.composeproject.ui.components.SecondTitle
 import com.lucasmarciano.composeproject.ui.components.Title
 import com.lucasmarciano.composeproject.ui.mockspreview.mockSalesResult
-import com.lucasmarciano.composeproject.ui.theme.ColorSalesToolbar
+import com.lucasmarciano.ui.iti.theme.colors.ColorSalesToolbar
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
 

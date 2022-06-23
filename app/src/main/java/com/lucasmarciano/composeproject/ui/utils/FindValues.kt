@@ -3,11 +3,11 @@ package com.lucasmarciano.composeproject.ui.utils
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
-import com.lucasmarciano.composeproject.ui.theme.ColorBlueCard
-import com.lucasmarciano.composeproject.ui.theme.ColorPinkCalifornia
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.values.ColorComponent
 import com.lucasmarciano.composeproject.ui.values.TypeToolbar
+import com.lucasmarciano.ui.iti.theme.colors.ColorBlueCard
+import com.lucasmarciano.ui.iti.theme.colors.ColorPinkCalifornia
 
 @Composable
 fun getBgToolbarColor(typeToolbar: TypeToolbar) = when (typeToolbar) {

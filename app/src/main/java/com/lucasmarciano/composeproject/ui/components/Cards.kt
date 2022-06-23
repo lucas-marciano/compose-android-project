@@ -28,8 +28,8 @@ import com.lucasmarciano.composeproject.ui.mockspreview.mockItemCard
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemCardWithIcon
 import com.lucasmarciano.composeproject.ui.mockspreview.mockSimpleItemCardWithIcon
 import com.lucasmarciano.composeproject.ui.theme.CoinIcon
-import com.lucasmarciano.composeproject.ui.theme.ColorBlueCard
-import com.lucasmarciano.composeproject.ui.theme.ColorPinkCalifornia
+import com.lucasmarciano.ui.iti.theme.colors.ColorBlueCard
+import com.lucasmarciano.ui.iti.theme.colors.ColorPinkCalifornia
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 
 @Composable

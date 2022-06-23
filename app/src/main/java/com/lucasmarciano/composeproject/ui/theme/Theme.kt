@@ -18,15 +18,18 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.lucasmarciano.composeproject.ui.utils.Elevation
-import com.lucasmarciano.composeproject.ui.utils.FontSize
-import com.lucasmarciano.composeproject.ui.utils.LocalElevation
-import com.lucasmarciano.composeproject.ui.utils.LocalFontSize
-import com.lucasmarciano.composeproject.ui.utils.LocalSpacing
 import com.lucasmarciano.composeproject.ui.utils.LocalType
-import com.lucasmarciano.composeproject.ui.utils.Spacing
 import com.lucasmarciano.composeproject.ui.utils.Type
 import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
+import com.lucasmarciano.ui.iti.theme.colors.ColorsMainTheme
+import com.lucasmarciano.ui.iti.theme.colors.DarkColorPalette
+import com.lucasmarciano.ui.iti.theme.colors.LightColorPalette
+import com.lucasmarciano.ui.iti.theme.dimens.Elevation
+import com.lucasmarciano.ui.iti.theme.dimens.LibElevation
+import com.lucasmarciano.ui.iti.theme.dimens.LibSpacing
+import com.lucasmarciano.ui.iti.theme.dimens.Spacing
+import com.lucasmarciano.ui.iti.theme.fonts.FontSize
+import com.lucasmarciano.ui.iti.theme.fonts.LibFontSize
 
 @Composable
 fun ComposeProjectTheme(
@@ -65,13 +68,13 @@ object ComposeProjectTheme {
         @Composable get() = LocalColors.current
 
     val spacing: Spacing
-        @Composable get() = LocalSpacing.current
+        @Composable get() = LibSpacing.current
 
     val elevation: Elevation
-        @Composable get() = LocalElevation.current
+        @Composable get() = LibElevation.current
 
     val fontSize: FontSize
-        @Composable get() = LocalFontSize.current
+        @Composable get() = LibFontSize.current
 
     val type: Type
         @Composable get() = LocalType.current
@@ -86,9 +89,9 @@ fun ProvideThemeColors(
     CompositionLocalProvider(
         LocalColors provides colorPalette,
         LocalType provides Type(),
-        LocalSpacing provides Spacing(),
-        LocalElevation provides Elevation(),
-        LocalFontSize provides FontSize(),
+        LibSpacing provides Spacing(),
+        LibElevation provides Elevation(),
+        LibFontSize provides FontSize(),
         content = content
     )
 }

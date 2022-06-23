@@ -1,4 +1,4 @@
-package com.lucasmarciano.composeproject.ui.utils
+package com.lucasmarciano.ui.iti.theme.dimens
 
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.unit.Dp
@@ -25,4 +25,4 @@ data class Spacing(
     val toolbarHeight: Dp = 56.dp,
 )
 
-val LocalSpacing = compositionLocalOf { Spacing() }
+val LibSpacing = compositionLocalOf { Spacing() }

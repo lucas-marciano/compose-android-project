@@ -19,7 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.data.settings.models.ItemMenuVO
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemMenu
-import com.lucasmarciano.composeproject.ui.theme.ColorPinkCalifornia
+import com.lucasmarciano.ui.iti.theme.colors.ColorPinkCalifornia
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 
 @Composable

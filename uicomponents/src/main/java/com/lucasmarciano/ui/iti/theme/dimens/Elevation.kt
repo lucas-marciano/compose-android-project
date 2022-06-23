@@ -1,4 +1,4 @@
-package com.lucasmarciano.composeproject.ui.utils
+package com.lucasmarciano.ui.iti.theme.dimens
 
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.unit.Dp
@@ -11,4 +11,4 @@ data class Elevation(
     val noElevation: Dp = 0.dp
 )
 
-val LocalElevation = compositionLocalOf { Elevation() }
+val LibElevation = compositionLocalOf { Elevation() }

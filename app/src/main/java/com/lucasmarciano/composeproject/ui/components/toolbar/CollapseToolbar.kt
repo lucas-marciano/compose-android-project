@@ -21,7 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.statusBarsPadding
-import com.lucasmarciano.composeproject.ui.theme.ColorSalesToolbar
+import com.lucasmarciano.ui.iti.theme.colors.ColorSalesToolbar
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.utils.Const.BottomSheetShape
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent

@@ -25,6 +25,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.lucasmarciano.composeproject.R
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
+import com.lucasmarciano.ui.iti.theme.colors.ColorPinkCalifornia
+import com.lucasmarciano.ui.iti.theme.colors.ColorPinkCaliforniaVariant
 
 @Composable
 fun BackIcon(

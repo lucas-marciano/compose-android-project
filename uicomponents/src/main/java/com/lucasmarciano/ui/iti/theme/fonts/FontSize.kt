@@ -1,4 +1,4 @@
-package com.lucasmarciano.composeproject.ui.utils
+package com.lucasmarciano.ui.iti.theme.fonts
 
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.unit.TextUnit
@@ -15,4 +15,4 @@ data class FontSize(
     val letterSpacingDefault: TextUnit = 0.5.sp,
 )
 
-val LocalFontSize = compositionLocalOf { FontSize() }
+val LibFontSize = compositionLocalOf { FontSize() }

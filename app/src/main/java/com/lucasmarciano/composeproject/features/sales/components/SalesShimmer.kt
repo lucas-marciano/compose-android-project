@@ -24,7 +24,7 @@ import com.lucasmarciano.composeproject.ui.components.shimmer.ItemTimeLineShimme
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.ShimmerView
 import com.lucasmarciano.composeproject.ui.components.shimmer.TitleShimmer
-import com.lucasmarciano.composeproject.ui.theme.ColorSalesToolbar
+import com.lucasmarciano.ui.iti.theme.colors.ColorSalesToolbar
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
 

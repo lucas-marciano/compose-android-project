@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.ui.theme.BackIcon
-import com.lucasmarciano.composeproject.ui.theme.ColorBlueCard
+import com.lucasmarciano.ui.iti.theme.colors.ColorBlueCard
 import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.theme.HelpIcon
 import com.lucasmarciano.composeproject.ui.utils.getColorToolbarIcons
