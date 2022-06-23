@@ -15,25 +15,25 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 
 @Composable
 fun CardWithIconShimmer(brush: Brush) {
     Row(
         modifier = Modifier
-            .padding(all = ComposeProjectTheme.spacing.small)
+            .padding(all = ItiTheme.spacing.small)
             .fillMaxWidth()
     ) {
         repeat(3) {
             Row {
                 Box(
                     modifier = Modifier
-                        .height(ComposeProjectTheme.spacing.extraHuge)
-                        .width(ComposeProjectTheme.spacing.extraHuge)
-                        .clip(RoundedCornerShape(ComposeProjectTheme.spacing.small))
+                        .height(ItiTheme.spacing.extraHuge)
+                        .width(ItiTheme.spacing.extraHuge)
+                        .clip(RoundedCornerShape(ItiTheme.spacing.small))
                         .background(brush)
                 )
-                Spacer(modifier = Modifier.width(ComposeProjectTheme.spacing.medium))
+                Spacer(modifier = Modifier.width(ItiTheme.spacing.medium))
             }
         }
     }

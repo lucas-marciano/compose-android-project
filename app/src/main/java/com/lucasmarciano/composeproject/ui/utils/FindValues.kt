@@ -3,22 +3,22 @@ package com.lucasmarciano.composeproject.ui.utils
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.values.ColorComponent
 import com.lucasmarciano.composeproject.ui.values.TypeToolbar
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 import com.lucasmarciano.ui.iti.theme.colors.ColorBlueCard
 import com.lucasmarciano.ui.iti.theme.colors.ColorPinkCalifornia
 
 @Composable
 fun getBgToolbarColor(typeToolbar: TypeToolbar) = when (typeToolbar) {
-    TypeToolbar.NORMAL -> ComposeProjectTheme.colors.brand
+    TypeToolbar.NORMAL -> ItiTheme.colors.brand
     TypeToolbar.BLUE -> ColorBlueCard
 }
 
 @Composable
 fun getColorToolbarTitle(type: TypeToolbar) = when (type) {
     TypeToolbar.BLUE -> Color.White
-    TypeToolbar.NORMAL -> ComposeProjectTheme.colors.onBg
+    TypeToolbar.NORMAL -> ItiTheme.colors.onBg
 }
 
 @Composable
@@ -32,14 +32,14 @@ fun getColorValue(colorComponent: ColorComponent): Color {
     return when (colorComponent) {
         ColorComponent.PINK -> ColorPinkCalifornia
         ColorComponent.BLUE_CARD_BG -> ColorBlueCard
-        ColorComponent.BACKGROUND -> ComposeProjectTheme.colors.bg
-        ColorComponent.SECONDARY -> ComposeProjectTheme.colors.brandVariant
-        ColorComponent.SURFACE -> ComposeProjectTheme.colors.bgVariant
-        ColorComponent.ON_PRIMARY -> ComposeProjectTheme.colors.onBrand
-        ColorComponent.ON_SECONDARY -> ComposeProjectTheme.colors.onBrandVariant
-        ColorComponent.ON_BACKGROUND -> ComposeProjectTheme.colors.onBg
-        ColorComponent.ON_SURFACE -> ComposeProjectTheme.colors.onBrandVariant
-        else -> ComposeProjectTheme.colors.brand
+        ColorComponent.BACKGROUND -> ItiTheme.colors.bg
+        ColorComponent.SECONDARY -> ItiTheme.colors.brandVariant
+        ColorComponent.SURFACE -> ItiTheme.colors.bgVariant
+        ColorComponent.ON_PRIMARY -> ItiTheme.colors.onBrand
+        ColorComponent.ON_SECONDARY -> ItiTheme.colors.onBrandVariant
+        ColorComponent.ON_BACKGROUND -> ItiTheme.colors.onBg
+        ColorComponent.ON_SURFACE -> ItiTheme.colors.onBrandVariant
+        else -> ItiTheme.colors.brand
     }
 }
 

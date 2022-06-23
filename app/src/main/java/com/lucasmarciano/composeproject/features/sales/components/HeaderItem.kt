@@ -13,28 +13,28 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 
 @Composable
 fun HeaderItem(modifier: Modifier = Modifier, title: String, info: String) {
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .background(ComposeProjectTheme.colors.bgVariant)
-            .height(ComposeProjectTheme.spacing.extraLarge)
-            .padding(horizontal = ComposeProjectTheme.spacing.extraLarge),
+            .background(ItiTheme.colors.bgVariant)
+            .height(ItiTheme.spacing.extraLarge)
+            .padding(horizontal = ItiTheme.spacing.extraLarge),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(text = title, fontWeight = FontWeight.Bold, color = ComposeProjectTheme.colors.onBrand)
-        Text(text = info, fontWeight = FontWeight.Bold, color = ComposeProjectTheme.colors.onBrand)
+        Text(text = title, fontWeight = FontWeight.Bold, color = ItiTheme.colors.onBrand)
+        Text(text = info, fontWeight = FontWeight.Bold, color = ItiTheme.colors.onBrand)
     }
 }
 
 @Preview
 @Composable
 private fun HeaderItemPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         HeaderItem(title = "title", info = "info")
     }
 }
@@ -42,7 +42,7 @@ private fun HeaderItemPreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun HeaderItemDarkPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         HeaderItem(title = "title", info = "info")
     }
 }

@@ -25,51 +25,52 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.lucasmarciano.composeproject.R
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 import com.lucasmarciano.ui.iti.theme.colors.ColorPinkCalifornia
 import com.lucasmarciano.ui.iti.theme.colors.ColorPinkCaliforniaVariant
 
 @Composable
 fun BackIcon(
     @StringRes contentDescription: Int = R.string.content_description_back_button_toolbar,
-    color: Color = ComposeProjectTheme.colors.onBrand
+    color: Color = ItiTheme.colors.onBrand
 ) {
     Icon(
         painter = painterResource(id = R.drawable.ic_left_arrow),
         contentDescription = stringResource(id = contentDescription),
         tint = color,
         modifier = Modifier
-            .height(ComposeProjectTheme.spacing.large)
-            .width(ComposeProjectTheme.spacing.large)
-            .padding(ComposeProjectTheme.spacing.extraSmall)
+            .height(ItiTheme.spacing.large)
+            .width(ItiTheme.spacing.large)
+            .padding(ItiTheme.spacing.extraSmall)
     )
 }
 
 @Composable
 fun HelpIcon(
     @StringRes contentDescription: Int = R.string.content_description_back_button_toolbar,
-    color: Color = ComposeProjectTheme.colors.onBrand
+    color: Color = ItiTheme.colors.onBrand
 ) {
     Icon(
         painter = painterResource(id = R.drawable.ic_help_information),
         contentDescription = stringResource(id = contentDescription),
         tint = color,
         modifier = Modifier
-            .height(ComposeProjectTheme.spacing.large)
-            .width(ComposeProjectTheme.spacing.large)
-            .padding(ComposeProjectTheme.spacing.extraSmall)
+            .height(ItiTheme.spacing.large)
+            .width(ItiTheme.spacing.large)
+            .padding(ItiTheme.spacing.extraSmall)
     )
 }
 
 @Composable
 fun CoinIcon(
     @StringRes contentDescription: Int = R.string.content_description_money_icon,
-    color: Color = ComposeProjectTheme.colors.onBrand,
-    size: Dp = ComposeProjectTheme.spacing.large,
+    color: Color = ItiTheme.colors.onBrand,
+    size: Dp = ItiTheme.spacing.large,
 ) {
     Icon(
         modifier = Modifier
             .size(size)
-            .padding(ComposeProjectTheme.spacing.extraSmall),
+            .padding(ItiTheme.spacing.extraSmall),
         painter = painterResource(id = R.drawable.ic_money_info),
         contentDescription = stringResource(id = contentDescription),
         tint = color,
@@ -88,11 +89,11 @@ fun StoreIcon(
         Icon(
             painter = painterResource(id = R.drawable.ic_store_menu),
             contentDescription = stringResource(id = contentDescription),
-            tint = ComposeProjectTheme.colors.onBrand,
+            tint = ItiTheme.colors.onBrand,
             modifier = Modifier
                 .clickable(onClick = onClick)
-                .height(ComposeProjectTheme.spacing.large)
-                .width(ComposeProjectTheme.spacing.large)
+                .height(ItiTheme.spacing.large)
+                .width(ItiTheme.spacing.large)
         )
         if (hasNotification) {
             Box(
@@ -110,17 +111,17 @@ fun StoreIcon(
 fun HomeAvatar(avatar: String = emptyString()) {
     Box(
         modifier = Modifier
-            .size(ComposeProjectTheme.spacing.huge)
+            .size(ItiTheme.spacing.huge)
             .clip(CircleShape)
             .background(ColorPinkCalifornia)
-            .padding(ComposeProjectTheme.spacing.extraSmall)
+            .padding(ItiTheme.spacing.extraSmall)
     )
 }
 
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 private fun DefaultIconsPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         Column {
             BackIcon()
             BackIcon(color = ColorPinkCalifornia)
@@ -136,7 +137,7 @@ private fun DefaultIconsPreview() {
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun DefaultIconsDarkPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         Column {
             BackIcon()
             BackIcon(color = ColorPinkCalifornia)
@@ -152,7 +153,7 @@ private fun DefaultIconsDarkPreview() {
 @Preview(showBackground = false)
 @Composable
 private fun AvatarIconPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         HomeAvatar()
     }
 }

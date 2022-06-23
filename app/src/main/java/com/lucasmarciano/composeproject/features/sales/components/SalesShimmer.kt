@@ -24,9 +24,9 @@ import com.lucasmarciano.composeproject.ui.components.shimmer.ItemTimeLineShimme
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.ShimmerView
 import com.lucasmarciano.composeproject.ui.components.shimmer.TitleShimmer
-import com.lucasmarciano.ui.iti.theme.colors.ColorSalesToolbar
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
+import com.lucasmarciano.ui.iti.theme.ItiTheme
+import com.lucasmarciano.ui.iti.theme.colors.ColorSalesToolbar
 
 @Composable
 fun ShimmerSalesHeaderController(isLoading: Boolean = true, content: ComposableAliasSimple) {
@@ -43,7 +43,7 @@ private fun SalesShimmerHeaderScreen(brush: Brush) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(ComposeProjectTheme.colors.bg)
+            .background(ItiTheme.colors.bg)
     ) {
         Column {
             Column(
@@ -52,7 +52,7 @@ private fun SalesShimmerHeaderScreen(brush: Brush) {
                     .padding(all = 24.dp)
                     .fillMaxWidth()
             ) {
-                Spacer(modifier = Modifier.height(ComposeProjectTheme.spacing.giga))
+                Spacer(modifier = Modifier.height(ItiTheme.spacing.giga))
 
                 TitleShimmer(brush = brush, 0.4f)
 
@@ -69,7 +69,7 @@ private fun SalesShimmerListScreen(brush: Brush) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(ComposeProjectTheme.colors.bg)
+            .background(ItiTheme.colors.bg)
     ) {
         Surface(
             elevation = 4.dp, modifier = Modifier
@@ -80,7 +80,7 @@ private fun SalesShimmerListScreen(brush: Brush) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(ComposeProjectTheme.colors.bg),
+                    .background(ItiTheme.colors.bg),
                 horizontalArrangement = Arrangement.SpaceAround,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -88,14 +88,14 @@ private fun SalesShimmerListScreen(brush: Brush) {
                     modifier = Modifier
                         .height(20.dp)
                         .width(130.dp)
-                        .clip(RoundedCornerShape(ComposeProjectTheme.spacing.small))
+                        .clip(RoundedCornerShape(ItiTheme.spacing.small))
                         .background(brush)
                 )
                 Box(
                     modifier = Modifier
                         .height(20.dp)
                         .width(130.dp)
-                        .clip(RoundedCornerShape(ComposeProjectTheme.spacing.small))
+                        .clip(RoundedCornerShape(ItiTheme.spacing.small))
                         .background(brush)
                 )
             }
@@ -109,7 +109,7 @@ private fun SalesShimmerListScreen(brush: Brush) {
 @Preview(showBackground = true)
 @Composable
 private fun SalesShimmerTopScreenPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         SalesShimmerHeaderScreen(MainAnimatedShimmer.brushColors)
     }
 }
@@ -117,7 +117,7 @@ private fun SalesShimmerTopScreenPreview() {
 @Preview(showBackground = true)
 @Composable
 private fun SalesShimmerListScreenPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         SalesShimmerListScreen(MainAnimatedShimmer.brushColors)
     }
 }
@@ -125,7 +125,7 @@ private fun SalesShimmerListScreenPreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
 @Composable
 private fun SalesShimmerTopScreenDarkPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         SalesShimmerHeaderScreen(MainAnimatedShimmer.brushColors)
     }
 }
@@ -133,7 +133,7 @@ private fun SalesShimmerTopScreenDarkPreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
 @Composable
 private fun SalesShimmerListScreenDarkPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         SalesShimmerListScreen(MainAnimatedShimmer.brushColors)
     }
 }

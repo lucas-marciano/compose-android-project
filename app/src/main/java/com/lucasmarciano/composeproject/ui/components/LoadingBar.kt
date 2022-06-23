@@ -13,8 +13,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 import com.lucasmarciano.ui.iti.theme.colors.ColorPinkCalifornia
 
 @Composable
@@ -44,7 +44,7 @@ private fun LoadingBarScreen() {
 @Preview(showBackground = true)
 @Composable
 fun ContainerCircleLoadingPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         ContainerCircleLoading(isLoading = true) {
             Text(text = "test")
         }
@@ -54,7 +54,7 @@ fun ContainerCircleLoadingPreview() {
 @Preview(showBackground = true)
 @Composable
 fun ContainerCircleLoadingIsLoadingFalsePreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         ContainerCircleLoading(isLoading = false) {
             Text(text = "test")
         }

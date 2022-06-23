@@ -17,24 +17,24 @@ import com.lucasmarciano.composeproject.ui.mockspreview.mockProfile
 import com.lucasmarciano.composeproject.ui.mockspreview.mockProfileNonCallToAction
 import com.lucasmarciano.composeproject.ui.mockspreview.mockTwoProfile
 import com.lucasmarciano.composeproject.ui.mockspreview.mockTwoProfileNonAction
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.theme.HomeAvatar
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 
 @Composable
 internal fun Profile(listProfile: List<ProfileVO>, avatar: String) {
     Column(modifier = Modifier.fillMaxWidth()) {
         HomeAvatar()
-        Spacer(modifier = Modifier.height(ComposeProjectTheme.spacing.medium))
+        Spacer(modifier = Modifier.height(ItiTheme.spacing.medium))
         listProfile.forEach {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = ComposeProjectTheme.spacing.small),
+                    .padding(bottom = ItiTheme.spacing.small),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Column {
-                    Body(text = it.name, color = ComposeProjectTheme.colors.onBg)
+                    Body(text = it.name, color = ItiTheme.colors.onBg)
                     Body(text = it.title)
                 }
                 ButtonBordLess(it.callToActionVO)

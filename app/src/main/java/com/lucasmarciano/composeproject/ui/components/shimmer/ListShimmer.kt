@@ -9,16 +9,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 
 @Composable
 fun MenuItemShimmer(brush: Brush) {
     Row(
-        modifier = Modifier.padding(bottom = ComposeProjectTheme.spacing.extraSmall),
+        modifier = Modifier.padding(bottom = ItiTheme.spacing.extraSmall),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        CircleShimmer(brush = brush, size = ComposeProjectTheme.spacing.extraLarge)
+        CircleShimmer(brush = brush, size = ItiTheme.spacing.extraLarge)
         SubTitleShimmer(brush = brush)
     }
 }

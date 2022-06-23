@@ -12,14 +12,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.ui.theme.BackIcon
-import com.lucasmarciano.ui.iti.theme.colors.ColorBlueCard
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.theme.HelpIcon
 import com.lucasmarciano.composeproject.ui.utils.getColorToolbarIcons
 import com.lucasmarciano.composeproject.ui.utils.getColorToolbarTitle
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.ui.values.ToolbarContextualMenu
 import com.lucasmarciano.composeproject.ui.values.TypeToolbar
+import com.lucasmarciano.ui.iti.theme.ItiTheme
+import com.lucasmarciano.ui.iti.theme.colors.ColorBlueCard
 
 @Composable
 internal fun Toolbar(
@@ -29,7 +29,7 @@ internal fun Toolbar(
 ) {
     toolbar?.let {
         val backgroundColor = when (toolbar.type) {
-            TypeToolbar.NORMAL -> ComposeProjectTheme.colors.bg
+            TypeToolbar.NORMAL -> ItiTheme.colors.bg
             TypeToolbar.BLUE -> ColorBlueCard
         }
         TopAppBar(
@@ -42,7 +42,7 @@ internal fun Toolbar(
                     Text(
                         text = toolbar.title,
                         textAlign = TextAlign.Center,
-                        style = ComposeProjectTheme.type.subtitle1,
+                        style = ItiTheme.type.subtitle1,
                         color = getColorToolbarTitle(toolbar.type)
                     )
                 }
@@ -51,7 +51,7 @@ internal fun Toolbar(
                 BuildBackAction(toolbar = toolbar, onClick = onClick)
             },
             actions = { BuildAction(toolbar, onClickMenu) },
-            elevation = ComposeProjectTheme.elevation.noElevation
+            elevation = ItiTheme.elevation.noElevation
         )
     }
 }
@@ -81,7 +81,7 @@ internal fun BuildBackAction(
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 fun ToolbarPreview() {
-    ComposeProjectTheme(darkTheme = false) {
+    ItiTheme(darkTheme = false) {
         val toolbar = ToolbarComponent(
             title = "title",
             contextualMenu = ToolbarContextualMenu.HELP
@@ -93,7 +93,7 @@ fun ToolbarPreview() {
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 private fun ToolbarBluePreview() {
-    ComposeProjectTheme(darkTheme = false) {
+    ItiTheme(darkTheme = false) {
         val toolbar = ToolbarComponent(
             title = "title",
             type = TypeToolbar.BLUE,
@@ -106,7 +106,7 @@ private fun ToolbarBluePreview() {
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun DarkToolbarPreview() {
-    ComposeProjectTheme(darkTheme = true) {
+    ItiTheme(darkTheme = true) {
         val toolbar = ToolbarComponent(
             title = "title",
             contextualMenu = ToolbarContextualMenu.HELP

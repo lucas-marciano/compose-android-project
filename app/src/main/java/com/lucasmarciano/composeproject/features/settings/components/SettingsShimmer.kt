@@ -16,8 +16,8 @@ import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimme
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.ShimmerView
 import com.lucasmarciano.composeproject.ui.components.shimmer.MenuItemShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.SubTitleShimmer
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 
 @Composable
 fun ShimmerSettingsController(isLoading: Boolean = true, content: ComposableAliasSimple) {
@@ -29,19 +29,19 @@ fun SettingsShimmerScreen(brush: Brush) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(ComposeProjectTheme.colors.bg)
+            .background(ItiTheme.colors.bg)
             .padding(
-                top = ComposeProjectTheme.spacing.medium,
-                start = ComposeProjectTheme.spacing.medium,
-                end = ComposeProjectTheme.spacing.medium
+                top = ItiTheme.spacing.medium,
+                start = ItiTheme.spacing.medium,
+                end = ItiTheme.spacing.medium
             )
     ) {
-        Spacer(modifier = Modifier.height(ComposeProjectTheme.spacing.huge))
+        Spacer(modifier = Modifier.height(ItiTheme.spacing.huge))
         CircleShimmer(brush = brush)
-        Spacer(modifier = Modifier.height(ComposeProjectTheme.spacing.extraMedium))
+        Spacer(modifier = Modifier.height(ItiTheme.spacing.extraMedium))
         SubTitleShimmer(brush = brush)
         SubTitleShimmer(brush = brush)
-        Spacer(modifier = Modifier.height(ComposeProjectTheme.spacing.extraMedium))
+        Spacer(modifier = Modifier.height(ItiTheme.spacing.extraMedium))
         repeat(4) {
             MenuItemShimmer(brush = brush)
         }

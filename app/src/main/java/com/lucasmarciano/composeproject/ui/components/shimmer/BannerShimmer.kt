@@ -13,20 +13,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 
 @Composable
 fun BannerShimmer(brush: Brush) {
     Row(
         modifier = Modifier
-            .padding(all = ComposeProjectTheme.spacing.small)
+            .padding(all = ItiTheme.spacing.small)
             .fillMaxWidth()
     ) {
         Box(
             modifier = Modifier
-                .height(ComposeProjectTheme.spacing.giga)
+                .height(ItiTheme.spacing.giga)
                 .fillMaxWidth()
-                .clip(RoundedCornerShape(ComposeProjectTheme.spacing.small))
+                .clip(RoundedCornerShape(ItiTheme.spacing.small))
                 .background(brush)
         )
     }

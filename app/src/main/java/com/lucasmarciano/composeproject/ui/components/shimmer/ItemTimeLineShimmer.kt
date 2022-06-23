@@ -19,14 +19,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 
 @Composable
 fun ItemTimeLineShimmer(brush: Brush) {
     ConstraintLayout(
         modifier = Modifier
             .fillMaxWidth()
-            .background(ComposeProjectTheme.colors.bg)
+            .background(ItiTheme.colors.bg)
     ) {
 
         val (line, icon, content, tag) = createRefs()
@@ -46,9 +46,9 @@ fun ItemTimeLineShimmer(brush: Brush) {
 
         Box(
             modifier = Modifier
-                .padding(ComposeProjectTheme.spacing.small)
-                .height(ComposeProjectTheme.spacing.medium)
-                .width(ComposeProjectTheme.spacing.medium)
+                .padding(ItiTheme.spacing.small)
+                .height(ItiTheme.spacing.medium)
+                .width(ItiTheme.spacing.medium)
                 .clip(CircleShape)
                 .background(brush)
                 .constrainAs(icon) {
@@ -66,31 +66,31 @@ fun ItemTimeLineShimmer(brush: Brush) {
         ) {
             Box(
                 modifier = Modifier
-                    .height(ComposeProjectTheme.spacing.medium)
+                    .height(ItiTheme.spacing.medium)
                     .width(150.dp)
-                    .clip(RoundedCornerShape(ComposeProjectTheme.spacing.extraMedium))
+                    .clip(RoundedCornerShape(ItiTheme.spacing.extraMedium))
                     .background(brush)
             )
             Spacer(modifier = Modifier.height(8.dp))
             Box(
                 modifier = Modifier
-                    .height(ComposeProjectTheme.spacing.large)
+                    .height(ItiTheme.spacing.large)
                     .width(100.dp)
-                    .clip(RoundedCornerShape(ComposeProjectTheme.spacing.extraMedium))
+                    .clip(RoundedCornerShape(ItiTheme.spacing.extraMedium))
                     .background(brush)
             )
-            Spacer(modifier = Modifier.height(ComposeProjectTheme.spacing.extraSmall))
+            Spacer(modifier = Modifier.height(ItiTheme.spacing.extraSmall))
             Box(
                 modifier = Modifier
-                    .height(ComposeProjectTheme.spacing.medium)
+                    .height(ItiTheme.spacing.medium)
                     .width(50.dp)
-                    .clip(RoundedCornerShape(ComposeProjectTheme.spacing.extraMedium))
+                    .clip(RoundedCornerShape(ItiTheme.spacing.extraMedium))
                     .background(brush)
             )
         }
         Box(modifier = Modifier
-            .height(ComposeProjectTheme.spacing.medium)
-            .width(ComposeProjectTheme.spacing.large)
+            .height(ItiTheme.spacing.medium)
+            .width(ItiTheme.spacing.large)
             .clip(CircleShape)
             .background(brush)
             .constrainAs(tag) {
@@ -103,7 +103,7 @@ fun ItemTimeLineShimmer(brush: Brush) {
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 fun ItemTimeLineShimmerPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         ItemTimeLineShimmer(brush = MainAnimatedShimmer.brushColors)
     }
 }
@@ -114,7 +114,7 @@ fun ItemTimeLineShimmerPreview() {
 )
 @Composable
 fun ItemTimeLineShimmerDarkPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         ItemTimeLineShimmer(brush = MainAnimatedShimmer.brushColors)
     }
 }

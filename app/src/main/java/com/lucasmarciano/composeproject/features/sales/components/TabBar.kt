@@ -25,8 +25,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class)
@@ -49,13 +49,13 @@ internal fun CombinedTab(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(ComposeProjectTheme.colors.bgVariant)
+            .background(ItiTheme.colors.bgVariant)
     ) {
         TabRow(
             selectedTabIndex = tabIndex,
             modifier = modifier
-                .height(ComposeProjectTheme.spacing.toolbarHeight),
-            contentColor = ComposeProjectTheme.colors.onBrandVariant,
+                .height(ItiTheme.spacing.toolbarHeight),
+            contentColor = ItiTheme.colors.onBrandVariant,
             divider = {},
             indicator = {}
         ) {
@@ -76,7 +76,7 @@ internal fun CombinedTab(
             state = pagerState,
             modifier = Modifier
                 .weight(1f)
-                .background(ComposeProjectTheme.colors.bg),
+                .background(ItiTheme.colors.bg),
 
             ) {
             when (pagerState.currentPage) {
@@ -84,7 +84,7 @@ internal fun CombinedTab(
                     Surface(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .background(ComposeProjectTheme.colors.bg),
+                            .background(ItiTheme.colors.bg),
                         content = listContents[TabItem.Charges.id]
                     )
                 }
@@ -92,7 +92,7 @@ internal fun CombinedTab(
                     Surface(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .background(ComposeProjectTheme.colors.bg),
+                            .background(ItiTheme.colors.bg),
                         content = listContents[TabItem.Selling.id]
                     )
                 }
@@ -110,16 +110,16 @@ private fun SalesTab(
     Tab(
         modifier = Modifier
             .fillMaxHeight()
-            .background(ComposeProjectTheme.colors.bg)
-            .padding(horizontal = ComposeProjectTheme.spacing.extraSmall)
-            .clip(RoundedCornerShape(ComposeProjectTheme.spacing.medium)),
+            .background(ItiTheme.colors.bg)
+            .padding(horizontal = ItiTheme.spacing.extraSmall)
+            .clip(RoundedCornerShape(ItiTheme.spacing.medium)),
         selected = isSelected,
         onClick = { onTabSelected() }
     ) {
         Text(
             text = stringResource(id = tab.name),
             fontWeight = FontWeight.SemiBold,
-            color = if (isSelected) ComposeProjectTheme.colors.onBg else Color.Gray
+            color = if (isSelected) ItiTheme.colors.onBg else Color.Gray
         )
     }
 }
@@ -127,7 +127,7 @@ private fun SalesTab(
 @Preview
 @Composable
 private fun TabsPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         CombinedTab(
             tabs = arrayOf(TabItem.Selling, TabItem.Charges),
         )
@@ -137,7 +137,7 @@ private fun TabsPreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL)
 @Composable
 private fun TabsDarkPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         CombinedTab(
             tabs = arrayOf(TabItem.Selling, TabItem.Charges),
             listContents = listOf({ Text(text = "aba 1") }, { Text(text = "aba 2") })

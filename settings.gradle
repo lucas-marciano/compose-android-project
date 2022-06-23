@@ -15,4 +15,3 @@ dependencyResolutionManagement {
 rootProject.name = "ComposeProject"
 include ':app'
 include ':uicomponents'
-include ':uiviews'

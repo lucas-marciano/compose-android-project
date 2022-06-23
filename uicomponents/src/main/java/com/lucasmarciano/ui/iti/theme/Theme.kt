@@ -1,6 +1,4 @@
-@file:Suppress("DEPRECATION")
-
-package com.lucasmarciano.composeproject.ui.theme
+package com.lucasmarciano.ui.iti.theme
 
 import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -17,7 +15,6 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
 import com.lucasmarciano.ui.iti.theme.colors.ColorsMainTheme
 import com.lucasmarciano.ui.iti.theme.colors.DarkColorPalette
 import com.lucasmarciano.ui.iti.theme.colors.LightColorPalette
@@ -32,7 +29,7 @@ import com.lucasmarciano.ui.iti.theme.typo.LocalLibType
 import com.lucasmarciano.ui.iti.theme.typo.Type
 
 @Composable
-fun ComposeProjectTheme(
+fun ItiTheme(
     darkTheme: Boolean = isSystemInDarkTheme(), content: ComposableAliasSimple
 ) {
     val colorScheme = when {
@@ -53,7 +50,7 @@ fun ComposeProjectTheme(
         }
     }
 
-    ProvideThemeColors(colorScheme) {
+    ProvideTheme(colorScheme) {
         MaterialTheme(
             colors = debugColors(darkTheme),
             typography = debugType(),
@@ -63,7 +60,7 @@ fun ComposeProjectTheme(
     }
 }
 
-object ComposeProjectTheme {
+object ItiTheme {
     val colors: ColorsMainTheme
         @Composable get() = LocalLibColors.current
 
@@ -81,7 +78,7 @@ object ComposeProjectTheme {
 }
 
 @Composable
-fun ProvideThemeColors(
+fun ProvideTheme(
     colors: ColorsMainTheme, content: ComposableAliasSimple
 ) {
     val colorPalette = remember { colors.copy() }

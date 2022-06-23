@@ -15,11 +15,11 @@ import com.lucasmarciano.composeproject.features.sales.header.HeaderSalesScreen
 import com.lucasmarciano.composeproject.features.sales.timeline.TimeLineScreen
 import com.lucasmarciano.composeproject.routes.Screen
 import com.lucasmarciano.composeproject.ui.components.toolbar.CollapseToolbar
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.ui.values.TypeToolbar
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
 import com.lucasmarciano.composeproject.utils.extensions.navBackTo
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 
 @Composable
 fun SalesScreen(navController: NavController = rememberAnimatedNavController()) {
@@ -30,7 +30,7 @@ fun SalesScreen(navController: NavController = rememberAnimatedNavController()) 
 private fun SalesContent(navController: NavController) {
     Column(
         modifier = Modifier
-            .background(ComposeProjectTheme.colors.bg)
+            .background(ItiTheme.colors.bg)
             .fillMaxSize()
     ) {
 

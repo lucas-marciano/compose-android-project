@@ -21,12 +21,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.statusBarsPadding
-import com.lucasmarciano.ui.iti.theme.colors.ColorSalesToolbar
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.utils.Const.BottomSheetShape
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.ui.values.TypeToolbar
 import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
+import com.lucasmarciano.ui.iti.theme.ItiTheme
+import com.lucasmarciano.ui.iti.theme.colors.ColorSalesToolbar
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -52,14 +52,14 @@ internal fun CollapseToolbar(
                     .fillMaxWidth()
                     .background(ColorSalesToolbar)
                     .statusBarsPadding()
-                    .height(ComposeProjectTheme.spacing.toolbarHeight)
+                    .height(ItiTheme.spacing.toolbarHeight)
                     .padding(horizontal = 8.dp)
             ) {
                 BuildBackAction(toolbar, onClickBack)
                 Text(
                     text = toolbar.title,
                     textAlign = TextAlign.Center,
-                    style = ComposeProjectTheme.type.subtitle1,
+                    style = ItiTheme.type.subtitle1,
                     color = Color.White
                 )
                 BuildAction(toolbar, onClick)
@@ -73,7 +73,7 @@ internal fun CollapseToolbar(
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF, showSystemUi = true)
 @Composable
 private fun CollapseToolBarPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         CollapseToolbar(
             toolbar = ToolbarComponent("toolbar", type = TypeToolbar.BLUE),
             header = {

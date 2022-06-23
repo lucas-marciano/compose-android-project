@@ -36,8 +36,8 @@ import com.lucasmarciano.composeproject.ui.components.Body
 import com.lucasmarciano.composeproject.ui.components.ItemTimeLineContainer
 import com.lucasmarciano.composeproject.ui.components.Title
 import com.lucasmarciano.composeproject.ui.mockspreview.mockListTimeLine
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 
 @Composable
 fun TimeLineScreen(
@@ -106,7 +106,7 @@ internal fun ListCompose(
                 Surface(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .background(ComposeProjectTheme.colors.bgVariant)
+                        .background(ItiTheme.colors.bgVariant)
                 ) {
                     HeaderItem(
                         title = timeline.headerTimeLineVO.title,
@@ -127,25 +127,25 @@ private fun MessageError(error: ErrorVO, retryAction: () -> Unit = { }) {
     Column(
         modifier = Modifier
             .clickable(onClick = retryAction)
-            .background(ComposeProjectTheme.colors.bg)
-            .padding(ComposeProjectTheme.spacing.medium),
+            .background(ItiTheme.colors.bg)
+            .padding(ItiTheme.spacing.medium),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
         Image(
-            modifier = Modifier.padding(bottom = ComposeProjectTheme.spacing.small),
+            modifier = Modifier.padding(bottom = ItiTheme.spacing.small),
             painter = painterResource(id = error.image.imageId),
             contentDescription = emptyString()
         )
-        Title(text = error.title, color = ComposeProjectTheme.colors.onBg)
-        Body(text = error.description, color = ComposeProjectTheme.colors.onBgVariant)
+        Title(text = error.title, color = ItiTheme.colors.onBg)
+        Body(text = error.description, color = ItiTheme.colors.onBgVariant)
     }
 }
 
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 private fun TimeLineContentPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         TimeLineContent(
             isLoading = false,
             listCharges = mockListTimeLine(),
@@ -160,7 +160,7 @@ private fun TimeLineContentPreview() {
 )
 @Composable
 private fun HeaderSalesContentLoadingPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         TimeLineContent(isLoading = true)
     }
 }
@@ -168,7 +168,7 @@ private fun HeaderSalesContentLoadingPreview() {
 @Preview
 @Composable
 private fun MessageErrorEmptyPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         MessageError(
             ErrorVO(
                 ErrorImage.EMPTY_ERROR,
@@ -182,7 +182,7 @@ private fun MessageErrorEmptyPreview() {
 @Preview
 @Composable
 private fun MessageErrorConnectionPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         MessageError(
             ErrorVO(
                 ErrorImage.CONNECTION_ERROR,

@@ -22,7 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.data.home.models.BannerVO
 import com.lucasmarciano.composeproject.ui.mockspreview.mockBanner
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 import com.lucasmarciano.ui.iti.theme.colors.ColorPinkCalifornia
 
 @Composable
@@ -32,33 +32,33 @@ internal fun Banner(banner: BannerVO?) {
             modifier = Modifier
                 .fillMaxWidth()
                 .clickable(onClick = { }),
-            shape = RoundedCornerShape(ComposeProjectTheme.spacing.small),
-            elevation = ComposeProjectTheme.elevation.extraSmall,
-            backgroundColor = ComposeProjectTheme.colors.bg
+            shape = RoundedCornerShape(ItiTheme.spacing.small),
+            elevation = ItiTheme.elevation.extraSmall,
+            backgroundColor = ItiTheme.colors.bg
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(ComposeProjectTheme.spacing.defaultPadding),
+                    .padding(ItiTheme.spacing.defaultPadding),
                 horizontalAlignment = Alignment.Start,
                 verticalArrangement = Arrangement.SpaceBetween,
             ) {
                 Text(
                     text = item.description,
-                    color = ComposeProjectTheme.colors.onBrandVariant,
-                    style = ComposeProjectTheme.type.body2,
+                    color = ItiTheme.colors.onBrandVariant,
+                    style = ItiTheme.type.body2,
                 )
-                Spacer(modifier = Modifier.height(height = ComposeProjectTheme.spacing.extraMedium))
+                Spacer(modifier = Modifier.height(height = ItiTheme.spacing.extraMedium))
                 Row(
                     horizontalArrangement = Arrangement.Start,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
                         text = item.callToAction.name,
-                        color = ComposeProjectTheme.colors.onBg,
+                        color = ItiTheme.colors.onBg,
                         fontWeight = FontWeight.SemiBold,
-                        style = ComposeProjectTheme.type.body2,
-                        modifier = Modifier.padding(end = ComposeProjectTheme.spacing.extraSmall)
+                        style = ItiTheme.type.body2,
+                        modifier = Modifier.padding(end = ItiTheme.spacing.extraSmall)
                     )
                     Icon(
                         Icons.Filled.ChevronRight,
@@ -74,7 +74,7 @@ internal fun Banner(banner: BannerVO?) {
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 private fun BannerPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         Banner(mockBanner())
     }
 }
@@ -82,7 +82,7 @@ private fun BannerPreview() {
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun BannerDarkPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         Banner(mockBanner())
     }
 }

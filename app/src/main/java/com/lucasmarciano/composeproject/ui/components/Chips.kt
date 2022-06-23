@@ -15,7 +15,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.lucasmarciano.composeproject.data.models.ChipType
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 
 @Composable
 internal fun Chip(text: String, chipType: ChipType = ChipType.INFO, onClick: () -> Unit = {}) {
@@ -29,8 +29,8 @@ internal fun Chip(text: String, chipType: ChipType = ChipType.INFO, onClick: () 
     ) {
         Text(
             text = text.lowercase(),
-            style = ComposeProjectTheme.type.body2,
-            fontSize = ComposeProjectTheme.fontSize.minimum,
+            style = ItiTheme.type.body2,
+            fontSize = ItiTheme.fontSize.minimum,
             color = chipType.mainColor
         )
     }
@@ -39,7 +39,7 @@ internal fun Chip(text: String, chipType: ChipType = ChipType.INFO, onClick: () 
 @Preview(backgroundColor = 0xFFFFFFFF, showBackground = true)
 @Composable
 private fun ChipsPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         Column {
             Chip("informações")
             Chip("erro", ChipType.ERROR)

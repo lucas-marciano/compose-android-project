@@ -8,19 +8,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.data.models.CallToActionVO
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 import com.lucasmarciano.ui.iti.theme.colors.ColorPinkCalifornia
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 
 @Composable
 fun ButtonBordLess(callToAction: CallToActionVO?) {
     callToAction?.let {
         Text(
             modifier = Modifier
-                .padding(all = ComposeProjectTheme.spacing.extraSmall)
+                .padding(all = ItiTheme.spacing.extraSmall)
                 .clickable(enabled = true, onClickLabel = it.name, onClick = { }),
             text = it.name,
             color = ColorPinkCalifornia,
-            style = ComposeProjectTheme.type.button
+            style = ItiTheme.type.button
         )
     }
 }

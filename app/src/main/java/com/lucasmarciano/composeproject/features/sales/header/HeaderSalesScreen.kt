@@ -33,9 +33,9 @@ import com.lucasmarciano.composeproject.features.sales.components.ShimmerSalesHe
 import com.lucasmarciano.composeproject.ui.components.SecondTitle
 import com.lucasmarciano.composeproject.ui.components.Title
 import com.lucasmarciano.composeproject.ui.mockspreview.mockSalesResult
-import com.lucasmarciano.ui.iti.theme.colors.ColorSalesToolbar
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
+import com.lucasmarciano.ui.iti.theme.ItiTheme
+import com.lucasmarciano.ui.iti.theme.colors.ColorSalesToolbar
 
 @Composable
 fun HeaderSalesScreen() {
@@ -68,7 +68,7 @@ private fun HeaderSalesContent(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(ColorSalesToolbar)
-                .padding(all = ComposeProjectTheme.spacing.extraMedium)
+                .padding(all = ItiTheme.spacing.extraMedium)
                 .fillMaxWidth()
         ) {
             Image(
@@ -83,7 +83,7 @@ private fun HeaderSalesContent(
                 text = mItem.title,
                 color = Color.White,
                 modifier = Modifier.padding(
-                    top = ComposeProjectTheme.spacing.medium,
+                    top = ItiTheme.spacing.medium,
                     bottom = 0.dp
                 )
             )
@@ -101,8 +101,8 @@ private fun MessageError(retryClick: () -> Unit = {}) {
         modifier = Modifier
             .fillMaxWidth()
             .background(ColorSalesToolbar)
-            .padding(all = ComposeProjectTheme.spacing.extraMedium)
-            .padding(vertical = ComposeProjectTheme.spacing.huge)
+            .padding(all = ItiTheme.spacing.extraMedium)
+            .padding(vertical = ItiTheme.spacing.huge)
             .clickable(enabled = true, onClick = retryClick)
     ) {
         Icon(
@@ -124,7 +124,7 @@ private fun MessageError(retryClick: () -> Unit = {}) {
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 private fun HeaderSalesContentPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         HeaderSalesContent(
             isLoading = false,
             item = mockSalesResult(),
@@ -138,7 +138,7 @@ private fun HeaderSalesContentPreview() {
 )
 @Composable
 private fun HeaderSalesContentLoadingPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         HeaderSalesContent(isLoading = true)
     }
 }
@@ -146,7 +146,7 @@ private fun HeaderSalesContentLoadingPreview() {
 @Preview
 @Composable
 private fun MessageErrorPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         MessageError()
     }
 }

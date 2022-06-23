@@ -15,8 +15,8 @@ import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.lucasmarciano.composeproject.data.home.models.ItemCardHomeVO
 import com.lucasmarciano.composeproject.ui.components.BlueCard
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemCard
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.utils.extensions.navTo
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 
 @Composable
 fun BlueCardsList(
@@ -25,7 +25,7 @@ fun BlueCardsList(
 ) {
     LazyRow(
         state = rememberLazyListState(),
-        horizontalArrangement = Arrangement.spacedBy(ComposeProjectTheme.spacing.small)
+        horizontalArrangement = Arrangement.spacedBy(ItiTheme.spacing.small)
     ) {
         items(cards, key = { it.id }) { card ->
             BlueCard(item = card) { navController.navTo(card.callToAction.action) }
@@ -36,7 +36,7 @@ fun BlueCardsList(
 @Preview("Blue Card list")
 @Composable
 fun BlueCardListPreview() {
-    ComposeProjectTheme(darkTheme = false) {
+    ItiTheme(darkTheme = false) {
         BlueCardsList(
             listOf(mockItemCard(), mockItemCard())
         )

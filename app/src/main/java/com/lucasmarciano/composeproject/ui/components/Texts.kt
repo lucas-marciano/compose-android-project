@@ -10,19 +10,19 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.R
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 
 @Composable
 fun Title(
     modifier: Modifier = Modifier,
     text: String = stringResource(id = R.string.label_empty),
-    color: Color = ComposeProjectTheme.colors.onBg,
+    color: Color = ItiTheme.colors.onBg,
 ) {
     Text(
         text = text,
         color = color,
-        style = ComposeProjectTheme.type.h1,
-        modifier = modifier.padding(bottom = ComposeProjectTheme.spacing.small)
+        style = ItiTheme.type.h1,
+        modifier = modifier.padding(bottom = ItiTheme.spacing.small)
     )
 }
 
@@ -30,13 +30,13 @@ fun Title(
 fun SecondTitle(
     modifier: Modifier = Modifier,
     text: String = stringResource(id = R.string.label_empty),
-    color: Color = ComposeProjectTheme.colors.onBg,
+    color: Color = ItiTheme.colors.onBg,
 ) {
     Text(
         text = text,
         color = color,
-        style = ComposeProjectTheme.type.h2,
-        modifier = modifier.padding(bottom = ComposeProjectTheme.spacing.small)
+        style = ItiTheme.type.h2,
+        modifier = modifier.padding(bottom = ItiTheme.spacing.small)
     )
 }
 
@@ -44,20 +44,20 @@ fun SecondTitle(
 fun Body(
     modifier: Modifier = Modifier,
     text: String = stringResource(id = R.string.label_empty),
-    color: Color = ComposeProjectTheme.colors.onBg,
+    color: Color = ItiTheme.colors.onBg,
 ) {
     Text(
         text = text,
         color = color,
-        style = ComposeProjectTheme.type.body1,
-        modifier = modifier.padding(bottom = ComposeProjectTheme.spacing.small)
+        style = ItiTheme.type.body1,
+        modifier = modifier.padding(bottom = ItiTheme.spacing.small)
     )
 }
 
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 private fun TextsPreviews() {
-    ComposeProjectTheme {
+    ItiTheme {
         Column {
             Title(text = "Hello title")
             SecondTitle(text = "Hello second title")
@@ -70,7 +70,7 @@ private fun TextsPreviews() {
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun TextsDarkPreviews() {
-    ComposeProjectTheme {
+    ItiTheme {
         Column {
             Title(text = "Hello title")
             SecondTitle(text = "Hello second title")

@@ -19,15 +19,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.data.settings.models.ItemMenuVO
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemMenu
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 import com.lucasmarciano.ui.iti.theme.colors.ColorPinkCalifornia
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 
 @Composable
 internal fun ItemMenu(item: ItemMenuVO) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(all = ComposeProjectTheme.spacing.medium)
+            .padding(all = ItiTheme.spacing.medium)
             .clickable(enabled = true, onClick = { }),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -36,7 +36,7 @@ internal fun ItemMenu(item: ItemMenuVO) {
             contentDescription = "",
             tint = ColorPinkCalifornia
         )
-        Spacer(modifier = Modifier.width(width = ComposeProjectTheme.spacing.medium))
+        Spacer(modifier = Modifier.width(width = ItiTheme.spacing.medium))
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
@@ -44,8 +44,8 @@ internal fun ItemMenu(item: ItemMenuVO) {
         ) {
             Text(
                 text = item.callToActionVO.name,
-                style = ComposeProjectTheme.type.body2,
-                color = ComposeProjectTheme.colors.onBg
+                style = ItiTheme.type.body2,
+                color = ItiTheme.colors.onBg
             )
             Icon(
                 imageVector = Icons.Filled.ChevronRight,
@@ -59,7 +59,7 @@ internal fun ItemMenu(item: ItemMenuVO) {
 @Preview(name = "Item menu", showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 private fun ItemMenuPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         ItemMenu(item = mockItemMenu())
     }
 }
@@ -67,7 +67,7 @@ private fun ItemMenuPreview() {
 @Preview(name = "Item Menu Dark", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun ItemMenuDarkPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         ItemMenu(item = mockItemMenu())
     }
 }

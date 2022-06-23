@@ -28,34 +28,34 @@ import com.lucasmarciano.composeproject.ui.mockspreview.mockItemCard
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemCardWithIcon
 import com.lucasmarciano.composeproject.ui.mockspreview.mockSimpleItemCardWithIcon
 import com.lucasmarciano.composeproject.ui.theme.CoinIcon
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 import com.lucasmarciano.ui.iti.theme.colors.ColorBlueCard
 import com.lucasmarciano.ui.iti.theme.colors.ColorPinkCalifornia
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 
 @Composable
 fun BlueCard(item: ItemCardHomeVO, onClick: () -> Unit = { }) {
     Box(
         modifier = Modifier
-            .height(ComposeProjectTheme.spacing.cardHeight)
-            .width(ComposeProjectTheme.spacing.cardWidth)
-            .clip(RoundedCornerShape(ComposeProjectTheme.spacing.small))
+            .height(ItiTheme.spacing.cardHeight)
+            .width(ItiTheme.spacing.cardWidth)
+            .clip(RoundedCornerShape(ItiTheme.spacing.small))
             .background(ColorBlueCard)
             .clickable(onClick = onClick)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxHeight()
-                .padding(ComposeProjectTheme.spacing.defaultPadding),
+                .padding(ItiTheme.spacing.defaultPadding),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
                 text = item.text,
                 color = Color.White,
-                style = ComposeProjectTheme.type.body1,
+                style = ItiTheme.type.body1,
             )
             if (item.hasIcon()) {
                 CoinIcon(
-                    size = ComposeProjectTheme.spacing.largeIcon,
+                    size = ItiTheme.spacing.largeIcon,
                     color = Color.White
                 )
             }
@@ -68,30 +68,30 @@ fun BlueCard(item: ItemCardHomeVO, onClick: () -> Unit = { }) {
 fun CardWithIcon(item: ItemCardHomeVO, onClick: () -> Unit = { }) {
     Card(
         modifier = Modifier
-            .height(ComposeProjectTheme.spacing.extraHuge)
-            .width(ComposeProjectTheme.spacing.extraHuge)
+            .height(ItiTheme.spacing.extraHuge)
+            .width(ItiTheme.spacing.extraHuge)
             .clickable(onClick = onClick),
-        shape = RoundedCornerShape(ComposeProjectTheme.spacing.small),
-        elevation = ComposeProjectTheme.elevation.extraSmall,
-        backgroundColor = ComposeProjectTheme.colors.bg
+        shape = RoundedCornerShape(ItiTheme.spacing.small),
+        elevation = ItiTheme.elevation.extraSmall,
+        backgroundColor = ItiTheme.colors.bg
     ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(ComposeProjectTheme.spacing.defaultPadding),
+                .padding(ItiTheme.spacing.defaultPadding),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceBetween,
         ) {
             Icon(
-                modifier = Modifier.size(ComposeProjectTheme.spacing.smallIcon),
+                modifier = Modifier.size(ItiTheme.spacing.smallIcon),
                 painter = painterResource(id = R.drawable.ic_money_info),
                 contentDescription = "",
                 tint = ColorPinkCalifornia
             )
             Text(
                 text = item.text,
-                color = ComposeProjectTheme.colors.onBg,
-                style = ComposeProjectTheme.type.subtitle2,
+                color = ItiTheme.colors.onBg,
+                style = ItiTheme.type.subtitle2,
             )
 
         }
@@ -101,7 +101,7 @@ fun CardWithIcon(item: ItemCardHomeVO, onClick: () -> Unit = { }) {
 @Preview(showBackground = true)
 @Composable
 fun BlueBoxPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         BlueCard(mockItemCard())
     }
 }
@@ -109,7 +109,7 @@ fun BlueBoxPreview() {
 @Preview(showBackground = true)
 @Composable
 fun BlueBoxWithIconPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         BlueCard(mockItemCardWithIcon())
     }
 }
@@ -118,7 +118,7 @@ fun BlueBoxWithIconPreview() {
 @Preview(showBackground = true)
 @Composable
 fun CardPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         CardWithIcon(mockSimpleItemCardWithIcon())
     }
 }

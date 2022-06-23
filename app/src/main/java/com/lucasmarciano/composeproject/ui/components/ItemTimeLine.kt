@@ -25,7 +25,7 @@ import com.lucasmarciano.composeproject.data.models.ItemTimeLineVO
 import com.lucasmarciano.composeproject.ui.components.shimmer.ItemTimeLineShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.ShimmerView
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemTimeLine
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 
 @Composable
 internal fun ItemTimeLine(
@@ -44,7 +44,7 @@ internal fun ItemTimeLineContainer(item: ItemTimeLineVO, onClick: (String) -> Un
         modifier = Modifier
             .clickable { onClick(item.callToActionVO.action) }
             .fillMaxWidth()
-            .background(ComposeProjectTheme.colors.bg)
+            .background(ItiTheme.colors.bg)
     ) {
 
         val (line, icon, content, tag) = createRefs()
@@ -52,7 +52,7 @@ internal fun ItemTimeLineContainer(item: ItemTimeLineVO, onClick: (String) -> Un
         Divider(
             modifier = Modifier
                 .width(1.dp)
-                .background(ComposeProjectTheme.colors.onBg)
+                .background(ItiTheme.colors.onBg)
                 .constrainAs(line) {
                     top.linkTo(parent.top)
                     bottom.linkTo(parent.bottom)
@@ -65,10 +65,10 @@ internal fun ItemTimeLineContainer(item: ItemTimeLineVO, onClick: (String) -> Un
         Icon(
             imageVector = Icons.Default.LockClock,
             contentDescription = "",
-            tint = ComposeProjectTheme.colors.onBg,
+            tint = ItiTheme.colors.onBg,
             modifier = Modifier
                 .padding(4.dp)
-                .background(color = ComposeProjectTheme.colors.bg)
+                .background(color = ItiTheme.colors.bg)
                 .constrainAs(icon) {
                     top.linkTo(parent.top, margin = 20.dp)
                     start.linkTo(parent.start, margin = 25.dp)
@@ -86,20 +86,20 @@ internal fun ItemTimeLineContainer(item: ItemTimeLineVO, onClick: (String) -> Un
         ) {
             Text(
                 text = item.title,
-                style = ComposeProjectTheme.type.subtitle1,
-                color = ComposeProjectTheme.colors.onBgVariant,
+                style = ItiTheme.type.subtitle1,
+                color = ItiTheme.colors.onBgVariant,
                 maxLines = 1
             )
             Text(
                 text = item.value,
-                color = ComposeProjectTheme.colors.onBg,
+                color = ItiTheme.colors.onBg,
                 fontWeight = FontWeight.Bold,
                 maxLines = 1
             )
             Text(
                 text = item.description,
-                style = ComposeProjectTheme.type.subtitle2,
-                color = ComposeProjectTheme.colors.onBgVariant,
+                style = ItiTheme.type.subtitle2,
+                color = ItiTheme.colors.onBgVariant,
                 maxLines = 1
             )
         }
@@ -116,7 +116,7 @@ internal fun ItemTimeLineContainer(item: ItemTimeLineVO, onClick: (String) -> Un
 @Preview
 @Composable
 private fun ItemTimeLineShimmerOnPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         ItemTimeLine(mockItemTimeLine(), true)
     }
 }
@@ -124,7 +124,7 @@ private fun ItemTimeLineShimmerOnPreview() {
 @Preview
 @Composable
 private fun ItemTimeLineShimmerOffPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         ItemTimeLine(mockItemTimeLine(), false)
     }
 }
@@ -132,7 +132,7 @@ private fun ItemTimeLineShimmerOffPreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun ItemTimeLineShimmerOnDarkPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         ItemTimeLine(mockItemTimeLine(), true)
     }
 }
@@ -140,7 +140,7 @@ private fun ItemTimeLineShimmerOnDarkPreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun ItemTimeLineShimmerOffDarkPreview() {
-    ComposeProjectTheme {
+    ItiTheme {
         ItemTimeLine(mockItemTimeLine(), false)
     }
 }

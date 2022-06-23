@@ -15,13 +15,13 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.brushColors
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 
 @Composable
-fun CircleShimmer(brush: Brush, size: Dp = ComposeProjectTheme.spacing.extraHuge) {
+fun CircleShimmer(brush: Brush, size: Dp = ItiTheme.spacing.extraHuge) {
     Row(
         modifier = Modifier
-            .padding(all = ComposeProjectTheme.spacing.small),
+            .padding(all = ItiTheme.spacing.small),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Spacer(

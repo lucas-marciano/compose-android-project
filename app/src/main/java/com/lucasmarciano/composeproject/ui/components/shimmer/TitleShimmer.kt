@@ -15,20 +15,20 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.brushColors
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 
 @Composable
 fun TitleShimmer(brush: Brush, widthFraction: Float = 1f) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(all = ComposeProjectTheme.spacing.small),
+            .padding(all = ItiTheme.spacing.small),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Spacer(
             modifier = Modifier
-                .height(ComposeProjectTheme.spacing.extraMedium)
-                .clip(RoundedCornerShape(ComposeProjectTheme.spacing.small))
+                .height(ItiTheme.spacing.extraMedium)
+                .clip(RoundedCornerShape(ItiTheme.spacing.small))
                 .fillMaxWidth(fraction = widthFraction)
                 .background(brush = brush)
         )
@@ -40,14 +40,14 @@ fun SubTitleShimmer(brush: Brush) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(all = ComposeProjectTheme.spacing.small),
+            .padding(all = ItiTheme.spacing.small),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Spacer(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(ComposeProjectTheme.spacing.medium)
-                .clip(RoundedCornerShape(ComposeProjectTheme.spacing.small))
+                .height(ItiTheme.spacing.medium)
+                .clip(RoundedCornerShape(ItiTheme.spacing.small))
                 .fillMaxWidth(fraction = 0.9f)
                 .background(brush = brush)
         )

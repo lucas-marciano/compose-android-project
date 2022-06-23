@@ -21,7 +21,7 @@ import com.lucasmarciano.composeproject.features.home.HomeScreen
 import com.lucasmarciano.composeproject.features.sales.SalesScreen
 import com.lucasmarciano.composeproject.features.settings.SettingsScreen
 import com.lucasmarciano.composeproject.routes.Screen.DetailSale.KEY_SALE_ID
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -31,7 +31,7 @@ fun Navigation() {
         navController = navController,
         startDestination = Screen.HomeScreen.buildPath(),
         modifier = Modifier.background(
-            ComposeProjectTheme.colors.bg
+            ItiTheme.colors.bg
         )
     ) {
         composable(

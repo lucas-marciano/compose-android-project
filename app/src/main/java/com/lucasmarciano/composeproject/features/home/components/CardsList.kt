@@ -16,8 +16,8 @@ import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.lucasmarciano.composeproject.data.home.models.ItemCardHomeVO
 import com.lucasmarciano.composeproject.ui.components.CardWithIcon
 import com.lucasmarciano.composeproject.ui.mockspreview.mockListSimpleItemCardWithIcon
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.utils.extensions.navTo
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 
 @Composable
 fun CardsList(
@@ -26,10 +26,10 @@ fun CardsList(
 ) {
     LazyRow(
         state = rememberLazyListState(),
-        horizontalArrangement = Arrangement.spacedBy(ComposeProjectTheme.spacing.small),
+        horizontalArrangement = Arrangement.spacedBy(ItiTheme.spacing.small),
         contentPadding = PaddingValues(
-            end = ComposeProjectTheme.spacing.small,
-            bottom = ComposeProjectTheme.spacing.small
+            end = ItiTheme.spacing.small,
+            bottom = ItiTheme.spacing.small
         )
     ) {
         items(cards, key = { it.id }) { card ->
@@ -41,7 +41,7 @@ fun CardsList(
 @Preview("Card list")
 @Composable
 fun CardListPreview() {
-    ComposeProjectTheme(darkTheme = false) {
+    ItiTheme(darkTheme = false) {
         CardsList(mockListSimpleItemCardWithIcon())
     }
 }

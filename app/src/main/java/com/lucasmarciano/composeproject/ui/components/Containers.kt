@@ -22,10 +22,10 @@ import com.lucasmarciano.composeproject.ui.Components
 import com.lucasmarciano.composeproject.ui.InterfaceFactory
 import com.lucasmarciano.composeproject.ui.components.toolbar.Toolbar
 import com.lucasmarciano.composeproject.ui.mockspreview.mockHomeResult
-import com.lucasmarciano.composeproject.ui.theme.ComposeProjectTheme
 import com.lucasmarciano.composeproject.ui.values.InterfaceItemComponent
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.utils.extensions.navBackTo
+import com.lucasmarciano.ui.iti.theme.ItiTheme
 
 @Composable
 internal fun MainContainer(
@@ -42,7 +42,7 @@ internal fun MainContainer(
     LazyColumn(
         state = state,
         modifier = Modifier
-            .background(ComposeProjectTheme.colors.bg)
+            .background(ItiTheme.colors.bg)
             .fillMaxSize()
     ) {
         toolbar?.let { bar ->
@@ -56,11 +56,11 @@ internal fun MainContainer(
         items(listItems) { component ->
             Column(
                 modifier = Modifier
-                    .background(ComposeProjectTheme.colors.bg)
+                    .background(ItiTheme.colors.bg)
                     .padding(
-                        start = ComposeProjectTheme.spacing.medium,
-                        end = ComposeProjectTheme.spacing.medium,
-                        top = ComposeProjectTheme.spacing.medium
+                        start = ItiTheme.spacing.medium,
+                        end = ItiTheme.spacing.medium,
+                        top = ItiTheme.spacing.medium
                     )
             ) {
                 InterfaceFactory(component, navController)
@@ -72,7 +72,7 @@ internal fun MainContainer(
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 fun MainContainerHomePreview() {
-    ComposeProjectTheme(darkTheme = false) {
+    ItiTheme(darkTheme = false) {
         val navController = rememberAnimatedNavController()
         MainContainer(navController, mockHomeResult().listItems)
     }
@@ -81,7 +81,7 @@ fun MainContainerHomePreview() {
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun DarkMainContainerHomePreview() {
-    ComposeProjectTheme(darkTheme = true) {
+    ItiTheme(darkTheme = true) {
         val navController = rememberAnimatedNavController()
         MainContainer(navController, mockHomeResult().listItems)
     }
