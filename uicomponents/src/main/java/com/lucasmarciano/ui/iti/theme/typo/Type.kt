@@ -1,4 +1,4 @@
-package com.lucasmarciano.composeproject.ui.utils
+package com.lucasmarciano.ui.iti.theme.typo
 
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.text.TextStyle
@@ -54,4 +54,4 @@ data class Type(
     )
 )
 
-val LocalType = compositionLocalOf { Type() }
+val LocalLibType = compositionLocalOf { Type() }

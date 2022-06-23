@@ -12,24 +12,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.lucasmarciano.composeproject.ui.utils.LocalType
-import com.lucasmarciano.composeproject.ui.utils.Type
 import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
 import com.lucasmarciano.ui.iti.theme.colors.ColorsMainTheme
 import com.lucasmarciano.ui.iti.theme.colors.DarkColorPalette
 import com.lucasmarciano.ui.iti.theme.colors.LightColorPalette
+import com.lucasmarciano.ui.iti.theme.colors.LocalLibColors
 import com.lucasmarciano.ui.iti.theme.dimens.Elevation
-import com.lucasmarciano.ui.iti.theme.dimens.LibElevation
-import com.lucasmarciano.ui.iti.theme.dimens.LibSpacing
+import com.lucasmarciano.ui.iti.theme.dimens.LocalLibElevation
+import com.lucasmarciano.ui.iti.theme.dimens.LocalLibSpacing
 import com.lucasmarciano.ui.iti.theme.dimens.Spacing
-import com.lucasmarciano.ui.iti.theme.fonts.FontSize
-import com.lucasmarciano.ui.iti.theme.fonts.LibFontSize
+import com.lucasmarciano.ui.iti.theme.typo.FontSize
+import com.lucasmarciano.ui.iti.theme.typo.LocalLibFontSize
+import com.lucasmarciano.ui.iti.theme.typo.LocalLibType
+import com.lucasmarciano.ui.iti.theme.typo.Type
 
 @Composable
 fun ComposeProjectTheme(
@@ -65,19 +65,19 @@ fun ComposeProjectTheme(
 
 object ComposeProjectTheme {
     val colors: ColorsMainTheme
-        @Composable get() = LocalColors.current
+        @Composable get() = LocalLibColors.current
 
     val spacing: Spacing
-        @Composable get() = LibSpacing.current
+        @Composable get() = LocalLibSpacing.current
 
     val elevation: Elevation
-        @Composable get() = LibElevation.current
+        @Composable get() = LocalLibElevation.current
 
     val fontSize: FontSize
-        @Composable get() = LibFontSize.current
+        @Composable get() = LocalLibFontSize.current
 
     val type: Type
-        @Composable get() = LocalType.current
+        @Composable get() = LocalLibType.current
 }
 
 @Composable
@@ -87,17 +87,13 @@ fun ProvideThemeColors(
     val colorPalette = remember { colors.copy() }
     colorPalette.update(colors)
     CompositionLocalProvider(
-        LocalColors provides colorPalette,
-        LocalType provides Type(),
-        LibSpacing provides Spacing(),
-        LibElevation provides Elevation(),
-        LibFontSize provides FontSize(),
+        LocalLibColors provides colorPalette,
+        LocalLibType provides Type(),
+        LocalLibSpacing provides Spacing(),
+        LocalLibElevation provides Elevation(),
+        LocalLibFontSize provides FontSize(),
         content = content
     )
-}
-
-private val LocalColors = staticCompositionLocalOf<ColorsMainTheme> {
-    error("No ColorPalette provided")
 }
 
 fun debugColors(darkTheme: Boolean, debugColor: Color = Color.Magenta) = Colors(

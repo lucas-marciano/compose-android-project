@@ -25,4 +25,4 @@ data class Spacing(
     val toolbarHeight: Dp = 56.dp,
 )
 
-val LibSpacing = compositionLocalOf { Spacing() }
+val LocalLibSpacing = compositionLocalOf { Spacing() }

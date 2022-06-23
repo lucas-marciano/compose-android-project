@@ -11,4 +11,4 @@ data class Elevation(
     val noElevation: Dp = 0.dp
 )
 
-val LibElevation = compositionLocalOf { Elevation() }
+val LocalLibElevation = compositionLocalOf { Elevation() }
