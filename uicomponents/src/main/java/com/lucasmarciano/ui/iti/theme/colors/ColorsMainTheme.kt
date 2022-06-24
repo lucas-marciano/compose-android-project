@@ -78,7 +78,6 @@ class ColorsMainTheme(
     )
 }
 
-
 val LocalLibColors = staticCompositionLocalOf<ColorsMainTheme> {
     error("No ColorPalette provided")
 }
