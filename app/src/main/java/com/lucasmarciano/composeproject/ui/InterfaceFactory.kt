@@ -11,6 +11,7 @@ import com.lucasmarciano.composeproject.features.home.components.CardsList
 import com.lucasmarciano.composeproject.features.home.components.HomeTitle
 import com.lucasmarciano.composeproject.features.settings.components.MenuList
 import com.lucasmarciano.composeproject.ui.components.Banner
+import com.lucasmarciano.composeproject.ui.components.BuildButton
 import com.lucasmarciano.composeproject.ui.components.Profile
 import com.lucasmarciano.composeproject.ui.components.SecondTitle
 import com.lucasmarciano.composeproject.ui.components.Title
@@ -78,6 +79,7 @@ fun InterfaceFactory(item: InterfaceItemComponent, navController: NavController)
         }
         Components.BUTTON -> {
             val value = item as ButtonComponent
+            BuildButton(value)
         }
         else -> {}
     }
