@@ -5,8 +5,10 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
@@ -18,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.lucasmarciano.composeproject.data.models.CallToActionVO
 import com.lucasmarciano.composeproject.ui.values.ButtonComponent
 import com.lucasmarciano.composeproject.ui.values.TypeButton
@@ -35,7 +38,7 @@ internal fun BuildButton(buttonComponent: ButtonComponent) {
 }
 
 @Composable
-fun ButtonDefault(callToAction: CallToActionVO, icon: String) {
+fun ButtonDefault(callToAction: CallToActionVO, icon: String? = null) {
     Button(
         onClick = callToAction.onClick,
         shape = ItiTheme.shapes.small,
@@ -44,23 +47,27 @@ fun ButtonDefault(callToAction: CallToActionVO, icon: String) {
             contentColor = ItiTheme.colors.onBg
         ),
         contentPadding = PaddingValues(
-            start = ItiTheme.spacing.extraMedium,
-            top = ItiTheme.spacing.medium,
-            end = ItiTheme.spacing.extraMedium,
-            bottom = ItiTheme.spacing.medium
+            start = ItiTheme.spacing.medium,
+            top = ItiTheme.spacing.small,
+            end = ItiTheme.spacing.medium,
+            bottom = ItiTheme.spacing.small
         )
     ) {
-        Icon(
-            Icons.Filled.Favorite,
-            contentDescription = callToAction.name,
-            modifier = Modifier.size(ButtonDefaults.IconSize)
-        )
-        Text(callToAction.name)
+        icon?.let {
+            Icon(
+                Icons.Filled.Favorite,
+                contentDescription = callToAction.name,
+                modifier = Modifier.size(ButtonDefaults.IconSize)
+            )
+            Spacer(modifier = Modifier.width(4.dp))
+        }
+
+        Text(callToAction.name, style = ItiTheme.type.button)
     }
 }
 
 @Composable
-fun ButtonOutlined(callToAction: CallToActionVO, icon: String) {
+fun ButtonOutlined(callToAction: CallToActionVO, icon: String? = null) {
     OutlinedButton(
         onClick = callToAction.onClick,
         shape = ItiTheme.shapes.small,
@@ -70,18 +77,20 @@ fun ButtonOutlined(callToAction: CallToActionVO, icon: String) {
             contentColor = ColorPinkCalifornia
         ),
         contentPadding = PaddingValues(
-            start = ItiTheme.spacing.extraMedium,
-            top = ItiTheme.spacing.medium,
-            end = ItiTheme.spacing.extraMedium,
-            bottom = ItiTheme.spacing.medium
+            start = ItiTheme.spacing.medium,
+            top = ItiTheme.spacing.small,
+            end = ItiTheme.spacing.medium,
+            bottom = ItiTheme.spacing.small
         )
     ) {
-        Icon(
-            Icons.Filled.Favorite,
-            contentDescription = callToAction.name,
-            modifier = Modifier.size(ButtonDefaults.IconSize)
-        )
-        Text(callToAction.name)
+        icon?.let {
+            Icon(
+                Icons.Filled.Favorite,
+                contentDescription = callToAction.name,
+                modifier = Modifier.size(ButtonDefaults.IconSize)
+            )
+        }
+        Text(callToAction.name, style = ItiTheme.type.button)
     }
 }
 
@@ -99,18 +108,7 @@ fun ButtonBordLess(callToAction: CallToActionVO?) {
     }
 }
 
-@Preview
-@Composable
-private fun ButtonBordLessPreview() {
-    ButtonBordLess(
-        CallToActionVO(
-            name = "click",
-            action = "action"
-        )
-    )
-}
-
-@Preview
+@Preview(backgroundColor = 0xFFFFFFFF, showBackground = true)
 @Composable
 private fun BuildButtonPreview() {
     Column {
@@ -144,13 +142,36 @@ private fun BuildButtonPreview() {
     }
 }
 
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun ButtonBordLessDarkPreview() {
-    ButtonBordLess(
-        CallToActionVO(
-            name = "click",
-            action = "action"
+private fun BuildButtonDarkPreview() {
+    Column {
+        BuildButton(
+            ButtonComponent(
+                CallToActionVO(
+                    name = "click",
+                    action = "action"
+                ),
+                TypeButton.NORMAL
+            )
         )
-    )
+        BuildButton(
+            ButtonComponent(
+                CallToActionVO(
+                    name = "click",
+                    action = "action"
+                ),
+                TypeButton.BORDERLESS,
+            )
+        )
+        BuildButton(
+            ButtonComponent(
+                CallToActionVO(
+                    name = "click",
+                    action = "action"
+                ),
+                TypeButton.OUTLINED,
+            )
+        )
+    }
 }
