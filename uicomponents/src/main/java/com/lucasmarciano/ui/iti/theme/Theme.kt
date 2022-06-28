@@ -15,10 +15,10 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.lucasmarciano.ui.iti.theme.colors.ColorsMainTheme
-import com.lucasmarciano.ui.iti.theme.colors.DarkColorPalette
-import com.lucasmarciano.ui.iti.theme.colors.LightColorPalette
-import com.lucasmarciano.ui.iti.theme.colors.LocalLibColors
+import com.lucasmarciano.ui.iti.theme.colors.IColorsStructure
+import com.lucasmarciano.ui.iti.theme.colors.darkColorPalette
+import com.lucasmarciano.ui.iti.theme.colors.lightColorPalette
+import com.lucasmarciano.ui.iti.theme.colors.localLibColor
 import com.lucasmarciano.ui.iti.theme.dimens.DimenShapes
 import com.lucasmarciano.ui.iti.theme.dimens.Elevation
 import com.lucasmarciano.ui.iti.theme.dimens.LocalLibElevation
@@ -35,9 +35,10 @@ fun ItiTheme(
     darkTheme: Boolean = isSystemInDarkTheme(), content: ComposableAliasSimple
 ) {
     val colorScheme = when {
-        darkTheme -> DarkColorPalette
-        else -> LightColorPalette
+        darkTheme -> darkColorPalette
+        else -> lightColorPalette
     }
+
     val view = LocalView.current
 
     val systemUiController = rememberSystemUiController()
@@ -63,8 +64,8 @@ fun ItiTheme(
 }
 
 object ItiTheme {
-    val colors: ColorsMainTheme
-        @Composable get() = LocalLibColors.current
+    val colors: IColorsStructure
+        @Composable get() = localLibColor().current
 
     val spacing: Spacing
         @Composable get() = LocalLibSpacing.current
@@ -83,13 +84,12 @@ object ItiTheme {
 }
 
 @Composable
-fun ProvideTheme(
-    colors: ColorsMainTheme, content: ComposableAliasSimple
+private fun ProvideTheme(
+    colors: IColorsStructure, content: ComposableAliasSimple
 ) {
-    val colorPalette = remember { colors.copy() }
-    colorPalette.update(colors)
+    val colorPalette = remember { colors }
     CompositionLocalProvider(
-        LocalLibColors provides colorPalette,
+        localLibColor() provides colorPalette,
         LocalLibType provides Type(),
         LocalLibSpacing provides Spacing(),
         LocalLibElevation provides Elevation(),
@@ -99,7 +99,7 @@ fun ProvideTheme(
     )
 }
 
-fun debugColors(darkTheme: Boolean, debugColor: Color = Color.Magenta) = Colors(
+internal fun debugColors(darkTheme: Boolean, debugColor: Color = Color.Magenta) = Colors(
     primary = debugColor,
     primaryVariant = debugColor,
     secondary = debugColor,
@@ -115,4 +115,4 @@ fun debugColors(darkTheme: Boolean, debugColor: Color = Color.Magenta) = Colors(
     isLight = !darkTheme
 )
 
-fun debugType() = Typography()
+internal fun debugType() = Typography()

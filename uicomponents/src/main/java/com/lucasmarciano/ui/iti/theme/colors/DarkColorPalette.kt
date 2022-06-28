@@ -14,17 +14,19 @@ private val ColorDarkOnBackground = Color(0xFFFFFBFE)
 private val ColorDarkOnSurface = Color(0xFFFFFBFE)
 private val ColorDarkOnError = Color(0xFFFFFFFF)
 
-val DarkColorPalette = ColorsMainTheme(
-    brand = ColorDarkPrimary,
-    brandVariant = ColorDarkPrimaryVariant,
-    variation = ColorDarkSecondary,
-    bg = ColorDarkBackground,
-    bgVariant = ColorDarkSurface,
-    errorBg = ColorDarkError,
-    onBrand = ColorDarkOnPrimary,
-    onBrandVariant = ColorDarkOnSecondary,
-    onBg = ColorDarkOnBackground,
-    onBgVariant = ColorDarkOnSurface,
-    onErrorBg = ColorDarkOnError,
-    isDark = true
-)
+data class DarkColorPalette(
+    override val brand: Color = ColorDarkPrimary,
+    override val brandVariant: Color = ColorDarkPrimaryVariant,
+    override val variation: Color = ColorDarkSecondary,
+    override val bg: Color = ColorDarkBackground,
+    override val bgVariant: Color = ColorDarkSurface,
+    override val errorBg: Color = ColorDarkError,
+    override val onBrand: Color = ColorDarkOnPrimary,
+    override val onBrandVariant: Color = ColorDarkOnSecondary,
+    override val onBg: Color = ColorDarkOnBackground,
+    override val onBgVariant: Color = ColorDarkOnSurface,
+    override val onErrorBg: Color = ColorDarkOnError,
+    override val isDark: Boolean = false
+) : IColorsStructure
+
+internal val darkColorPalette = DarkColorPalette()

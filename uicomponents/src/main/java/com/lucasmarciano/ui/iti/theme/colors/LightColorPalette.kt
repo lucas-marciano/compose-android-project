@@ -14,17 +14,19 @@ private val ColorOnBackground = Color(0xFF1C1B1F)
 private val ColorOnSurface = Color(0x401C1B1F)
 private val ColorOnError = Color(0x401C1B1F)
 
-val LightColorPalette = ColorsMainTheme(
-    brand = ColorPrimary,
-    brandVariant = ColorPrimaryVariant,
-    variation = ColorSecondary,
-    bg = ColorBackground,
-    bgVariant = ColorSurface,
-    errorBg = ColorError,
-    onBrand = ColorOnPrimary,
-    onBrandVariant = ColorOnSecondary,
-    onBg = ColorOnBackground,
-    onBgVariant = ColorOnSurface,
-    onErrorBg = ColorOnError,
-    isDark = false
-)
+data class LightColorPalette(
+    override val brand: Color = ColorPrimary,
+    override val brandVariant: Color = ColorPrimaryVariant,
+    override val variation: Color = ColorSecondary,
+    override val bg: Color = ColorBackground,
+    override val bgVariant: Color = ColorSurface,
+    override val errorBg: Color = ColorError,
+    override val onBrand: Color = ColorOnPrimary,
+    override val onBrandVariant: Color = ColorOnSecondary,
+    override val onBg: Color = ColorOnBackground,
+    override val onBgVariant: Color = ColorOnSurface,
+    override val onErrorBg: Color = ColorOnError,
+    override val isDark: Boolean = false
+) : IColorsStructure
+
+internal val lightColorPalette = LightColorPalette()
