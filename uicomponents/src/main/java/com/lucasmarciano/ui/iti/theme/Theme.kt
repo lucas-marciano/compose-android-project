@@ -19,8 +19,10 @@ import com.lucasmarciano.ui.iti.theme.colors.ColorsMainTheme
 import com.lucasmarciano.ui.iti.theme.colors.DarkColorPalette
 import com.lucasmarciano.ui.iti.theme.colors.LightColorPalette
 import com.lucasmarciano.ui.iti.theme.colors.LocalLibColors
+import com.lucasmarciano.ui.iti.theme.dimens.DimenShapes
 import com.lucasmarciano.ui.iti.theme.dimens.Elevation
 import com.lucasmarciano.ui.iti.theme.dimens.LocalLibElevation
+import com.lucasmarciano.ui.iti.theme.dimens.LocalLibShapes
 import com.lucasmarciano.ui.iti.theme.dimens.LocalLibSpacing
 import com.lucasmarciano.ui.iti.theme.dimens.Spacing
 import com.lucasmarciano.ui.iti.theme.typo.FontSize
@@ -75,6 +77,9 @@ object ItiTheme {
 
     val type: Type
         @Composable get() = LocalLibType.current
+
+    val shapes: DimenShapes
+        @Composable get() = LocalLibShapes.current
 }
 
 @Composable
@@ -88,6 +93,7 @@ fun ProvideTheme(
         LocalLibType provides Type(),
         LocalLibSpacing provides Spacing(),
         LocalLibElevation provides Elevation(),
+        LocalLibShapes provides DimenShapes(),
         LocalLibFontSize provides FontSize(),
         content = content
     )

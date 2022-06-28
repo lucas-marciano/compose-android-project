@@ -5,4 +5,5 @@ import com.lucasmarciano.composeproject.utils.extensions.emptyString
 data class CallToActionVO(
     val name: String = emptyString(),
     val action: String = emptyString(),
+    val onClick: () -> Unit = {}
 )

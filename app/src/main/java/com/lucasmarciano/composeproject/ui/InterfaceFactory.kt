@@ -17,6 +17,7 @@ import com.lucasmarciano.composeproject.ui.components.Title
 import com.lucasmarciano.composeproject.ui.utils.getColorValue
 import com.lucasmarciano.composeproject.ui.utils.getDimensionValue
 import com.lucasmarciano.composeproject.ui.values.BannerComponent
+import com.lucasmarciano.composeproject.ui.values.ButtonComponent
 import com.lucasmarciano.composeproject.ui.values.CardBlueListComponent
 import com.lucasmarciano.composeproject.ui.values.CardComponent
 import com.lucasmarciano.composeproject.ui.values.CardIconListComponent
@@ -72,18 +73,11 @@ fun InterfaceFactory(item: InterfaceItemComponent, navController: NavController)
             val menuItemList = (item as MenuItemComponent)
             MenuList(menuItemList.buttons)
         }
-        Components.TITLE -> {
-
-        }
-
         Components.CARD -> {
             val cardData = item as CardComponent
         }
-        Components.BUTTON_BORDERLESS -> {
-
-        }
         Components.BUTTON -> {
-            val cardData = item as CardComponent
+            val value = item as ButtonComponent
         }
         else -> {}
     }

@@ -14,15 +14,14 @@ data class Spacing(
     val huge: Dp = 60.dp,
     val extraHuge: Dp = 80.dp,
     val giga: Dp = 100.dp,
-
     val defaultPadding: Dp = 10.dp,
-
     val smallIcon: Dp = 28.dp,
     val largeIcon: Dp = 40.dp,
-
     val cardWidth: Dp = 150.dp,
     val cardHeight: Dp = 200.dp,
     val toolbarHeight: Dp = 56.dp,
+    val borderMinimum: Dp = 1.dp,
+    val border: Dp = 2.dp,
 )
 
 val LocalLibSpacing = compositionLocalOf { Spacing() }
