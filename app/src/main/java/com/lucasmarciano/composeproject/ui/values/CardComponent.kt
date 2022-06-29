@@ -8,7 +8,7 @@ internal data class CardComponent(
     val icon: String = emptyString(),
     val title: String = emptyString(),
     val details: String = emptyString(),
-    val information: Info? = null,
+    val information: List<InfoKeyValue> = emptyList(),
     val paymentInfo: PaymentInfo? = null,
     val footer: InfoKeyValue? = null,
     val typeCard: TypeCard = TypeCard.NORMAL,
@@ -17,7 +17,6 @@ internal data class CardComponent(
 
 enum class TypeCard {
     NORMAL,
-    DETAIL,
     INFO,
     PAYMENT,
 }
@@ -25,11 +24,6 @@ enum class TypeCard {
 internal data class InfoKeyValue(
     val key: String,
     val value: String
-)
-
-internal data class Info(
-    val listInfo: List<String> = emptyList(),
-    val listPairInfo: List<InfoKeyValue> = emptyList(),
 )
 
 internal data class PaymentInfo(
