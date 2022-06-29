@@ -2,7 +2,7 @@ package com.lucasmarciano.core.theme
 
 import androidx.compose.ui.text.TextStyle
 
-sealed interface IType {
+interface IType {
     val body1: TextStyle
     val body2: TextStyle
     val subtitle1: TextStyle

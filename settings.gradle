@@ -16,3 +16,4 @@ rootProject.name = "ComposeProject"
 include ':app'
 include ':uicomponents'
 include ':core'
+include ':iti-module'
