@@ -10,7 +10,17 @@ internal data class CardComponent(
     val details: String = emptyString(),
     val information: Info? = null,
     val paymentInfo: PaymentInfo? = null,
+    val footer: InfoKeyValue? = null,
+    val typeCard: TypeCard = TypeCard.NORMAL,
+    val segueAction: String = emptyString()
 ) : InterfaceItemComponent(Components.CARD)
+
+enum class TypeCard {
+    NORMAL,
+    DETAIL,
+    INFO,
+    PAYMENT,
+}
 
 internal data class InfoKeyValue(
     val key: String,
