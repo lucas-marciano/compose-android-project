@@ -15,7 +15,7 @@ data class Type(
     val body2: TextStyle = TextStyle(
         fontFamily = roboto,
         fontWeight = FontWeight.Thin,
-        fontSize = FontSize().minimum,
+        fontSize = FontSize().small,
         textAlign = TextAlign.Start
     ),
     val subtitle1: TextStyle = TextStyle(

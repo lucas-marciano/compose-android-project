@@ -15,7 +15,7 @@ internal val nunitoFont = FontFamily(
 )
 
 internal val roboto = FontFamily(
-    Font(R.font.roboto_regular, weight = FontWeight.Normal),
+    Font(R.font.roboto_regular),
     Font(R.font.roboto_italic, style = FontStyle.Italic),
     Font(R.font.roboto_black, weight = FontWeight.Black),
     Font(R.font.roboto_black_italic, weight = FontWeight.Black, style = FontStyle.Italic),
