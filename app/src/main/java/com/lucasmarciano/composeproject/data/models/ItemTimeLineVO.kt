@@ -1,9 +1,9 @@
 package com.lucasmarciano.composeproject.data.models
 
 import androidx.compose.ui.graphics.Color
-import com.lucasmarciano.ui.iti.theme.colors.ColorBlueCard
-import com.lucasmarciano.ui.iti.theme.colors.ColorBlueChipInfo
-import com.lucasmarciano.ui.iti.theme.colors.ColorRedChipInfo
+import com.lucasmarciano.iti_module.colors.ColorBlueCard
+import com.lucasmarciano.iti_module.colors.ColorBlueChipInfo
+import com.lucasmarciano.iti_module.colors.ColorRedChipInfo
 
 internal data class ItemTimeLineVO(
     val position: Int,

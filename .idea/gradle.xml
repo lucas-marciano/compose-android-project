@@ -13,7 +13,6 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/iti-module" />
-            <option value="$PROJECT_DIR$/uicomponents" />
           </set>
         </option>
       </GradleProjectSettings>

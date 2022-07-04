@@ -25,8 +25,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
-import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
-import com.lucasmarciano.ui.iti.theme.ItiTheme
+import com.lucasmarciano.core.utils.ComposableAliasSimple
+import com.lucasmarciano.iti_module.ItiTheme
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class)

@@ -14,8 +14,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import com.lucasmarciano.composeproject.utils.ComposableAlias
-import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
+import com.lucasmarciano.core.utils.ComposableAlias
+import com.lucasmarciano.core.utils.ComposableAliasSimple
 
 object MainAnimatedShimmer {
 

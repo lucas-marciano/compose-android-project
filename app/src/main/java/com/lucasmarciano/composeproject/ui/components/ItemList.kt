@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.lucasmarciano.ui.iti.theme.ItiTheme
+import com.lucasmarciano.iti_module.ItiTheme
 
 @Composable
 fun ItemListKeyValue(

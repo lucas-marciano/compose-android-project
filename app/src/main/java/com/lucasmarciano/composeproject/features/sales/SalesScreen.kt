@@ -19,7 +19,7 @@ import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.ui.values.TypeToolbar
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
 import com.lucasmarciano.composeproject.utils.extensions.navBackTo
-import com.lucasmarciano.ui.iti.theme.ItiTheme
+import com.lucasmarciano.iti_module.ItiTheme
 
 @Composable
 fun SalesScreen(navController: NavController = rememberAnimatedNavController()) {

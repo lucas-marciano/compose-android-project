@@ -24,8 +24,8 @@ import androidx.compose.ui.unit.dp
 import com.lucasmarciano.composeproject.data.models.CallToActionVO
 import com.lucasmarciano.composeproject.ui.values.ButtonComponent
 import com.lucasmarciano.composeproject.ui.values.TypeButton
-import com.lucasmarciano.ui.iti.theme.ItiTheme
-import com.lucasmarciano.ui.iti.theme.colors.ColorPinkCalifornia
+import com.lucasmarciano.iti_module.ItiTheme
+import com.lucasmarciano.iti_module.colors.ColorPinkCalifornia
 
 @Composable
 internal fun BuildButton(buttonComponent: ButtonComponent) {

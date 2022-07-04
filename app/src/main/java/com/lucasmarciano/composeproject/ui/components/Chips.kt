@@ -15,7 +15,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.lucasmarciano.composeproject.data.models.ChipType
-import com.lucasmarciano.ui.iti.theme.ItiTheme
+import com.lucasmarciano.iti_module.ItiTheme
 
 @Composable
 internal fun Chip(text: String, chipType: ChipType = ChipType.INFO, onClick: () -> Unit = {}) {

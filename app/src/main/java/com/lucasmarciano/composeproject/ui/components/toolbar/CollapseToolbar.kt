@@ -24,9 +24,9 @@ import com.google.accompanist.insets.statusBarsPadding
 import com.lucasmarciano.composeproject.ui.utils.Const.BottomSheetShape
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.ui.values.TypeToolbar
-import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
-import com.lucasmarciano.ui.iti.theme.ItiTheme
-import com.lucasmarciano.ui.iti.theme.colors.ColorSalesToolbar
+import com.lucasmarciano.core.utils.ComposableAliasSimple
+import com.lucasmarciano.iti_module.ItiTheme
+import com.lucasmarciano.iti_module.colors.ColorSalesToolbar
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable

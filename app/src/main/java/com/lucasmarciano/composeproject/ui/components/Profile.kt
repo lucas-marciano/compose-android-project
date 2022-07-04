@@ -18,7 +18,7 @@ import com.lucasmarciano.composeproject.ui.mockspreview.mockProfileNonCallToActi
 import com.lucasmarciano.composeproject.ui.mockspreview.mockTwoProfile
 import com.lucasmarciano.composeproject.ui.mockspreview.mockTwoProfileNonAction
 import com.lucasmarciano.composeproject.ui.theme.HomeAvatar
-import com.lucasmarciano.ui.iti.theme.ItiTheme
+import com.lucasmarciano.iti_module.ItiTheme
 
 @Composable
 internal fun Profile(listProfile: List<ProfileVO>, avatar: String) {

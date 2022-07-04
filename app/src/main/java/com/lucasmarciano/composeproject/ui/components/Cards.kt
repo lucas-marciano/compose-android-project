@@ -51,11 +51,11 @@ import com.lucasmarciano.composeproject.ui.values.InfoKeyValue
 import com.lucasmarciano.composeproject.ui.values.PaymentInfo
 import com.lucasmarciano.composeproject.ui.values.TypeCard
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
-import com.lucasmarciano.ui.iti.theme.ComposableAliasSimple
-import com.lucasmarciano.ui.iti.theme.ItiTheme
-import com.lucasmarciano.ui.iti.theme.colors.ColorBlueCard
-import com.lucasmarciano.ui.iti.theme.colors.ColorBlueFooter
-import com.lucasmarciano.ui.iti.theme.colors.ColorPinkCalifornia
+import com.lucasmarciano.core.utils.ComposableAliasSimple
+import com.lucasmarciano.iti_module.ItiTheme
+import com.lucasmarciano.iti_module.colors.ColorBlueCard
+import com.lucasmarciano.iti_module.colors.ColorBlueFooter
+import com.lucasmarciano.iti_module.colors.ColorPinkCalifornia
 
 @Composable
 internal fun BuildCard(cardComponent: CardComponent) {

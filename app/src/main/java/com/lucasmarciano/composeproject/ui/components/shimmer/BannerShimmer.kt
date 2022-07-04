@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
-import com.lucasmarciano.ui.iti.theme.ItiTheme
+import com.lucasmarciano.iti_module.ItiTheme
 
 @Composable
 fun BannerShimmer(brush: Brush) {

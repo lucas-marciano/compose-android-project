@@ -24,9 +24,9 @@ import com.lucasmarciano.composeproject.ui.components.shimmer.ItemTimeLineShimme
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.ShimmerView
 import com.lucasmarciano.composeproject.ui.components.shimmer.TitleShimmer
-import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
-import com.lucasmarciano.ui.iti.theme.ItiTheme
-import com.lucasmarciano.ui.iti.theme.colors.ColorSalesToolbar
+import com.lucasmarciano.core.utils.ComposableAliasSimple
+import com.lucasmarciano.iti_module.ItiTheme
+import com.lucasmarciano.iti_module.colors.ColorSalesToolbar
 
 @Composable
 fun ShimmerSalesHeaderController(isLoading: Boolean = true, content: ComposableAliasSimple) {

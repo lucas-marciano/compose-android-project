@@ -34,8 +34,8 @@ import com.lucasmarciano.composeproject.ui.components.SecondTitle
 import com.lucasmarciano.composeproject.ui.components.Title
 import com.lucasmarciano.composeproject.ui.mockspreview.mockSalesResult
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
-import com.lucasmarciano.ui.iti.theme.ItiTheme
-import com.lucasmarciano.ui.iti.theme.colors.ColorSalesToolbar
+import com.lucasmarciano.iti_module.ItiTheme
+import com.lucasmarciano.iti_module.colors.ColorSalesToolbar
 
 @Composable
 fun HeaderSalesScreen() {

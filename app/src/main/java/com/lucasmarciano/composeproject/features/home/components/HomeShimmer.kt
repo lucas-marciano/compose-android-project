@@ -19,8 +19,8 @@ import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimme
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.brushColors
 import com.lucasmarciano.composeproject.ui.components.shimmer.SubTitleShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.TitleShimmer
-import com.lucasmarciano.composeproject.utils.ComposableAliasSimple
-import com.lucasmarciano.ui.iti.theme.ItiTheme
+import com.lucasmarciano.core.utils.ComposableAliasSimple
+import com.lucasmarciano.iti_module.ItiTheme
 
 @Composable
 fun ShimmerHomeController(isLoading: Boolean = true, content: ComposableAliasSimple) {

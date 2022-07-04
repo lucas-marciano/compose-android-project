@@ -19,8 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.data.settings.models.ItemMenuVO
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemMenu
-import com.lucasmarciano.ui.iti.theme.ItiTheme
-import com.lucasmarciano.ui.iti.theme.colors.ColorPinkCalifornia
+import com.lucasmarciano.iti_module.ItiTheme
+import com.lucasmarciano.iti_module.colors.ColorPinkCalifornia
 
 @Composable
 internal fun ItemMenu(item: ItemMenuVO) {

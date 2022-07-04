@@ -46,7 +46,8 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':uicomponents')
+    implementation project(path: ':core')
+    implementation project(path: ':iti-module')
 
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'androidx.core:core-ktx:1.8.0'

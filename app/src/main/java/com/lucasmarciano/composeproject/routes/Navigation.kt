@@ -21,7 +21,7 @@ import com.lucasmarciano.composeproject.features.home.HomeScreen
 import com.lucasmarciano.composeproject.features.sales.SalesScreen
 import com.lucasmarciano.composeproject.features.settings.SettingsScreen
 import com.lucasmarciano.composeproject.routes.Screen.DetailSale.KEY_SALE_ID
-import com.lucasmarciano.ui.iti.theme.ItiTheme
+import com.lucasmarciano.iti_module.ItiTheme
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
