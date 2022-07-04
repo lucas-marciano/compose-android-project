@@ -24,7 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.lucasmarciano.composeproject.R
-import com.lucasmarciano.composeproject.utils.extensions.emptyString
+import com.lucasmarciano.core.utils.emptyString
 import com.lucasmarciano.iti_theme.ItiTheme
 import com.lucasmarciano.iti_theme.colors.ColorPinkCalifornia
 import com.lucasmarciano.iti_theme.colors.ColorPinkCaliforniaVariant

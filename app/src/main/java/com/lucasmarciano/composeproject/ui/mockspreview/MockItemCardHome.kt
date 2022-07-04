@@ -21,7 +21,7 @@ import com.lucasmarciano.composeproject.ui.values.SecondTitleComponent
 import com.lucasmarciano.composeproject.ui.values.SpacerComponent
 import com.lucasmarciano.composeproject.ui.values.StoreProfileComponent
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
-import com.lucasmarciano.composeproject.utils.extensions.emptyString
+import com.lucasmarciano.core.utils.emptyString
 import kotlin.random.Random
 
 internal fun mockBanner() = BannerVO(

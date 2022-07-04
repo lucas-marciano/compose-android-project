@@ -50,8 +50,8 @@ import com.lucasmarciano.composeproject.ui.values.CardComponent
 import com.lucasmarciano.composeproject.ui.values.InfoKeyValue
 import com.lucasmarciano.composeproject.ui.values.PaymentInfo
 import com.lucasmarciano.composeproject.ui.values.TypeCard
-import com.lucasmarciano.composeproject.utils.extensions.emptyString
 import com.lucasmarciano.core.utils.ComposableAliasSimple
+import com.lucasmarciano.core.utils.emptyString
 import com.lucasmarciano.iti_theme.ItiTheme
 import com.lucasmarciano.iti_theme.colors.ColorBlueCard
 import com.lucasmarciano.iti_theme.colors.ColorBlueFooter

@@ -2,7 +2,7 @@ package com.lucasmarciano.composeproject.data.models
 
 import androidx.annotation.DrawableRes
 import com.lucasmarciano.composeproject.R
-import com.lucasmarciano.composeproject.utils.extensions.emptyString
+import com.lucasmarciano.core.utils.emptyString
 
 internal data class ErrorVO(
     val image: ErrorImage = ErrorImage.CONNECTION_ERROR,

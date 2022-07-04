@@ -1,7 +1,7 @@
 package com.lucasmarciano.composeproject.ui.values
 
 import com.lucasmarciano.composeproject.ui.Components
-import com.lucasmarciano.composeproject.utils.extensions.emptyString
+import com.lucasmarciano.core.utils.emptyString
 
 internal data class CardComponent(
     val isExpandable: Boolean = false,

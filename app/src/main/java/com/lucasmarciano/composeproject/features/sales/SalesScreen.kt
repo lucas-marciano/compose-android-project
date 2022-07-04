@@ -17,8 +17,8 @@ import com.lucasmarciano.composeproject.routes.Screen
 import com.lucasmarciano.composeproject.ui.components.toolbar.CollapseToolbar
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.ui.values.TypeToolbar
-import com.lucasmarciano.composeproject.utils.extensions.emptyString
 import com.lucasmarciano.composeproject.utils.extensions.navBackTo
+import com.lucasmarciano.core.utils.emptyString
 import com.lucasmarciano.iti_theme.ItiTheme
 
 @Composable
