@@ -18,8 +18,8 @@ import com.lucasmarciano.composeproject.ui.utils.getColorToolbarTitle
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.ui.values.ToolbarContextualMenu
 import com.lucasmarciano.composeproject.ui.values.TypeToolbar
-import com.lucasmarciano.iti_module.ItiTheme
-import com.lucasmarciano.iti_module.colors.ColorBlueCard
+import com.lucasmarciano.iti_theme.ItiTheme
+import com.lucasmarciano.iti_theme.colors.ColorBlueCard
 
 @Composable
 internal fun Toolbar(

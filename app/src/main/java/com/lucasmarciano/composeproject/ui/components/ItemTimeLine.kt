@@ -25,7 +25,7 @@ import com.lucasmarciano.composeproject.data.models.ItemTimeLineVO
 import com.lucasmarciano.composeproject.ui.components.shimmer.ItemTimeLineShimmer
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.ShimmerView
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemTimeLine
-import com.lucasmarciano.iti_module.ItiTheme
+import com.lucasmarciano.iti_theme.ItiTheme
 
 @Composable
 internal fun ItemTimeLine(

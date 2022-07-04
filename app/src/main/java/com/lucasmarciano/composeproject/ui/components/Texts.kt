@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.R
-import com.lucasmarciano.iti_module.ItiTheme
+import com.lucasmarciano.iti_theme.ItiTheme
 
 @Composable
 fun Title(

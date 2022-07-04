@@ -25,7 +25,7 @@ import com.lucasmarciano.composeproject.ui.mockspreview.mockHomeResult
 import com.lucasmarciano.composeproject.ui.values.InterfaceItemComponent
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.utils.extensions.navBackTo
-import com.lucasmarciano.iti_module.ItiTheme
+import com.lucasmarciano.iti_theme.ItiTheme
 
 @Composable
 internal fun MainContainer(

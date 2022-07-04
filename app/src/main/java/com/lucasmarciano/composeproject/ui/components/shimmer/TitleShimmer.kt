@@ -15,7 +15,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.composeproject.ui.components.shimmer.MainAnimatedShimmer.brushColors
-import com.lucasmarciano.iti_module.ItiTheme
+import com.lucasmarciano.iti_theme.ItiTheme
 
 @Composable
 fun TitleShimmer(brush: Brush, widthFraction: Float = 1f) {

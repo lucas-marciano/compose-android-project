@@ -16,7 +16,7 @@ import com.lucasmarciano.composeproject.data.home.models.ItemCardHomeVO
 import com.lucasmarciano.composeproject.ui.components.BlueCard
 import com.lucasmarciano.composeproject.ui.mockspreview.mockItemCard
 import com.lucasmarciano.composeproject.utils.extensions.navTo
-import com.lucasmarciano.iti_module.ItiTheme
+import com.lucasmarciano.iti_theme.ItiTheme
 
 @Composable
 fun BlueCardsList(

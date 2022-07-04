@@ -14,8 +14,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.lucasmarciano.core.utils.ComposableAliasSimple
-import com.lucasmarciano.iti_module.ItiTheme
-import com.lucasmarciano.iti_module.colors.ColorPinkCalifornia
+import com.lucasmarciano.iti_theme.ItiTheme
+import com.lucasmarciano.iti_theme.colors.ColorPinkCalifornia
 
 @Composable
 fun ContainerCircleLoading(isLoading: Boolean = true, content: ComposableAliasSimple) {

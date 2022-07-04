@@ -37,7 +37,7 @@ import com.lucasmarciano.composeproject.ui.components.ItemTimeLineContainer
 import com.lucasmarciano.composeproject.ui.components.Title
 import com.lucasmarciano.composeproject.ui.mockspreview.mockListTimeLine
 import com.lucasmarciano.composeproject.utils.extensions.emptyString
-import com.lucasmarciano.iti_module.ItiTheme
+import com.lucasmarciano.iti_theme.ItiTheme
 
 @Composable
 fun TimeLineScreen(

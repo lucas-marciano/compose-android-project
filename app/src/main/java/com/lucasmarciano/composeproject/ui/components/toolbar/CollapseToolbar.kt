@@ -25,8 +25,8 @@ import com.lucasmarciano.composeproject.ui.utils.Const.BottomSheetShape
 import com.lucasmarciano.composeproject.ui.values.ToolbarComponent
 import com.lucasmarciano.composeproject.ui.values.TypeToolbar
 import com.lucasmarciano.core.utils.ComposableAliasSimple
-import com.lucasmarciano.iti_module.ItiTheme
-import com.lucasmarciano.iti_module.colors.ColorSalesToolbar
+import com.lucasmarciano.iti_theme.ItiTheme
+import com.lucasmarciano.iti_theme.colors.ColorSalesToolbar
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable

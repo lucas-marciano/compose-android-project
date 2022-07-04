@@ -23,7 +23,7 @@ import com.lucasmarciano.composeproject.routes.Screen
 import com.lucasmarciano.composeproject.ui.components.Title
 import com.lucasmarciano.composeproject.ui.theme.HomeAvatar
 import com.lucasmarciano.composeproject.ui.theme.StoreIcon
-import com.lucasmarciano.iti_module.ItiTheme
+import com.lucasmarciano.iti_theme.ItiTheme
 
 @Composable
 fun HomeTitle(
